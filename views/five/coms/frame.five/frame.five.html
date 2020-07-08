@@ -93,6 +93,10 @@
     .five .homePage .menuDiv .layui-nav{
         background-color: transparent;
     }
+    .five .homePage .menuDiv .layui-this{
+        color: white;
+        background: transparent;
+    }
     .five .homePage .menuDiv .layui-nav-tree .layui-nav-item a{
         background: transparent;
         color: #787878;
@@ -108,7 +112,11 @@
         margin-right: 8px;
         margin-left: 5px;
     }
-    .five .homePage .menuDiv .layui-nav .layui-nav-itemed>a,.five .homePage .menuDiv .layui-nav-tree .layui-nav-item a:hover{
+    .five .homePage .menuDiv .layui-nav .layui-nav-itemed>a,
+    .five .homePage .menuDiv .layui-nav-tree .layui-nav-item a:hover,
+    .five .homePage .menuDiv .layui-nav-tree .layui-nav-item.layui-this>a:first-child,
+    .five .homePage .menuDiv .layui-nav-child dd.layui-this>a:first-child
+    {
         background: var(--color-primary);
         color: #fff;
     }
@@ -123,9 +131,6 @@
     }
     .five .homePage .menuDiv .layui-nav-tree .layui-nav-more{
         display: none;
-    }
-    .layui-nav-tree .menuDiv .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a, .layui-nav-tree .layui-this, .layui-nav-tree .layui-this>a, .layui-nav-tree .layui-this>a:hover{
-        background-color:initial!important;
     }
     .five .homePage .mainDiv {
         width: 100%;
@@ -405,7 +410,7 @@
                     </a>
                 </div>
                 <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo">
-                    <li class="layui-nav-item layui-nav-itemed">
+                    <li class="layui-nav-item">
                       <a href="../../views/five/nav.html">
                           <i class="iconfont iconhome_home_icon1"></i>
                           首页
@@ -599,5 +604,21 @@
             }
             document.querySelector(".menuDiv").style.display = "";
         })
+        //设置菜单激活项目
+        var menuName = $("#app").attr("active");
+        if(menuName){
+            $(".menuDiv a").each(function(index,item){
+                if($(item).text().indexOf(menuName)!=-1){
+                    if($(item).parents(".layui-nav-item").length>0){
+                        $(item).parents(".layui-nav-item").addClass("layui-nav-itemed");
+                    }
+                    if($(item).parents("dd").length>0){
+                        $($(item).parents("dd")[0]).addClass("layui-this");
+                    }else if($(item).parents(".layui-nav-item").length>0){
+                        $($(item).parents(".layui-nav-item")[$(item).parents(".layui-nav-item").length-1]).addClass("layui-this");
+                    }
+                }
+            })
+        }
     });
 </script>

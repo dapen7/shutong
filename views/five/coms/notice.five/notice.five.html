@@ -1,0 +1,419 @@
+<style>
+    .five .noticeDiv {
+        padding: 0;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .five .noticeDiv .el-tabs__nav {
+        height: 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    .five .noticeDiv .el-tabs__header {
+        margin-bottom: 0;
+    }
+
+    .five .noticeDiv .tableDiv {
+        overflow-y: auto;
+    }
+
+    .five .noticeDiv .el-table--striped .el-table__body tr.el-table__row--striped td {
+        background-color: #FAFBFF;
+    }
+</style>
+<template>
+    <div class="noticeDiv">
+        <div class="el-tabs el-tabs--top">
+            <div class="el-tabs__header is-top">
+                <div class="el-tabs__nav-wrap is-scrollable is-top"><span class="el-tabs__nav-prev is-disabled"><i
+                            class="el-icon-arrow-left"></i></span><span class="el-tabs__nav-next"><i
+                            class="el-icon-arrow-right"></i></span>
+                    <div class="el-tabs__nav-scroll">
+                        <div role="tablist" class="el-tabs__nav is-top is-stretch" style="transform: translateX(0px);">
+                            <div class="el-tabs__active-bar is-top" style="width: 56px; transform: translateX(0px);">
+                            </div>
+                            <div id="tab-招聘公告" aria-controls="pane-招聘公告" role="tab" aria-selected="true" tabindex="0"
+                                class="el-tabs__item is-top is-active">招聘公告</div>
+                            <div id="tab-近期通知" aria-controls="pane-近期通知" role="tab" tabindex="-1"
+                                class="el-tabs__item is-top">近期通知</div>
+                            <div id="tab-要点新闻" aria-controls="pane-要点新闻" role="tab" tabindex="-1"
+                                class="el-tabs__item is-top">要点新闻</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="el-tabs__content">
+                <div role="tabpanel" id="pane-招聘公告" aria-labelledby="tab-招聘公告" class="el-tab-pane">
+                    <div class="tableDiv">
+                        <div class="el-table el-table--fit el-table--striped el-table--scrollable-x el-table--enable-row-hover el-table--enable-row-transition"
+                            style="width: 100%;">
+                            <div class="hidden-columns">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <!---->
+                            <div class="el-table__body-wrapper is-scrolling-left">
+                                <table cellspacing="0" cellpadding="0" border="0" class="el-table__body"
+                                    style="width: 320px;">
+                                    <colgroup>
+                                        <col name="el-table_1_column_1" width="120">
+                                        <col name="el-table_1_column_2" width="80">
+                                        <col name="el-table_1_column_3" width="120">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr class="el-table__row">
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_1 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">UI设计</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">2019-12-06</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row el-table__row--striped">
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_1 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">2019-12-06</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row">
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_1 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">2019-12-06</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row el-table__row--striped">
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_1 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">2019-12-06</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row">
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_1 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">2019-12-06</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row el-table__row--striped">
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_1 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">2019-12-06</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row">
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_1 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">2019-12-06</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row el-table__row--striped">
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_1 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">2019-12-06</span></div>
+                                            </td>
+                                        </tr>
+                                        <!---->
+                                    </tbody>
+                                </table>
+                                <!---->
+                                <!---->
+                            </div>
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <div class="el-table__column-resize-proxy" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" aria-hidden="true" id="pane-近期通知" aria-labelledby="tab-近期通知" class="el-tab-pane"
+                    style="display: none;">
+                    <div class="tableDiv">
+                        <div class="el-table el-table--fit el-table--striped el-table--scrollable-x el-table--enable-row-hover el-table--enable-row-transition"
+                            style="width: 100%;">
+                            <div class="hidden-columns">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <!---->
+                            <div class="el-table__body-wrapper is-scrolling-left">
+                                <table cellspacing="0" cellpadding="0" border="0" class="el-table__body"
+                                    style="width: 320px;">
+                                    <colgroup>
+                                        <col name="el-table_2_column_4" width="120">
+                                        <col name="el-table_2_column_5" width="80">
+                                        <col name="el-table_2_column_6" width="120">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr class="el-table__row">
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_4 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">UI设计</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_5  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_6  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">2019-12-06</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row el-table__row--striped">
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_4 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_5  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_6  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">2019-12-06</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row">
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_4 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_5  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_6  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">2019-12-06</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row el-table__row--striped">
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_4 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_5  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_6  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">2019-12-06</span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row">
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_4 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_5  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_2_column_6  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">2019-12-06</span></div>
+                                            </td>
+                                        </tr>
+                                        <!---->
+                                    </tbody>
+                                </table>
+                                <!---->
+                                <!---->
+                            </div>
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <div class="el-table__column-resize-proxy" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" aria-hidden="true" id="pane-要点新闻" aria-labelledby="tab-要点新闻" class="el-tab-pane"
+                    style="display: none;">
+                    <div class="tableDiv">
+                        <div class="el-table el-table--fit el-table--striped el-table--scrollable-x el-table--enable-row-hover el-table--enable-row-transition"
+                            style="width: 100%;">
+                            <div class="hidden-columns">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <!---->
+                            <div class="el-table__body-wrapper is-scrolling-left">
+                                <table cellspacing="0" cellpadding="0" border="0" class="el-table__body"
+                                    style="width: 320px;">
+                                    <colgroup>
+                                        <col name="el-table_3_column_7" width="120">
+                                        <col name="el-table_3_column_8" width="80">
+                                        <col name="el-table_3_column_9" width="120">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr class="el-table__row">
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_7 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">UI设计</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_8  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_9  ">
+                                                <div class="cell"><span style="color: rgb(153, 153, 153);"></span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row el-table__row--striped">
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_7 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_8  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_9  ">
+                                                <div class="cell"><span style="color: rgb(153, 153, 153);"></span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row">
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_7 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_8  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_9  ">
+                                                <div class="cell"><span style="color: rgb(153, 153, 153);"></span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row el-table__row--striped">
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_7 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_8  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_9  ">
+                                                <div class="cell"><span style="color: rgb(153, 153, 153);"></span></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="el-table__row">
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_7 is-center ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(51, 51, 51); font-weight: 500;">岗位名称</span>
+                                                </div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_8  ">
+                                                <div class="cell"><span
+                                                        style="color: rgb(153, 153, 153);">此处输入公告内容</span></div>
+                                            </td>
+                                            <td rowspan="1" colspan="1" class="el-table_3_column_9  ">
+                                                <div class="cell"><span style="color: rgb(153, 153, 153);"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!---->
+                                    </tbody>
+                                </table>
+                                <!---->
+                                <!---->
+                            </div>
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <div class="el-table__column-resize-proxy" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+</script>

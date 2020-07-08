@@ -131,6 +131,9 @@ textarea{
     font-size: 14px;
     border-radius: 8px
 }
+.el-button+.el-button {
+    margin-left: 10px;
+}
 .el-button:focus,.el-button:hover {
     color: var(--color-primary,#5488FF);
     border-color: #ccdbff;
@@ -697,7 +700,8 @@ input[type="checkbox"] {
 	background-color: transparent;
 	border: 1px solid var(--border-color-base);
     box-shadow:none;
-	padding: 9px;
+    height:18px;
+    width:18px;
 	border-radius: 3px;
 	display: inline-block;
     position: relative;
@@ -707,16 +711,23 @@ input[type="checkbox"] {
 input[type="checkbox"]:active, input[type="checkbox"]:checked:active {
 }
 input[type="checkbox"]:checked {
-    color: #99a1a7;
     border:1px solid var(--color-primary);
 }
 input[type="checkbox"]:checked:after {
-	content: '\2714';
-	font-size: 14px;
-	position: absolute;
-	top: 0px;
-    left: 3px;
-	color: var(--color-primary);
+    font-family: "iconfont" !important;
+	content: '\e7b2';
+    font-size: 14px;
+    position: absolute;
+    color: var(--color-primary)!important;
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: -1px;
+    top:-1px;
+    font-weight: bold;
 }
 
 /* checkbox end */

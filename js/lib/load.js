@@ -19,6 +19,11 @@ function load(url,comName){
                             fragmentTmp.appendChild(child);
                         });
                         item.content.querySelector("slot") && item.content.querySelector("slot").replaceWith(fragmentTmp);
+                        
+                        Array.from(origin.classList).forEach(function(classItem){
+                            item.content.children[0].classList.add(classItem)
+                        });
+                        item.content.children[0].setAttribute("style", (item.content.children[0].getAttribute("style")||"")+ origin.getAttribute("style"));
                         origin.replaceWith(item.content);
                         break;
                     case "SCRIPT":
