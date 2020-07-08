@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>图表</title>
+    <link rel="stylesheet" href="../../images/five/font/iconfont.css">
+    <!-- <link rel="stylesheet" href="../../js/lib/elementui/elementui.css"> -->
+    <link rel="stylesheet" href="../../css/ui/index.css">
+    <link rel="stylesheet" href="../../css/default.css">
+    <style>
+        .chartGrid{
+            display: grid;
+            grid-template-columns: 1fr 226px 1fr;
+            grid-template-rows: 480px 436px;
+            grid-template-areas: "statics statics recount"
+                                 "dustdetection task task";
+            grid-auto-flow: row dense;
+            grid-gap:25px;
+        }
+        @media screen and (max-width: 1000px) {
+            .chartGrid{
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows:  287px 324px 287px 485px;
+                grid-template-areas: "statics"
+                                    "recount"
+                                    "dustdetection"
+                                    "task";
+                grid-auto-flow: row dense;
+                grid-gap:15px;
+            }
+            .five .homePage .mainDiv{
+                padding-top: 15px!important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="appDiv five">
+        <com-frame :active="'5-3'">
+            <!-- 正文内容 -->
+            <div class="chartGrid">
+                <com-statics class="blockDiv" style="grid-area: statics;"></com-statics>
+                <com-recount class="blockDiv" style="grid-area: recount;"></com-recount>
+                <com-dustdetection class="blockDiv" style="grid-area: dustdetection;"></com-dustdetection>
+                <com-task class="blockDiv" style="grid-area: task;"></com-task>
+            </div>
+        </com-frame>
+    </div>
+</body>
+<script src="../../js/lib/vue.all.js"></script>
+<script src="../../js/lib/elementui/elementui.js"></script>
+<script src="../../js/lib/httpVueLoader.js"></script>
+<script src="../../js/lib/echarts.min.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        components: {
+            'com-frame': httpVueLoader('./coms/frame.five/frame.five.vue'),
+            'com-statics': httpVueLoader('./coms/statics.five/statics.five.vue'),
+            'com-recount':httpVueLoader('./coms/recount.five/recount.five.vue'),
+            'com-task':httpVueLoader('./coms/task.five/task.five.vue'),
+            'com-dustdetection':httpVueLoader('./coms/dustdetection.five/dustdetection.five.vue'),
+        },
+        data: function() {
+            return { visible: false }
+        }
+    })
+</script>
+</html>

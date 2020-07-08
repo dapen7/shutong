@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>用户信息</title>
+    <link rel="stylesheet" href="../../images/five/font/iconfont.css">
+    <!-- <link rel="stylesheet" href="../../js/lib/elementui/elementui.css"> -->
+    <link rel="stylesheet" href="../../css/ui/index.css">
+    <link rel="stylesheet" href="../../css/default.css">
+</head>
+
+<body>
+    <div id="app" class="appDiv five">
+        <com-frame :active="'3-1'">
+            <!-- 正文内容 -->
+            <com-userinfo class="blockDiv"></com-userinfo>
+        </com-frame>
+    </div>
+</body>
+<script src="../../js/lib/vue.all.js"></script>
+<script src="../../js/lib/elementui/elementui.js"></script>
+<script src="../../js/lib/httpVueLoader.js"></script>
+<script src="../../js/lib/echarts.min.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        components: {
+            'com-frame': httpVueLoader('./coms/frame.five/frame.five.vue'),
+            'com-userinfo': httpVueLoader('./coms/userInfo.five/userInfo.five.vue'),
+        },
+        data: function() {
+            return { visible: false }
+        }
+    })
+</script>
+</html>

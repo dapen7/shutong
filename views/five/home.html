@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>我的工作台</title>
+    <link rel="stylesheet" href="../../images/five/font/iconfont.css">
+    <!-- <link rel="stylesheet" href="../../js/lib/elementui/elementui.css"> -->
+    <link rel="stylesheet" href="../../css/ui/index.css">
+    <link rel="stylesheet" href="../../css/default.css">
+    <style>
+        .homeGrid{
+            display: grid;
+            grid-template-columns: 1fr 1fr 340px;
+            grid-template-rows: 178px 186px 186px 341px;
+            grid-template-areas: "info info upcoming"
+                                 "statics statics upcoming"
+                                 "statics statics task"
+                                 "recount notice task";
+            grid-auto-flow: row dense;
+            grid-gap:25px;
+        }
+        @media screen and (max-width: 1000px) {
+            .homeGrid{
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows:  minmax(178px, 1fr) 287px 410px 324px 302px 485px;
+                grid-template-areas: "info"
+                                    "statics"
+                                    "upcoming"
+                                    "recount"
+                                    "notice"
+                                    "task";
+                grid-auto-flow: row dense;
+                grid-gap:15px;
+            }
+            .five .homePage .mainDiv{
+                padding-top: 15px!important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="appDiv five">
+        <com-frame :active="'2'">
+            <!-- 正文内容 -->
+            <div class="homeGrid">
+                <com-info class="" style="grid-area: info;"></com-info>
+                <com-statics class="blockDiv" style="grid-area: statics;"></com-statics>
+                <com-recount class="blockDiv" style="grid-area: recount;"></com-recount>
+                <com-notice class="blockDiv" style="grid-area: notice;"></com-notice>
+                <com-upcoming class="blockDiv" style="grid-area: upcoming;"></com-upcoming>
+                <com-task class="blockDiv" style="grid-area: task;"></com-task>
+            </div>
+        </com-frame>
+    </div>
+</body>
+<script src="../../js/lib/vue.all.js"></script>
+<script src="../../js/lib/elementui/elementui.js"></script>
+<script src="../../js/lib/httpVueLoader.js"></script>
+<script src="../../js/lib/echarts.min.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        components: {
+            //主页框架
+            'com-frame': httpVueLoader('./coms/frame.five/frame.five.vue'),
+            //访问量
+            'com-info': httpVueLoader('./coms/info.five/info.five.vue'),
+            //数据概览
+            'com-statics': httpVueLoader('./coms/statics.five/statics.five.vue'),
+            //质量问题统计
+            'com-recount':httpVueLoader('./coms/recount.five/recount.five.vue'),
+            //通知公告
+            'com-notice':httpVueLoader('./coms/notice.five/notice.five.vue'),
+            //待办事项
+            'com-upcoming':httpVueLoader('./coms/upcoming.five/upcoming.five.vue'),
+            //任务统计
+            'com-task':httpVueLoader('./coms/task.five/task.five.vue'),
+        },
+        data: function() {
+            return {}
+        }
+    })
+</script>
+</html>
