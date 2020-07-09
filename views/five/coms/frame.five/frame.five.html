@@ -270,7 +270,10 @@
     .isPc{
         display: initial;
     }
-    
+    .five .homePage .avatarDiv{
+        display: flex;
+        align-items: center;
+    }
     @media screen and (max-width: 1000px) {
         .five .homePage .topLogo {
             display: none;
@@ -398,7 +401,7 @@
                     <div class="userInfo cursor">
                         <ul class="layui-nav layui-bg-white" lay-filter="">
                             <li class="layui-nav-item">
-                              <a href="javascript:;">
+                              <a class="avatarDiv" href="javascript:;">
                                   <img class="headPic" src="../../images/five/home_headpic_icon.png" alt="">
                                   <span class="userName">admin</span>
                                   <i class="iconfont iconarrow-down" style="color:var(--color-text-regular)"></i>

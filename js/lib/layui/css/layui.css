@@ -3754,7 +3754,6 @@ body .layui-table-tips .layui-layer-content {
     position: absolute;
     left: 0;
     /* top: 65px; */
-    
     min-width: 100%;
     line-height: 36px;
     padding: 5px 0;
@@ -3978,7 +3977,6 @@ body .layui-table-tips .layui-layer-content {
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 10;
     width: 30px;
     height: 39px;
     line-height: 39px;
