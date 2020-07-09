@@ -1,0 +1,84 @@
+<style>
+    .five .dictionaryDiv {
+        padding: 20px;
+    }
+
+    .five .dictionaryDiv .tableDiv {
+        width: 100%;
+    }
+    @media screen and (max-width: 1000px) {
+        .five .dictionaryDiv {
+            padding: 15px;
+        }
+
+        .five .dictionaryDiv .tableDiv {
+            width: 100%;
+            padding-left: 0;
+        }
+    }
+</style>
+<template>
+    <div class="dictionaryDiv">
+        <div class="tableDiv">
+            <div class="mb25 breadDiv">
+                <span class="mr10 isPc">当前位置 : </span>
+                <span class="layui-breadcrumb isPc" lay-separator=">">
+                    <a href="" class="activebread">系统设置</a>
+                    <a href="javascript:;">字典列表</a>
+                </span>
+                <span class="layui-breadcrumb isMobile" lay-separator="/">
+                    <a href="" class="activebread">系统设置</a>
+                    <a href="javascript:;">字典列表</a>
+                </span>
+            </div>
+            <div class="mb25">
+                <button class="layui-btn">添加字典</button>
+            </div>
+            <div class="table mb25 verticle-line-table">
+                <table class="layui-table" lay-data="{data:dictableData, page:true, id:'idTest'}" lay-filter="demo">
+                    <thead>
+                        <tr>
+                            <th lay-data="{field:'key',width:150}">键值</th>
+                            <th lay-data="{field:'tag', width:150,templet: '#dictagTpl'}">标签</th>
+                            <th lay-data="{field:'type', width:120,templet: '#dictypeTpl'}">类型</th>
+                            <th lay-data="{field:'desc'}">描述</th>
+                            <th lay-data="{field:'order', width:80}">排序</th>
+                            <th lay-data="{field:'操作', width:200,toolbar: '#dicbarTpl'}">操作</th>
+                        </tr>
+                    </thead>
+                </table>
+                <script type="text/html" id="dictagTpl">
+                    <span class="cursor primary">{{ d.tag }}</span>
+                </script>
+                <script type="text/html" id="dictypeTpl">
+                    <span class="cursor primary">{{ d.type }}</span>
+                </script>
+                <script type="text/html" id="dicbarTpl">
+                    <a class="primary cursor mr10" lay-event="edit">编辑</a>
+                    <a class="primary cursor mr10" lay-event="del">删除</a>
+                    <a class="primary cursor mr10" lay-event="add">添加</a>
+                </script>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    var dictableData = [
+        { key: "creulean", tag: "creulean主题", type: "theme", desc: "主题方案主题方案主题方案主题", order: "20" },
+        { key: "creulean", tag: "creulean主题", type: "theme", desc: "主题方案主题方案主题方案主题主题方案主题方案主题方案主题主题方案主题方案主题方案主题", order: "20" },
+        { key: "creulean", tag: "creulean主题", type: "theme", desc: "主题方案主题方案主题方案主题", order: "20" },
+        { key: "creulean", tag: "creulean主题", type: "theme", desc: "主题方案主题方案主题方案主题", order: "20" },
+        { key: "creulean", tag: "creulean主题", type: "theme", desc: "主题方案主题方案主题方案主题", order: "20" },
+        { key: "creulean", tag: "creulean主题", type: "theme", desc: "主题方案主题方案主题方案主题", order: "20" },
+        { key: "creulean", tag: "creulean主题", type: "theme", desc: "主题方案主题方案主题方案主题", order: "20" },
+        { key: "creulean", tag: "creulean主题", type: "theme", desc: "主题方案主题方案主题方案主题", order: "20" },
+        { key: "creulean", tag: "creulean主题", type: "theme", desc: "主题方案主题方案主题方案主题", order: "20" },
+        { key: "creulean", tag: "creulean主题", type: "theme", desc: "主题方案主题方案主题方案主题", order: "20" },
+    ];
+    (function () {
+        //表格
+        layui.use('table', function () {
+            var table = layui.table;
+        });
+    })()
+</script>

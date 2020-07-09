@@ -1,75 +1,113 @@
 <style>
-    .five .orgDiv {
+    .five .userinfoDiv {
         padding: 20px;
-        width: 100%;
         display: flex;
     }
 
-    .five .orgDiv .treeDiv {
-        width: 305px;
+    .five .userinfoDiv .treeDiv {
+        flex-basis: 305px;
         flex-shrink: 0;
+        border-right: 1px solid rgba(232, 233, 238, 1);
         overflow-y: auto;
         overflow-x: auto;
-        border-right: 1px solid rgba(232, 233, 238, 1);
     }
-    .five .orgDiv .tableDiv {
-        padding-left: 25px;
+
+    .five .userinfoDiv form {
+        max-width: 660px;
+    }
+
+    .five .userinfoDiv .formDiv {
+        width: 100%;
+    }
+
+    .five .userinfoDiv .tableDiv {
+        padding-left: 40px;
         flex-grow: 1;
-        overflow-x: auto;
     }
+
+    .five .userinfoDiv .custom-tree-node {
+        display: flex;
+        align-items: center;
+    }
+
+    .five .userinfoDiv .shu {
+        border: 0;
+        border-right: 1px solid #DDDFE6;
+        display: inline-block;
+        height: 26px;
+    }
+
+    .five .userinfoDiv .heng {
+        color: #DDDFE6;
+        font-size: 14px;
+        margin-right: 3px;
+        margin-left: 3px;
+    }
+
+    .five .userinfoDiv .jia {
+        border: 1px solid #BBBBBB;
+        display: block;
+        width: 15px;
+        height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        color: #BBBBBB;
+    }
+
+    @media screen and (min-width: 1000px) {
+    }
+
     @media screen and (max-width: 1000px) {
-        .five .orgDiv .treeDiv {
+        .five .userinfoDiv {
+            padding: 15px;
+        }
+        .five .userinfoDiv .treeDiv {
             display: none;
         }
-
-        .five .orgDiv {
-            padding: 15px;
-            height: auto;
-        }
-
-        .five .orgDiv .tableDiv {
+        .five .userinfoDiv .tableDiv {
             width: 100%;
             padding-left: 0;
-            margin-left: 0;
-            overflow: hidden;
         }
-        .five .orgDiv .layui-form-item {
-            width: 100%;
+        .five .userinfoDiv .submitDiv {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 </style>
 <template>
-    <div class="orgDiv blockDiv">
+    <div class="userinfoDiv">
         <div class="treeDiv">
-            <ul id="orgTree" class="ztree"></ul>
+            <ul id="userinfoTree" class="ztree"></ul>
         </div>
         <div class="tableDiv">
             <div class="mb20 breadDiv">
                 <span class="mr10 isPc">当前位置 : </span>
                 <span class="layui-breadcrumb isPc" lay-separator=">">
                     <a href="" class="activebread">机构用户</a>
-                    <a href="javascript:;">机构用户</a>
+                    <a href="javascript:;">用户管理</a>
                 </span>
                 <span class="layui-breadcrumb isMobile" lay-separator="/">
                     <a href="" class="activebread">机构用户</a>
-                    <a href="javascript:;">机构用户</a>
+                    <a href="javascript:;">用户管理</a>
                 </span>
             </div>
             <div class="mb10">
-                <!-- form -->
-                <form class="layui-form" action="">
+
+                <form class="layui-form notinline" action="" lay-filter="userinfoForm">
                     <div class="layui-form-item">
                         <label class="layui-form-label">归属公司</label>
                         <div class="layui-input-block">
-                            <input type="text" placeholder="请选择" id="companySelect" class="layui-input" readonly="readonly" />
+                            <input type="text" name="company" placeholder="请选择" id="companySelect" value="山东省总公司" class="layui-input"
+                                readonly="readonly" />
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">归属部门</label>
                         <div class="layui-input-block">
                             <select name="dept">
-                                <option value=""></option>
-                                <option value="0">公司领导</option>
                                 <option value="1">综合部</option>
                                 <option value="2">市场部</option>
                                 <option value="3">技术部</option>
@@ -77,61 +115,110 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">登录名</label>
+                        <label class="layui-form-label"><span class="danger">*</span>工号</label>
                         <div class="layui-input-block">
-                            <input type="text" name="loginName" placeholder="请输入登录名" autocomplete="off"
+                            <input placeholder="请输入工号" lay-verify="required" lay-reqtext="请输入工号" name="code" type="text"
+                                autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><span class="danger">*</span>姓名</label>
+                        <div class="layui-input-block">
+                            <input placeholder="请输入姓名" lay-verify="required" lay-reqtext="请输入姓名" name="name" type="text"
+                                autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><span class="danger">*</span>登录名</label>
+                        <div class="layui-input-block">
+                            <input placeholder="请输入登录名" lay-verify="required" lay-reqtext="请输入登录名" name="loginName"
+                                type="text" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><span class="danger">*</span>密码</label>
+                        <div class="layui-input-block">
+                            <input placeholder="请输入密码" lay-verify="required|pass" lay-reqtext="请输入密码" name="password"
+                                type="text" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><span class="danger">*</span>确认密码</label>
+                        <div class="layui-input-block">
+                            <input placeholder="请确认密码" lay-verify="required|pass2" lay-reqtext="请确认密码" name="password2"
+                                type="text" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">邮箱</label>
+                        <div class="layui-input-block">
+                            <input placeholder="请输入邮箱" lay-reqtext="请输入邮箱" name="email" type="text"
+                                autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">电话</label>
+                        <div class="layui-input-block">
+                            <input placeholder="请输入电话" lay-reqtext="请输入电话" name="phone" type="text" autocomplete="off"
                                 class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">姓名</label>
+                        <label class="layui-form-label">手机</label>
                         <div class="layui-input-block">
-                            <input type="text" name="name" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+                            <input placeholder="请输入手机" lay-reqtext="请输入手机" name="mobile" type="text" autocomplete="off"
+                                class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <div class="isPc" style="margin-left:20px;">
-                            <button class="layui-btn layui-btn-primary">编辑</button>
-                            <button class="layui-btn layui-btn-primary">导出</button>
-                            <button class="layui-btn layui-btn-primary">导入</button>
-                            <button class="layui-btn">添加用户</button>
-                        </div >
-                        <div class="isMobile" style="white-space: nowrap;">
-                            <button class="layui-btn layui-btn-primary layui-btn-sm">编辑</button>
-                            <button class="layui-btn layui-btn-primary layui-btn-sm">导出</button>
-                            <button class="layui-btn layui-btn-primary layui-btn-sm">导入</button>
-                            <button class="layui-btn layui-btn-sm">添加用户</button>
-                        </div >
+                        <label class="layui-form-label"><span class="danger">*</span>是否允许登陆</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="canLogin" value="1" title="是" checked="">
+                            <input type="radio" name="canLogin" value="0" title="否">
+                            <span class="danger" style="vertical-align: middle;">注：“是”代表此账号允许登录，“否”则表示此账号不允许登录</span>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户类型</label>
+                        <div class="layui-input-block">
+                            <select name="type">
+                                <option value="0">普通用户</option>
+                                <option value="1">普通用户1</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><span class="danger">*</span>用户角色</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="role[1]" lay-skin="primary" title="普通用户" checked="">
+                            <input type="checkbox" name="role[2]" lay-skin="primary" title="本公司管理员">
+                            <input type="checkbox" name="role[3]" lay-skin="primary" title="本部门管理员">
+                            <input type="checkbox" name="role[4]" lay-skin="primary" title="部门管理员">
+                            <input type="checkbox" name="role[5]" lay-skin="primary" title="公司管理员">
+                            <input type="checkbox" name="role[6]" lay-skin="primary" title="系统管理员">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">备注</label>
+                        <div class="layui-input-block">
+                            <textarea placeholder="请输入备注内容" name="remark" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"></label>
+                        <div class="layui-input-block">
+                            <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit" id="userinfosubmitBtn">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+                        </div>
                     </div>
                 </form>
-            </div>
-            <div class="table mb25 verticle-line-table">
-                <table class="layui-table " lay-data="{data:tableData, page:true, id:'idTest'}" lay-filter="demo">
-                    <thead>
-                        <tr>
-                            <th lay-data="{field:'company',width:130}">归属公司</th>
-                            <th lay-data="{field:'dept', width:140}">归属部门</th>
-                            <th lay-data="{field:'loginName', width:130,templet: '#tempOrg1'}">登录名</th>
-                            <th lay-data="{field:'name', width:120}">姓名</th>
-                            <th lay-data="{field:'phone', width:150}">电话</th>
-                            <th lay-data="{field:'mobile', width:150}">手机</th>
-                            <th lay-data="{width:120, align:'center', toolbar: '#tempOrg2'}">操作</th>
-                        </tr>
-                    </thead>
-                </table>
-                <script type="text/html" id="tempOrg1">
-                    <a class="primary cursor" lay-event="del">{{d.loginName}}</a>
-                </script>
-                <script type="text/html" id="tempOrg2">
-                    <a class="primary cursor" lay-event="edit" style="margin-right:22px;">编辑</a>
-                    <a class="primary cursor" lay-event="del">删除</a>
-                </script>
             </div>
         </div>
     </div>
 </template>
 <script>
-    var tableData = [
+    (function () {
+        var tableData = [
             { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
             { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
             { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
@@ -153,7 +240,6 @@
             { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
             { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
         ];
-    (function () {
         var treeData = [
             {
                 name: '山东省总公司',
@@ -231,9 +317,6 @@
                 key: {
                     title: "t"
                 },
-                // simpleData: {
-                //     enable: true
-                // }
             },
             callback: {
                 beforeClick: function () {
@@ -245,7 +328,7 @@
             }
         };
         $(document).ready(function () {
-            var treeObj = $.fn.zTree.init($("#orgTree"), setting, treeData);
+            var treeObj = $.fn.zTree.init($("#userinfoTree"), setting, treeData);
             treeObj.expandAll(true);
         });
         //归属公司
@@ -264,9 +347,28 @@
                 }
             });
         });
-        //表格
-        layui.use('table', function () {
-            var table = layui.table;
+        //表单
+        layui.use(['form', 'layedit', 'laydate'], function () {
+            var form = layui.form;
+            form.verify({
+                pass2: function (value) {
+                    if (value != form.val('userinfoForm')["password"]) {
+                        return '两次输入的密码不一致';
+                    }
+                }
+                ,pass: [
+                    /^[\S]{6,12}$/
+                    , '密码必须6到12位，且不能出现空格'
+                ]
+                , content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+            layui.$('#userinfosubmitBtn').on('click', function(){
+                var data = form.val('userinfoForm');
+                console.log(JSON.stringify(data));
+            });
         });
+
     })()
 </script>

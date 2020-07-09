@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "15824180",
+      "name": "delete_icon",
+      "font_class": "delete_icon",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "15819662",
+      "name": "calendar_icon",
+      "font_class": "calendar_icon",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
       "icon_id": "15719882",
       "name": "home_list_icon",
       "font_class": "home_list_icon",

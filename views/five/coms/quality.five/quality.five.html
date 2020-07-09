@@ -1,0 +1,147 @@
+<style>
+    .five .qualityDiv {
+        padding: 20px 30px;
+        display: flex;
+    }
+    .five .qualityDiv form{
+        width:660px;
+    }
+    .five .qualityDiv .formDiv {
+        width: 100%;
+        max-width: 660px;
+    }
+
+    .five .qualityDiv .tableDiv {
+        flex-grow: 1;
+    }
+
+    .five .qualityDiv .custom-tree-node {
+        display: flex;
+        align-items: center;
+    }
+
+    .five .qualityDiv .process {
+        width: 32%;
+    }
+
+    .five .qualityDiv .qGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-flow: row dense;
+        grid-gap: 12px;
+    }
+    @media screen and (max-width: 1000px) {
+        .five .qualityDiv form{
+            width:100%;
+        }
+        .five .qualityDiv .qGrid {
+            grid-template-columns: 1fr;
+        }
+
+        .five .qualityDiv {
+            padding: 15px;
+        }
+
+        .five .qualityDiv .process {
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .five .qualityDiv .ml0 {
+            margin-left: 0;
+        }
+    }
+</style>
+<template>
+    <div class="qualityDiv">
+        <div class="tableDiv">
+            <div class="mb30 breadDiv">
+                <span class="mr10 isPc">当前位置 : </span>
+                <span class="layui-breadcrumb isPc" lay-separator=">">
+                    <a href="" class="activebread">系统设置</a>
+                    <a href="javascript:;">质卡填报</a>
+                </span>
+                <span class="layui-breadcrumb isMobile" lay-separator="/">
+                    <a href="" class="activebread">系统设置</a>
+                    <a href="javascript:;">质卡填报</a>
+                </span>
+            </div>
+            <div class="mb10">
+
+                <form class="layui-form notinline" action="" lay-filter="bearTaskForm">
+                    <div class="layui-form-item">
+                        <div class="layui-input-block" style="line-height: 50px;word-break: keep-all;">
+                            <span class="mr25">报工状态</span>
+                            <a class="primary">未报工</a>
+                            <span class="mr25" style="margin-left:30px;">检验状态</span>
+                            <a class="primary mr25">互检中</a>
+                            <button class="layui-btn" id="plansaveBtn">互检完成</button>
+                            <button class="layui-btn" id="plansaveBtn">快速报工</button>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"></span>技术要求</label>
+                        <div class="layui-input-block" style="line-height: 50px;">
+                            <div class="qGrid">
+                                <select>
+                                    <option value="0">工序1</option>
+                                    <option value="1">选项2</option>
+                                </select>
+                                <select>
+                                    <option value="0">步骤</option>
+                                    <option value="1">选项2</option>
+                                </select>
+                                <select>
+                                    <option value="请选择"></option>
+                                    <option value="0">选项1</option>
+                                    <option value="1">选项2</option>
+                                </select>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"></span>检查结果</label>
+                        <div class="layui-input-block radiusHighTable">
+                            <table class="layui-table" lay-data="{data:qualityTableData}" lay-filter="beartasktable2">
+                                <thead>
+                                    <tr>
+                                        <th lay-data="{field:'index',templet: '#tempQuality1'}">参数名称</th>
+                                        <th lay-data="{field:'dept',templet: '#tempQuality2'}">参数值</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <script type="text/html" id="tempQuality1">
+                                <input type="text" class="layui-input" value="{{ d.name }}" disabled/>
+                            </script>
+                            <script type="text/html" id="tempQuality2">
+                                <input type="text" class="layui-input" value="{{ d.value }}"/>
+                            </script>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"></span>执行状态</label>
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input" value="填报完成" disabled />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"></span>备注</label>
+                        <div class="layui-input-block">
+                            <textarea rows="8" placeholder="请输入备注内容" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    var qualityTableData = [
+        { name: "test07", value: "123" },
+        { name: "test08", value: "456" }
+    ];
+    //表格
+    layui.use('table', function () {
+        var table = layui.table;
+    });
+</script>

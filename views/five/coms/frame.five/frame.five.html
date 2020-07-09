@@ -112,7 +112,9 @@
         margin-right: 8px;
         margin-left: 5px;
     }
-    .five .homePage .menuDiv .layui-nav .layui-nav-itemed>a,
+    .five .homePage .menuDiv .layui-nav-bar{
+        display: none;
+    }
     .five .homePage .menuDiv .layui-nav-tree .layui-nav-item a:hover,
     .five .homePage .menuDiv .layui-nav-tree .layui-nav-item.layui-this>a:first-child,
     .five .homePage .menuDiv .layui-nav-child dd.layui-this>a:first-child
@@ -183,6 +185,7 @@
     }
 
     .five .homePage .rightDiv .userInfo {
+        white-space: nowrap;
         margin-left: 20px;
         position: relative;
         display: flex;
@@ -240,6 +243,8 @@
     }
     .five .homePage .thirdMenuDiv{
         padding:0;
+        margin-top: 25px;
+        margin-left: 260px;
     }
     .five .thirdMenuDiv .layui-nav {
         background-color:transparent;
@@ -277,6 +282,7 @@
         }
         .five .homePage .headerDiv {
             height:44px;
+            border-bottom:1px solid rgba(248,248,248,1);
             box-shadow: none;
         }
         .five .homePage .menuIcon{
@@ -342,6 +348,16 @@
             height: 58px;
             display: flex;
             padding-left:0;
+        }
+        .five .homePage .thirdMenuDiv{
+            border-radius: 0;
+            padding:0;
+            margin: 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .five .homePage .thirdMenuDiv .layui-nav .layui-nav-item{
+            line-height: 44px;
         }
     }
 </style>
@@ -450,7 +466,7 @@
                             <dd> 
                                 <a href="../../views/five/dictionary.html">
                                     <i class="iconfont iconzhankai_icon"></i>
-                                    字典管理
+                                    字典列表
                                 </a>
                             </dd>
                           </dl>
@@ -470,7 +486,7 @@
                             <dd> 
                                 <a href="../../views/five/quality.html">
                                     <i class="iconfont iconzhankai_icon"></i>
-                                    质卡管理
+                                    质卡填报
                                 </a>
                             </dd>
                             <dd> 
@@ -532,7 +548,7 @@
                             <dd> 
                                 <a href="../../views/five/quality.html">
                                     <i class="iconfont iconzhankai_icon"></i>
-                                    质卡管理
+                                    质卡填报
                                 </a>
                             </dd>
                             <dd> 
@@ -557,14 +573,17 @@
                     </li>
                 </ul>
             </div>
+            <!-- 横向菜单 -->
+            <div class="thirdMenuDiv blockDiv" style="display: none;">
+                <ul class="layui-nav">
+                    <li class="layui-nav-item"><a href="../../views/five/userInfo.html">用户列表</a></li>
+                    <li class="layui-nav-item"><a href="javascript:;">用户添加</a></li>
+                    <li class="layui-nav-item"><a href="javascript:;">用户列表</a></li>
+                    <li class="layui-nav-item"><a href="javascript:;">用户列表</a></li>
+                </ul>
+            </div>
             <!-- 正文 -->
             <div class="mainDiv">
-                <!-- 横向菜单 -->
-                <div class="thirdMenuDiv blockDiv mb25" style="display: none;" v-if="hMenuList && hMenuList.length>0">
-                    <ul class="layui-nav">
-                        <li class="layui-nav-item"><a href="../../views/five/userInfo.html">用户列表</a></li>
-                    </ul>
-                </div>
                 <slot></slot>
             </div>
         </div>

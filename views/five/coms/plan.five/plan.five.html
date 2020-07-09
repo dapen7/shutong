@@ -1,0 +1,197 @@
+<style>
+    .five .planCom{
+        padding:25px;
+    }
+    .five .planCom form {
+        width: 660px;
+    }
+
+    .five .planCom .tableDiv {
+        flex-grow: 1;
+    }
+    @media screen and (max-width: 1000px) {
+        .five .planCom .treeDiv {
+            display: none;
+        }
+        .five .planCom{
+            padding:15px;
+        }
+        .five .planCom .tableDiv {
+            width:100%;
+            padding-left:0;
+        }
+        .five .planCom .submitDiv{
+            display: flex;
+            justify-content: center;
+        }
+        .five .planCom form {
+            width:100%;
+        }
+    }
+    
+</style>
+<template>
+    <div class="planCom">
+        <form class="layui-form notinline" action="" lay-filter="planForm">
+            <div class="layui-form-item">
+                <label class="layui-form-label">填表单位</label>
+                <div class="layui-input-block">
+                    <input placeholder="请输入填表单位" name="dept" value="计划经营处"
+                        type="text" autocomplete="off" class="layui-input" disabled/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">填写人</label>
+                <div class="layui-input-block">
+                    <input placeholder="请输入填写人" name="recorder" value="系统管理员"
+                        type="text" autocomplete="off" class="layui-input" disabled/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">填表日期</label>
+                <div class="layui-input-block">
+                    <input placeholder="请选择填表日期" type="text" class="layui-input" id="planDate" name="date" placeholder="yyyy-MM-dd">
+                    <i class="iconfont iconcalendar_icon" style="color:var(--border-color-base)"></i>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span class="danger">*</span>项目名称</label>
+                <div class="layui-input-block">
+                    <input placeholder="请输入项目名称" lay-verify="required" lay-reqtext="请输入项目名称" name="name"
+                        type="text" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span class="danger">*</span>项目所属</label>
+                <div class="layui-input-block">
+                    <select name="belong" placeholder="请选择">
+                        <option value=""></option>
+                        <option value="0">所</option>
+                        <option value="1">其他</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span class="danger">*</span>主管机关</label>
+                <div class="layui-input-block">
+                    <select name="supervisor" placeholder="请选择">
+                        <option value=""></option>
+                        <option value="0">机关1</option>
+                        <option value="1">机关2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span class="danger">*</span>项目分类</label>
+                <div class="layui-input-block">
+                    <select name="supervisor" placeholder="请选择">
+                        <option value=""></option>
+                        <option value="0">分类1</option>
+                        <option value="1">分类2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span class="danger">*</span>是否为超额项目</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="overload" value="1" title="是" checked="">
+                    <input type="radio" name="overload" value="0" title="否">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">原项目名称</label>
+                <div class="layui-input-block">
+                    <select name="oldName" placeholder="请选择" disabled>
+                        <option value=""></option>
+                        <option value="0">名称1</option>
+                        <option value="1">名称2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span class="danger">*</span>项目来源</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="source" value="1" title="所级评审" checked="">
+                    <input type="radio" name="source" value="2" title="部门评审">
+                    <input type="radio" name="source" value="3" title="会签审批">
+                    <input type="radio" name="source" value="4" title="备案审批">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span class="danger">*</span>合同编号/立项课题号</label>
+                <div class="layui-input-block">
+                    <select name="code" placeholder="请选择" lay-verify="required" lay-reqtext="请选择" disabled>
+                        <option value=""></option>
+                        <option value="0">编号1</option>
+                        <option value="1">编号2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span class="danger">*</span>执行年度</label>
+                <div class="layui-input-block">
+                    <input placeholder="请输入执行年度" lay-verify="required" name="year" value=""
+                        type="text" autocomplete="off" class="layui-input"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">单号</label>
+                <div class="layui-input-block">
+                    <input placeholder="请输入单号" name="orderNumber" value=""
+                        type="text" autocomplete="off" class="layui-input" disabled/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">密级</label>
+                <div class="layui-input-block">
+                    <select name="slevel" placeholder="请选择">
+                        <option value=""></option>
+                        <option value="0">公开</option>
+                        <option value="1">密级2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span class="danger">*</span>项目简介</label>
+                <div class="layui-input-block">
+                    <textarea placeholder="请输入项目简介" lay-verify="required" lay-reqtext="请输项目简介" name="introduction" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span class="danger">*</span>项目进展情况</label>
+                <div class="layui-input-block">
+                    <textarea placeholder="请输入项目进展情况" lay-verify="required" lay-reqtext="请输入项目进展情况" name="progress" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"></label>
+                <div class="layui-input-block">
+                    <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit" id="plansubmitBtn">提交</button>
+                    <button class="layui-btn" lay-submit="" lay-filter="save" id="plansaveBtn">保存</button>
+                    <button class="layui-btn layui-btn-primary">关联附表</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</template>
+<script>
+    (function () {
+        //表单
+        layui.use(['form', 'layedit', 'laydate'], function(){
+            var form = layui.form
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate;
+            //日期
+            laydate.render({
+                elem: '#planDate'
+            });
+            //提交按钮
+            layui.$('#plansubmitBtn').on('click', function(){
+                var data = form.val('planForm');
+                console.log(JSON.stringify(data));
+            });
+        });
+
+    })()
+</script>

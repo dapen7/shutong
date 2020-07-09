@@ -1,4 +1,17 @@
 /** layui-v2.5.6 MIT License By https://www.layui.com */
+.layui-form.notinline .layui-form-item{
+    display: initial;
+}
+.layui-form.notinline .layui-form-label{
+    float: initial;
+    text-align:left;
+    width:auto;
+}
+.layui-form.notinline .layui-input-block{
+    margin-left:0;
+    margin-bottom:12px;
+}
+
 .layui-inline,img {
     display: inline-block;
     vertical-align: middle
@@ -17,7 +30,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .layui-btn,.layui-edge,.layui-inline,img {
-    vertical-align: middle
+    vertical-align: baseline;
 }
 
 .layui-btn,.layui-disabled,.layui-icon,.layui-unselect {
@@ -1842,7 +1855,7 @@ a cite {
     position: relative;
     padding: 15px;
     border-radius: 0;
-    border-top: 5px solid #E6E6E6;
+    border-top: 5px solid var(--border-color-base);
     background-color: #fff
 }
 
@@ -1918,23 +1931,22 @@ a cite {
 
 .layui-btn {
     display: inline-block;
-    height: 38px;
-    line-height: 38px;
-    padding: 0 18px;
+    padding: 9px 16px;
+    min-width: 40px;
     background-color: var(--color-primary);
-    color: var(--color-text-primary);
+    color: white;
     white-space: nowrap;
     text-align: center;
     font-size: 14px;
-    border: none;
     border-radius: var(--border-radius);
-    cursor: pointer
+    cursor: pointer;
+    border:1px solid var(--color-primary);
 }
 
 .layui-btn:hover {
     opacity: .8;
     filter: alpha(opacity=80);
-    color: var(--color-text-primary)
+    color: white
 }
 
 .layui-btn:active {
@@ -1945,7 +1957,9 @@ a cite {
 .layui-btn+.layui-btn {
     margin-left: 10px
 }
-
+.layui-btn-sm+.layui-btn {
+    margin-left: 4px
+}
 .layui-btn-container {
     font-size: 0
 }
@@ -1975,14 +1989,14 @@ a cite {
 }
 
 .layui-btn-primary {
-    border: 1px solid #C9C9C9;
+    border: 1px solid var(--color-primary);
     background-color: #fff;
-    color: #555
+    color: var(--color-primary);
 }
 
 .layui-btn-primary:hover {
     border-color: var(--color-primary);
-    color: #333
+    color: var(--color-primary);
 }
 
 .layui-btn-normal {
@@ -2002,7 +2016,7 @@ a cite {
 }
 
 .layui-btn-disabled,.layui-btn-disabled:active,.layui-btn-disabled:hover {
-    border: 1px solid #e6e6e6;
+    border: 1px solid var(--border-color-base);
     background-color: #FBFBFB;
     color: #C9C9C9;
     cursor: not-allowed;
@@ -2017,10 +2031,7 @@ a cite {
 }
 
 .layui-btn-sm {
-    height: 30px;
-    line-height: 30px;
-    padding: 0 10px;
-    font-size: 12px
+    padding: 5px 15px;
 }
 
 .layui-btn-sm i {
@@ -2084,7 +2095,9 @@ a cite {
 .layui-btn-fluid {
     width: 100%
 }
-
+.layui-input:disabled{
+    background-color: #fafafa;
+}
 .layui-input,.layui-select,.layui-textarea {
     border-width: 1px;
     border-style: solid;
@@ -2303,7 +2316,8 @@ a cite {
 }
 
 .layui-select-disabled .layui-disabled {
-    border-color: #eee
+    border-color: #eee;
+    background-color:#FAFAFA;
 }
 
 .layui-select-disabled .layui-edge {
@@ -2403,19 +2417,19 @@ a cite {
     font-size: 12px;
     /* border-radius: var(--border-radius); */
     background-color: #fff;
+    color:transparent;
     -webkit-transition: .1s linear;
     transition: .1s linear
 }
 
 .layui-form-checkbox[lay-skin=primary]:hover i {
     border-color: var(--color-primary);
-    color: var(--color-text-primary)
 }
 
 .layui-form-checked[lay-skin=primary] i {
     border-color: var(--color-primary);
-    background-color: var(--color-primary);
-    color: var(--color-text-primary)
+    background-color: white;
+    color: var(--color-primary)
 }
 
 .layui-checkbox-disbaled[lay-skin=primary] span {
@@ -2510,7 +2524,6 @@ a cite {
 
 .layui-form-radio {
     line-height: 28px;
-    margin: 6px 10px 0 0;
     padding-right: 10px;
     cursor: pointer;
     font-size: 0
@@ -2957,7 +2970,7 @@ a cite {
 .layui-table td,.layui-table th,.layui-table-col-set,.layui-table-fixed-r,.layui-table-grid-down,.layui-table-header,.layui-table-page,.layui-table-tips-main,.layui-table-tool,.layui-table-total,.layui-table-view,.layui-table[lay-skin=line],.layui-table[lay-skin=row] {
     border-width: 1px;
     border-style: solid;
-    border-color: #e6e6e6
+    border-color: var(--border-color-base)
 }
 
 .layui-table td,.layui-table th {
@@ -3556,7 +3569,7 @@ body .layui-table-tips .layui-layer-content {
 .layui-transfer-box,.layui-transfer-header,.layui-transfer-search {
     border-width: 0;
     border-style: solid;
-    border-color: #e6e6e6
+    border-color: var(--border-color-base)
 }
 
 .layui-transfer-box {
@@ -3615,7 +3628,7 @@ body .layui-table-tips .layui-layer-content {
 
 .layui-transfer-active .layui-btn-disabled {
     background-color: #FBFBFB;
-    border-color: #e6e6e6;
+    border-color: var(--border-color-base);
     color: #C9C9C9
 }
 
@@ -3884,7 +3897,7 @@ body .layui-table-tips .layui-layer-content {
 }
 
 .layui-breadcrumb a {
-    color: #999
+    color: var(--color-text-primary);
 }
 
 .layui-breadcrumb a:hover {
@@ -3955,9 +3968,10 @@ body .layui-table-tips .layui-layer-content {
     border-width: 1px;
     border-style: solid;
     border-bottom-color: #fff;
-    border-radius: var(--border-radius) 2px 0 0;
+    border-radius: 2px 2px 0 0;
     box-sizing: border-box;
-    pointer-events: none
+    pointer-events: none;
+    border-bottom: 2px solid white;
 }
 
 .layui-tab-bar {
@@ -4566,7 +4580,7 @@ body .layui-util-face .layui-layer-content {
 .layui-colorpicker {
     width: 26px;
     height: 26px;
-    border: 1px solid #e6e6e6;
+    border: 1px solid var(--border-color-base);
     padding: 5px;
     border-radius: var(--border-radius);
     line-height: 24px;
@@ -4868,7 +4882,7 @@ body .layui-util-face .layui-layer-content {
 .layui-slider-input {
     width: 70px;
     height: 32px;
-    border: 1px solid #e6e6e6;
+    border: 1px solid var(--border-color-base);
     border-radius: 3px;
     font-size: 16px;
     line-height: 32px;

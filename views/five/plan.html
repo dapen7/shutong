@@ -6,145 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>策划目录</title>
     <link rel="stylesheet" href="../../images/five/font/iconfont.css">
-    <!-- <link rel="stylesheet" href="../../js/lib/elementui/elementui.css"> -->
-    <link rel="stylesheet" href="../../css/ui/index.css">
     <link rel="stylesheet" href="../../css/default.css">
+    <link rel="stylesheet" href="../../js/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../js/lib/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="../../js/lib/zTree/js/jquery-1.4.4.min.js"></script>
+    <script src="../../js/lib/layui/layui.js"></script>
+    <script src="../../js/lib/load.js"></script>
     <style>
-        /* eltab */
-        .five .planDiv .el-tabs--border-card>.el-tabs__header{
-            background: transparent;
-        }
-        .five .planDiv .el-tabs--border-card>.el-tabs__header .el-tabs__item{
-            color:#333;
-        }
-        .five .planDiv .el-icon-caret-right {
-            display: none;
-        }
         .five .planDiv {
             padding: 25px;
             padding-bottom:40px;
         }
-        .five .planDiv .el-tabs--border-card{
-            box-shadow: none;
-            border:0;
-        }
-        .five .planDiv .el-tabs__content{
-            border:1px solid #E4E7ED;
+        .five .planDiv .layui-tab-content{
+            border:1px solid var(--border-color-base);
             border-top:0;
-        }
-        .five .planDiv .el-tabs--border-card>.el-tabs__header .el-tabs__item{
-            border-bottom:0;
-        }
-        .five .planDiv .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active{
-            border:1px solid #E4E7ED;
-            margin-top:0;
-            margin-left:0;
-            border-bottom:0;
+            padding:0;
         }
         @media screen and (max-width: 1000px) {
-            .five  .planDiv .el-date-editor.el-input, .el-date-editor.el-input__inner{
-                width:100%;
-            }
             .five .planDiv{
-                height: calc(100% - 50px);
                 padding:0;
-                margin-top:35px;
             }
             .five .planDiv .tableDiv{
                 height: 100%;
             }
-            .five .planDiv .el-tabs{
-                height: 100%;
+            .five .planDiv .breadDiv{
+                padding:11px 15px;
+                border-bottom:1px solid var(--border-color-base);
+                margin-bottom:0;
             }
-            .five .planDiv .el-tabs__header{
-                position: fixed;
-                transform: translateZ(0);
-                top: 80px;
-                width: 100%;
-                left: 0;
-                background: white;
-                z-index: 1;
-                border-top: 1px solid #eee;
+            .five .planDiv .layui-tab{
+                margin-top:0;
             }
-            .five .planDiv .el-tabs__content{
-                height: 100%;
-                overflow-y: auto;
+            .five .planDiv .layui-tab-content{
+                border:none;
             }
         }
-        
     </style>
 </head>
 
-<body>
-    <div id="app" class="appDiv five">
-        <com-frame :active="'5-1'">
+<body class="five">
+    <div id="app" class="appDiv" active="策划目录">
+        <com-frame >
             <!-- 正文内容 -->
             <div class="planDiv blockDiv">
                 <div class="mb20 breadDiv">
                     <span class="mr10 isPc">当前位置 : </span>
-                    <el-breadcrumb separator=">" class="isPc">
-                        <el-breadcrumb-item><a href="" class="activebread">项目周期</a></el-breadcrumb-item>
-                        <el-breadcrumb-item>项目管理</el-breadcrumb-item>
-                    </el-breadcrumb>
-                    <el-breadcrumb separator="/" class="isMobile">
-                        <el-breadcrumb-item><a href="" class="activebread">项目周期</a></el-breadcrumb-item>
-                        <el-breadcrumb-item>项目管理</el-breadcrumb-item>
-                    </el-breadcrumb>
+                    <span class="layui-breadcrumb isPc" lay-separator=">">
+                        <a href="" class="activebread">项目周期</a>
+                        <a href="javascript:;">项目管理</a>
+                    </span>
+                    <span class="layui-breadcrumb isMobile" lay-separator="/">
+                        <a href="" class="activebread">项目周期</a>
+                        <a href="javascript:;">项目管理</a>
+                    </span>
                 </div>
+
                 <div class="tableDiv">
-                    <el-tabs v-model="activeTab" :type="isMobile?'':'border-card'">
-                        <el-tab-pane label="基础信息" name="1">
-                            <com-plan></com-plan>
-                        </el-tab-pane>
-                        <el-tab-pane label="计划节点" name="2">计划节点</el-tab-pane>
-                        <el-tab-pane label="质量控制和成果" name="3">质量控制和成果</el-tab-pane>
-                        <el-tab-pane label="承担的任务" name="4">
-                            <com-beartask></com-beartask>
-                        </el-tab-pane>
-                        <el-tab-pane label="全周期成本情况" name="5">全周期成本情况</el-tab-pane>
-                        <el-tab-pane label="全周期收入预算" name="6">全周期收入预算</el-tab-pane>
-                        <el-tab-pane label="全周期支出预算" name="7">全周期支出预算</el-tab-pane>
-                    </el-tabs>
+                    <div class="layui-tab" id="planTab">
+                        <ul class="layui-tab-title">
+                          <li class="layui-this">基础信息</li>
+                          <li>计划节点</li>
+                          <li>质量控制和成果</li>
+                          <li>承担的任务</li>
+                          <li>全周期成本情况</li>
+                          <li>全周期收入预算</li>
+                          <li>全周期支出预算</li>
+                        </ul>
+                        <div class="layui-tab-content">
+                          <div class="layui-tab-item layui-show">
+                              <com-plan></com-plan>
+                          </div>
+                          <div class="layui-tab-item">计划节点</div>
+                          <div class="layui-tab-item">质量控制和成果</div>
+                          <div class="layui-tab-item">
+                              <com-beartask></com-beartask>
+                          </div>
+                          <div class="layui-tab-item">全周期成本情况</div>
+                          <div class="layui-tab-item">全周期收入预算</div>
+                          <div class="layui-tab-item">全周期支出预算</div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </com-frame>
     </div>
 </body>
-<script src="../../js/lib/vue.all.js"></script>
-<script src="../../js/lib/elementui/elementui.js"></script>
-<script src="../../js/lib/httpVueLoader.js"></script>
-<script src="../../js/lib/echarts.min.js"></script>
 <script>
-    new Vue({
-        el: "#app",
-        mounted: function () {
-            var self = this;
-            this.$nextTick(function (vm) {
-                if(window.innerWidth<1000){
-                    self.isMobile = true;
-                }
-                window.addEventListener("resize",function(){
-                    if(window.innerWidth<1000){
-                        self.isMobile = true;
-                    }else{
-                        self.isMobile = false;
-                    }
-                });
-            });
-            
-        },
-        components: {
-            'com-frame': httpVueLoader('./coms/frame.five/frame.five.vue'),
-            'com-plan': httpVueLoader('./coms/plan.five/plan.five.vue'),
-            'com-beartask': httpVueLoader('./coms/beartask.five/beartask.five.vue'),
-        },
-        data: function() {
-            return {
-                isMobile:false,
-                activeTab:"1",
-                visible: false 
-            }
+    load("./coms/frame.five/frame.five.html","com-frame");
+    load("./coms/plan.five/plan.five.html","com-plan");
+    load("./coms/beartask.five/beartask.five.html","com-beartask");
+    if(window.innerWidth>1000){
+        $("#planTab").removeClass("layui-tab-brief");
+    }else{
+        $("#planTab").addClass("layui-tab-brief");
+    }
+    window.addEventListener("resize",function(){
+        if(window.innerWidth>1000){
+            $("#planTab").removeClass("layui-tab-brief");
+        }else{
+            $("#planTab").addClass("layui-tab-brief");
         }
-    })
+    });
 </script>
 </html>

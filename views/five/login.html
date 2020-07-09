@@ -125,9 +125,8 @@
 
         .loginBtn {
             width: 100%;
-            height: 48px;
             text-align: center;
-            line-height: 48px;
+            padding:12px 0;
             background-color: var(--color-primary);
             color: #fff;
             border-radius: 4px;
@@ -176,11 +175,6 @@
                 padding-bottom: 25px;
             }
 
-            .loginBtn {
-                line-height: 44px;
-                height: 44px;
-            }
-
             .themeSelect {
                 margin-top: 11px;
             }
@@ -214,8 +208,8 @@
     </style>
 </head>
 
-<body>
-    <div class="login five" id="app">
+<body class="five">
+    <div class="login" id="app">
         <div class="logoDiv"></div>
         <div class="appLogin">
             <h3 class="appName">数通智合快速开发平台</h3>
@@ -233,7 +227,10 @@
                     <div class="rememberMe" @click="rememberMe=!rememberMe">
                         <label class="centerFlex"> <input style="background-color:white;margin-right:10px;" name="rememberMe" value="rememberMe" type="checkbox"/>记住我（公共场所慎用）</label>
                     </div>
-                    <label class="loginBtn iconfont" id="loginBtn"><input style="position: absolute;left:-1000px;" type="submit" value="登录" />登录</label>
+                    <label class="loginBtn iconfont" id="loginBtn">
+                        <input style="position: absolute;left:-1000px;" type="submit" onclick="trun()" value="登录" />
+                        登录
+                    </label>
                     <div class="themeSelect" id="toggleThemeBtn">
                         <span>Flat主题</span>
                         <img src="../../images/five/login_select_icon.png" alt="">
@@ -245,6 +242,11 @@
     <p class="copyright">Copyright @ 2017-2019 数通智合快速开发平台<span class="dept"> - Powered By 北京航天控制仪器研究所 v1.0.0</span></p>
 </body>
 <script>
+    function trun(){
+        window.location.href="../../views/five/home.html"
+        event.stopPropagation();
+        event.preventDefault();
+    }
 </script>
 
 </html>
