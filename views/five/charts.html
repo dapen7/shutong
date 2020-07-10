@@ -22,6 +22,10 @@
             grid-auto-flow: row dense;
             grid-gap:25px;
         }
+        .breadDiv{
+            background-color: white;
+            padding:25px;
+        }
         @media screen and (max-width: 1000px) {
             .chartGrid{
                 display: grid;
@@ -37,13 +41,30 @@
             .five .homePage .mainDiv{
                 padding-top: 15px!important;
             }
+            .breadDiv{
+                background-color: white;
+                padding:15px;
+                margin-bottom:0;
+            }
         }
+       
     </style>
 </head>
 
 <body class="five">
     <div id="app" class="appDiv" active="图表">
         <com-frame>
+            <div class="mb20 breadDiv">
+                <span class="mr10 isPc">当前位置 : </span>
+                <span class="layui-breadcrumb isPc" lay-separator=">">
+                    <a href="" class="activebread">项目周期</a>
+                    <a href="javascript:;">图表</a>
+                </span>
+                <span class="layui-breadcrumb isMobile" lay-separator="/">
+                    <a href="" class="activebread">项目周期</a>
+                    <a href="javascript:;">图表</a>
+                </span>
+            </div>
             <!-- 正文内容 -->
             <div class="chartGrid">
                 <com-statics class="blockDiv" style="grid-area: statics;"></com-statics>
