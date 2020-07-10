@@ -1,0 +1,79 @@
+<style>
+
+</style>
+<template>
+    <div class="recountDiv">
+        <div class="title">质量问题数统计</div>
+        <div id="recountChart"></div>
+    </div>
+</template>
+<script>
+    function initRecountChart() {
+        var recountChart = "";
+        recountChart = echarts.init(document.getElementById('recountChart'));
+        var option2 = {
+            color: ['#fec72b'],
+            title: {
+                text: ''
+            },
+            tooltip: {},
+            legend: {
+                data: ['']
+            },
+            radar: {
+                splitArea: {
+                    areaStyle: {
+                        color: ['white'],
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: '#ACC3E2'
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#fff'
+                    }
+                },
+                name: {
+                    textStyle: {
+                        color: '#333',
+                        borderRadius: 3,
+                        padding: [3, 5]
+                    }
+                },
+                indicator: [
+                    { name: '工艺', max: 50 },
+                    { name: '操作', max: 50 },
+                    { name: '管理', max: 50 },
+                    { name: '器材', max: 50 },
+                    { name: '设备', max: 50 },
+                    { name: '软件', max: 50 },
+
+                ]
+            },
+            series: [{
+                name: '',
+                type: 'radar',
+                data: [
+                    {
+                        value: [20, 50, 20, 40, 40, 50],
+                        name: '问题书',
+                        areaStyle: {
+                            color: 'rgba(254, 199, 43, 0.50)'
+                        }
+                    },
+                ]
+            }]
+        };
+        recountChart.setOption(option2);
+        window.addEventListener("resize", function () {
+            recountChart.resize();
+        });
+        setTimeout(function () {
+            recountChart.resize();
+        }, 100);
+    }
+    initRecountChart();
+</script>

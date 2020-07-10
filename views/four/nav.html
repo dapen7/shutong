@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>中国航天电子技术研究院</title>
+    <link rel="stylesheet" href="../../images/font/iconfont.css">
+    <!-- <link rel="stylesheet" href="../../js/lib/elementui/elementui.css"> -->
+    <link rel="stylesheet" href="../../css/default.css">
+</head>
+
+<body class="four">
+    <div class="appNavDiv" id="app" style="display: none;">
+        <h1 class="title">中国航天电子技术研究院</h1>
+        <p class="appName">质量管理信息系统</p>
+        <div style="overflow-y: auto;-webkit-overflow-scrolling: touch;width:100%;">
+
+            <div id="apps" class="apps">
+                <div class="appItem s100"><img src="../../images/four/system_select1_icon.png" alt="">
+                    <h2>质量管理</h2>
+                    <p><a href="./home.html">质量快报</a></p>
+                    <p><a href="./home.html">问题跟踪</a></p>
+                    <p><a href="./home.html">A1采集卡</a></p>
+                    <p><a href="./home.html">举一反三</a></p>
+                    <p><a href="./home.html">监督检查</a></p>
+                </div>
+                <div class="appItem s100"><img src="../../images/four/system_select2_icon.png" alt="">
+                    <h2>知识管理</h2>
+                    <p><a href="./home.html">质量管理体系</a></p>
+                    <p><a href="./home.html">规章制度</a></p>
+                    <p><a href="./home.html">质量案例</a></p>
+                    <p><a href="./home.html">归零报告汇编</a></p>
+                    <p><a href="./home.html">质量体系评估</a></p>
+                    <p><a href="./home.html">最佳实践</a></p>
+                </div>
+                <div class="appItem s100"><img src="../../images/four/system_select3_icon.png" alt="">
+                    <h2>领导驾驶舱</h2>
+                    <p><a href="./home.html">统计分析</a></p>
+                    <p><a href="./home.html">数据展现</a></p>
+                </div>
+                <div class="appItem s100"><img src="../../images/four/system_select4_icon.png" alt="">
+                    <h2>重要通知</h2>
+                    <p><a href="">外交部：中俄深化友…</a></p>
+                    <p><a href="">全国统战部长会议在…</a></p>
+                    <p><a href="">李克强：多措并举为…</a></p>
+                    <p><a href="">李克强主持召开座谈…</a></p>
+                    <p><a href="">亲自抓、带头干，习…</a></p>
+                    <p><a href="">更多</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("app").style.display = "";
+    function query(selector) {
+        return Array.from(document.querySelectorAll(selector));
+    }
+
+    var observer = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (item) {
+                item.target.classList.remove("s100");
+                item.target.classList.remove("s95");
+                item.target.classList.remove("s75");
+                item.target.classList.remove("s85");
+                if (item.intersectionRatio < 0.25) {
+                    item.target.classList.add("s75");
+                } else if (item.intersectionRatio < 0.5) {
+                    item.target.classList.add("s85");
+                } else if (item.intersectionRatio < 0.75) {
+                    item.target.classList.add("s95");
+                }
+                else {
+                    item.target.classList.add("s100");
+                }
+            });
+        },
+        { threshold: [0.25, 0.5, 0.75, 1] }
+    );
+
+    query('.appItem').forEach(function (item) {
+        observer.observe(item);
+    });
+</script>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>登录</title>
+    <link rel="stylesheet" href="../../images/font/iconfont.css">
+    <link rel="stylesheet" href="../../css/default.css">
+    <script type="text/javascript" src="../../js/lib/zTree/js/jquery-1.4.4.min.js"></script>
+</head>
+
+<body class="four">
+    <div class="login" id="app">
+        <div class="logoDiv"></div>
+        <div class="appLogin">
+            <h3 class="appName">数通智合快速开发平台</h3>
+            <div class="formDiv">
+                <form action="" style="width:100%;">
+                    <h3 class="appName appNameMobile">数通智合快速开发平台</h3>
+                    <div class="iconInput userName">
+                        <img src="../../images/five/login_user_icon.png" alt="">
+                        <input autocomplete="off"  type="text" placeholder="请输入登录名" name="username" value=""/>
+                    </div>
+                    <div class="iconInput password" style="margin-bottom:0;">
+                        <img src="../../images/five/login_password_icon.png" alt="">
+                        <input autocomplete="off"  type="password" name="password" placeholder="请输入密码" value="" />
+                    </div>
+                    <div class="rememberMe" @click="rememberMe=!rememberMe">
+                        <label class="centerFlex"> <input style="background-color:white;margin-right:10px;" name="rememberMe" value="rememberMe" type="checkbox"/>记住我（公共场所慎用）</label>
+                    </div>
+                    <label class="loginBtn iconfont" id="loginBtn">
+                        <input style="position: absolute;left:-1000px;" type="submit" onclick="trun()" value="登录" />
+                        登录
+                    </label>
+                    <div class="themeSelect" id="toggleThemeBtn">
+                        <span>Flat主题</span>
+                        <img src="../../images/five/login_select_icon.png" alt="">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <p class="copyright">Copyright @ 2017-2019 数通智合快速开发平台<span class="dept"> - Powered By 北京航天控制仪器研究所 v1.0.0</span></p>
+</body>
+<script>
+    function trun(){
+        window.location.href="../../views/four/home.html"
+        event.stopPropagation();
+        event.preventDefault();
+    }
+</script>
+
+</html>

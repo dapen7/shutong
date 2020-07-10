@@ -109,7 +109,7 @@ a {
 }
 
 a:hover {
-    color: #777
+    color: #777;
 }
 
 a cite {
@@ -1933,22 +1933,32 @@ a cite {
     display: inline-block;
     padding: 9px 16px;
     min-width: 40px;
-    background-color: var(--color-primary);
-    color: white;
     white-space: nowrap;
     text-align: center;
     font-size: 14px;
     border-radius: var(--border-radius);
     cursor: pointer;
+    background-color: var(--color-primary);
     border:1px solid var(--color-primary);
+    color: var(--color-primary-text-button);
 }
 
 .layui-btn:hover {
-    opacity: .8;
-    filter: alpha(opacity=80);
-    color: white
+    background-color: var(--color-primary-hover);
+    border:1px solid var(--color-primary-hover);
+    
 }
-
+.layui-btn.plain{
+    background-color: white;
+    border:1px solid var(--color-plain-border);
+    color: var(--color-plain-text-button);
+}
+.layui-btn.plain:hover {
+    background-color: var( --color-plain-hover);
+    border:1px solid var(--color-primary);
+    color: var(--color-primary);
+    
+}
 .layui-btn:active {
     opacity: 1;
     filter: alpha(opacity=100)

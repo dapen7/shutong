@@ -1,0 +1,650 @@
+<style>
+    .five .homePage {
+        position: relative;
+        max-width: 1580px;
+        width:100%;
+        height: 100%;
+        margin: auto;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .five .homePage .contentDiv {
+        padding-top: 88px;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+
+    }
+    .five .homePage .headerDiv {
+        z-index: 2;
+        padding:0 15px;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 88px;
+        background: white;
+        position: fixed;
+        transform: translateZ(0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:0px 6px 22px 0px rgba(0,0,0,0.05);
+    }
+    .five .homePage .headerDiv .layui-nav .layui-nav-item{
+        line-height: 30px;
+    }
+    .five .homePage .headerDiv .layui-nav .layui-nav-item a{
+        padding:0;
+    }
+    .five .homePage .headerDiv .layui-nav .layui-nav-more{
+        display: none;
+    }
+    .five .homePage .headerDiv .layui-nav dd a{
+        text-align: center;
+        padding: 0 10px!important;
+    }
+    .five .homePage .headerDiv .layui-nav-child{
+        right:0;
+        left: auto;
+    }
+    .five .homePage .headerDiv .layui-nav{
+        background-color: white;
+        padding:0;
+    }
+    .five .homePage .headerDiv .layui-nav-bar{
+        display: none;
+    }
+    .five .homePage .headerDiv .layui-nav .layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this{
+        color: var(--color-primary);
+    }
+    .five .homePage .menuIcon{
+        display: none;
+    }
+
+    .five .homePage .contentArea {
+        width: 1580px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        position: relative;
+    }
+
+    .five .homePage .menuDiv {
+        padding: 30px 20px;
+        position: absolute;
+        left: 0;
+        transform: translate(0px);
+        transition: .3s;
+        top: 113px;
+        width: 235px;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.02);
+        border-radius: 6px;
+        overflow-y: auto;
+        box-sizing: border-box;
+        z-index: 2;
+        max-height: 100%;
+    }
+    .five .homePage .menuDiv .layui-nav-tree{
+        width:195px;
+    }
+    .five .homePage .menuDiv .layui-nav{
+        background-color: transparent;
+    }
+    .five .homePage .menuDiv .layui-this{
+        color: white;
+        background: transparent;
+    }
+    .five .homePage .menuDiv .layui-nav-tree .layui-nav-item a{
+        background: transparent;
+        color: #787878;
+        font-size: 18px;
+        border-radius: 26px;
+        height: 52px;
+        line-height: 52px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .five .homePage .menuDiv .layui-nav-tree .layui-nav-item a i{
+        margin-right: 8px;
+        margin-left: 5px;
+    }
+    .five .homePage .menuDiv .layui-nav-bar{
+        display: none;
+    }
+    .five .homePage .menuDiv .layui-nav-tree .layui-nav-item a:hover,
+    .five .homePage .menuDiv .layui-nav-tree .layui-nav-item.layui-this>a:first-child,
+    .five .homePage .menuDiv .layui-nav-child dd.layui-this>a:first-child
+    {
+        background: var(--color-primary);
+        color: #fff;
+    }
+    .five .homePage .menuDiv .layui-nav .layui-nav-mored, .layui-nav-itemed>a .layui-nav-more{
+        display: none;
+    }
+    .five .homePage .menuDiv .layui-nav-bar{
+        display: none;
+    }
+    .five .homePage .menuDiv .layui-nav-itemed>.layui-nav-child{
+        background-color:transparent!important;
+    }
+    .five .homePage .menuDiv .layui-nav-tree .layui-nav-more{
+        display: none;
+    }
+    .five .homePage .mainDiv {
+        width: 100%;
+        padding-left: 260px;
+        position: relative;
+        box-sizing: border-box;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .five .homePage .topLogo {
+        width: 175px;
+        height: 42px;
+        padding-left: 35px;
+    }
+
+    .five .homePage .topLogo .logo {
+        width: 42px;
+        height: 42px;
+    }
+
+    .five .homePage .topLogo .logoText {
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+        margin-left: 10px;
+    }
+
+    .five .homePage .rightDiv {
+        display: flex;
+        align-items: center;
+    }
+
+    .five .homePage .rightDiv .fucItem {
+        margin-left: 30px;
+        cursor: pointer;
+    }
+
+    .five .homePage .rightDiv .fucItem img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .five .homePage .rightDiv .fucItem span {
+        font-size: 18px;
+        color: #333;
+        margin-left: 10px;
+    }
+
+    .five .homePage .rightDiv .userInfo {
+        white-space: nowrap;
+        margin-left: 20px;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .five .homePage .rightDiv .userInfo .userName {
+        font-size: 18px;
+        color: #333;
+        margin-left: 10px;
+    }
+
+    .five .homePage .rightDiv .userInfoBox {
+        cursor: pointer;
+        padding: 10px 0;
+    }
+
+    .five .homePage .rightDiv .userInfoBox span {
+        font-size: 18px;
+        color: #333;
+        line-height: 42px;
+        margin-left: 10px;
+    }
+
+    .five .homePage .rightDiv .userInfoBox .headPic {
+        width: 42px;
+        height: 42px;
+        margin-left: 10px;
+    }
+
+    .five .homePage .searchDiv .inputBox {
+        width: 245px;
+        height: 46px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        background: rgba(244, 245, 247, 1);
+        border-radius: 27px;
+        padding: 0 20px;
+    }
+
+    .five .homePage .searchDiv .inputBox img {
+        width: 22px;
+        cursor: pointer;
+    }
+
+    .five .homePage .searchDiv .inputBox input {
+        border: none;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        outline: none;
+    }
+    .five .homePage .thirdMenuDiv{
+        padding:0;
+        margin-top: 25px;
+        margin-left: 260px;
+    }
+    .five .thirdMenuDiv .layui-nav {
+        background-color:transparent;
+        color:var(--color-text-primary);
+    }
+    .five .thirdMenuDiv .layui-nav .layui-nav-item a{
+        color:var(--color-text-primary);
+    }
+    .five .thirdMenuDiv .layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after{
+        background-color: var(--color-primary);
+    }
+    .five .layui-nav .layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this{
+        background-color:initial;
+    }
+    .five .thirdMenuDiv .layui-nav .layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this{
+        color:var(--color-primary);
+    }
+    
+
+    .isMobile{
+        display: none;
+    }
+    .isPc{
+        display: initial;
+    }
+    .five .homePage .avatarDiv{
+        display: flex;
+        align-items: center;
+    }
+    .five .homePage .hidden{
+        visibility:hidden;
+    }
+    @media screen and (max-width: 1000px) {
+        .five .homePage .topLogo {
+            display: none;
+        }
+        .five .homePage .searchDiv .inputBox {
+            width:178px;
+            height: 30px;
+            padding:0 10px;
+        }
+        .five .homePage .headerDiv {
+            height:44px;
+            border-bottom:1px solid rgba(248,248,248,1);
+            box-shadow: none;
+        }
+        .five .homePage .menuIcon{
+            display: block;
+        }
+        .five .homePage .userInfo img{
+            height:20px;
+            width:20px;
+        }
+        .five .homePage .userName{
+            display: none;
+        }
+        .five .homePage .rightDiv .fucItem{
+            margin-left:20px;
+        }
+        .five .homePage .rightDiv .userInfo{
+            margin-left:20px;
+        }
+        .five .homePage .el-menu--collapse {
+            width: 0;
+            overflow: hidden;
+        }
+        .five .homePage .contentDiv {
+            padding-top:44px;
+        }
+        .five .homePage .mainDiv {
+            padding:15px 15px 0 15px;
+        }
+        .five .homePage .menuDiv{
+            position: fixed;
+            top: 0px;
+            border-radius: 0;
+            bottom: 0;
+            z-index: 11;
+            padding:15px;
+        }
+        .five .mobileShadow{
+            position: absolute;
+            background: rgba(0,0,0,0.5);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: -44px;
+            z-index: 2;
+            z-index: 10;
+        }
+        .isMobile{
+            display: initial;
+        }
+        .isPc{
+            display:none!important;
+        }
+        .five .homePage .hideMenu{
+            transform: translate(-300px)!important;
+            transition: .3s;
+        }
+        .five .homePage .topLogo{
+            margin-bottom: 15px;
+            border-bottom: 1px solid #EEEEEE;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            height: 58px;
+            display: flex;
+            padding-left:0;
+        }
+        .five .homePage .thirdMenuDiv{
+            border-radius: 0;
+            padding:0;
+            margin: 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .five .homePage .thirdMenuDiv .layui-nav .layui-nav-item{
+            line-height: 44px;
+        }
+    }
+</style>
+<template>
+    <div class="homePage">
+        <div class="headerDiv">
+            <div class="contentArea">
+                <!-- 顶部logo -->
+                <div class="topLogo centerFlex isPc">
+                    <a href="../../views/five/home.html" class="texta centerFlex">
+                        <img class="logo" src="../../images/five/home_logo_icon.png" alt="">
+                        <span class="logoText">CASC</span>
+                    </a>
+                </div>
+                <div class="menuIcon">
+                    <i class="iconfont iconhome_list_icon"></i>
+                </div>
+                <div class="rightDiv">
+                    <div class="searchDiv">
+                        <div class="inputItem">
+                            <div class="inputBox">
+                                <input type="text" placeholder="输入关键词搜索…">
+                                <img src="../../images/five/home_sousuo_icon@2x.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fucList centerFlex">
+                        <div class="fucItem">
+                            <a href="../../views/five/nav.html" class="texta centerFlex">
+                                <i class="iconfont iconhome_icon1" style="color:var(--color-primary);font-size:20px;"></i>
+                            </a>
+                        </div>
+                        <div class="fucItem centerFlex">
+                            <i class="iconfont icontheme_icon1" style="color:var(--color-primary);font-size:20px;"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="userInfo cursor">
+                        <ul class="layui-nav layui-bg-white" lay-filter="">
+                            <li class="layui-nav-item">
+                              <a class="avatarDiv" href="javascript:;">
+                                  <img class="headPic" src="../../images/five/home_headpic_icon.png" alt="">
+                                  <span class="userName">admin</span>
+                                  <i class="iconfont iconarrow-down" style="color:var(--color-text-regular)"></i>
+                              </a>
+                              <dl class="layui-nav-child">
+                                <dd><a href="javascript:;">个人信息</a></dd>
+                                <dd><a href="javascript:;">修改密码</a></dd>
+                                <dd><a href="javascript:;">我的通知</a></dd>
+                                <dd><a href="../../views/five/login.html">退出</a></dd>
+                              </dl>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contentDiv">
+            <div class="mobileShadow"></div>
+            <!-- 菜单 -->
+            <div class="menuDiv" style="display: none;">
+                <div class="topLogo topLogo1 centerFlex isMobile">
+                    <a href="../../views/five/home.html" class="texta centerFlex">
+                        <img class="logo" src="../../images/five/home_logo_icon.png" alt="">
+                        <span class="logoText">CASC</span>
+                    </a>
+                </div>
+                <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo">
+                    <li class="layui-nav-item">
+                      <a href="../../views/five/nav.html">
+                          <i class="iconfont iconhome_home_icon1"></i>
+                          首页
+                      </a>
+                    </li>
+                    <li class="layui-nav-item">
+                      <a href="../../views/five/home.html">
+                        <i class="iconfont iconhome_home_icon1"></i>
+                        我的工作台</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">
+                            <i class="iconfont iconhome_organ_icon"></i>
+                            机构用户
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd> 
+                                <a href="javascript:;" id="showUserInfo">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    用户管理
+                                </a>
+                            </dd>
+                            <dd> 
+                                <a href="../../views/five/org.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    机构管理
+                                </a>
+                            </dd>
+                          </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">
+                            <i class="iconfont iconhome_set_icon1"></i>
+                            系统设置
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd> 
+                                <a href="../../views/five/dictionary.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    字典列表
+                                </a>
+                            </dd>
+                          </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">
+                            <i class="iconfont iconhome_set_icon1"></i>
+                            项目周期
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd> 
+                                <a href="../../views/five/plan.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    策划目录
+                                </a>
+                            </dd>
+                            <dd> 
+                                <a href="../../views/five/quality.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    质卡填报
+                                </a>
+                            </dd>
+                            <dd> 
+                                <a href="../../views/five/charts.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    图表
+                                </a>
+                            </dd>
+                          </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">
+                            <i class="iconfont iconhome_set_icon1"></i>
+                            全部页面
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd> 
+                                <a href="../../views/five/login.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    登录
+                                </a>
+                            </dd>
+                            <dd> 
+                                <a href="../../views/five/nav.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    主页
+                                </a>
+                            </dd>
+                            <dd> 
+                                <a href="../../views/five/home.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    我的工作台
+                                </a>
+                            </dd>
+                            <dd> 
+                                <a href="../../views/five/userInfo.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    用户管理
+                                </a>
+                            </dd>
+                            <dd> 
+                                <a href="../../views/five/org.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    机构管理
+                                </a>
+                            </dd>
+                            <dd> 
+                                <a href="../../views/five/dictionary.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    字典管理
+                                </a>
+                            </dd>
+                            <dd> 
+                                <a href="../../views/five/plan.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    策划目录
+                                </a>
+                            </dd>
+                            <dd> 
+                                <a href="../../views/five/quality.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    质卡填报
+                                </a>
+                            </dd>
+                            <dd> 
+                                <a href="../../views/five/plan.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    承担的任务
+                                </a>
+                            </dd>
+                            <dd> 
+                                <a href="../../views/five/charts.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    图表
+                                </a>
+                            </dd>
+                            <dd> 
+                                <a href="../../views/five/demo.html">
+                                    <i class="iconfont iconhome_set_icon1 hidden"></i>
+                                    用户改造demo
+                                </a>
+                            </dd>
+                            </dl>
+                    </li>
+                </ul>
+            </div>
+            <!-- 横向菜单 -->
+            <div class="thirdMenuDiv blockDiv" style="display: none;">
+                <ul class="layui-nav">
+                    <li class="layui-nav-item"><a href="../../views/five/userInfo.html">用户列表</a></li>
+                    <li class="layui-nav-item"><a href="javascript:;">用户添加</a></li>
+                    <li class="layui-nav-item"><a href="javascript:;">用户列表</a></li>
+                    <li class="layui-nav-item"><a href="javascript:;">用户列表</a></li>
+                </ul>
+            </div>
+            <!-- 正文 -->
+            <div class="mainDiv">
+                <slot></slot>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    window.skinName = "five";
+    layui.use('element', function(){
+        var element = layui.element;
+        document.querySelector(".menuIcon").addEventListener("click",function(){
+            showMenu();
+            event.stopPropagation();
+        });
+        document.querySelector(".mobileShadow").addEventListener("click",function(){
+            hideMenu();
+            event.stopPropagation();
+        });
+        document.getElementById("showUserInfo").addEventListener("click",function(){
+            document.querySelector(".thirdMenuDiv").style.display = "";
+            hideMenu();
+            event.stopPropagation();
+        });
+        function showMenu(){
+            document.querySelector(".mobileShadow").style.display = "";
+            document.querySelector(".menuDiv").classList.remove("hideMenu");
+        }
+        function hideMenu(){
+            document.querySelector(".mobileShadow").style.display = "none";
+            document.querySelector(".menuDiv").classList.add("hideMenu");
+        }
+        if(window.innerWidth<1000){
+            hideMenu();
+        }
+        document.querySelector(".menuDiv").style.display = "";
+        window.addEventListener("resize",function(){
+            if(window.innerWidth<1000){
+                hideMenu();
+            }
+            document.querySelector(".menuDiv").style.display = "";
+        })
+        //设置菜单激活项目
+        var menuName = $("#app").attr("active");
+        if(menuName){
+            $(".menuDiv a").each(function(index,item){
+                if($(item).text().indexOf(menuName)!=-1){
+                    if($(item).parents(".layui-nav-item").length>0){
+                        $(item).parents(".layui-nav-item").addClass("layui-nav-itemed");
+                    }
+                    if($(item).parents("dd").length>0){
+                        $($(item).parents("dd")[0]).addClass("layui-this");
+                    }else if($(item).parents(".layui-nav-item").length>0){
+                        $($(item).parents(".layui-nav-item")[$(item).parents(".layui-nav-item").length-1]).addClass("layui-this");
+                    }
+                }
+            })
+        }
+    });
+</script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>我的工作台</title>
+    <link rel="stylesheet" href="../../images/font/iconfont.css">
+    <link rel="stylesheet" href="../../css/ui/index.css">
+    <link rel="stylesheet" href="../../css/default.css">
+    <link rel="stylesheet" href="../../js/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../js/lib/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="../../js/lib/zTree/js/jquery-1.4.4.min.js"></script>
+    <script src="../../js/lib/layui/layui.js"></script>
+    <script src="../../js/lib/load.js"></script>
+    <style>
+        .four .homeGrid{
+            display: grid;
+            grid-template-columns: repeat(14,1fr);
+            grid-template-rows: 370px 546px;
+            grid-template-areas: "a a a a a b b b b c c c c c"
+                                 "d d d d d d e e e e f f f f";
+            grid-auto-flow: row dense;
+            grid-gap:25px;
+        }
+        @media screen and (max-width: 1000px) {
+            .four .homeGrid{
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows:  212px 344px 345px 252px 400px 287px;
+                grid-template-areas: "a"
+                                    "b"
+                                    "c"
+                                    "d"
+                                    "e"
+                                    "f";
+                grid-auto-flow: row dense;
+                grid-gap:15px;
+            }
+            .four .homePage .mainDiv{
+                padding-top: 15px!important;
+            }
+        }
+    </style>
+</head>
+
+<body class="four">
+    <div id="app" active="我的工作台" class="appDiv">
+        <com-frame >
+            
+            <!-- 正文内容 -->
+            <div class="homeGrid">
+                <com-shortcut class="blockDiv" style="grid-area: a;"></com-shortcut>
+                <com-upcoming2 class="blockDiv" style="grid-area: b;"></com-upcoming2>
+                <com-calendar class="blockDiv" style="grid-area: c;"></com-calendar>
+                <com-statics2 class="blockDiv" style="grid-area: d;"></com-statics2>
+                <com-recount2 class="blockDiv" style="grid-area: e;"></com-recount2>
+                <com-dustdetection class="blockDiv" style="grid-area: f;"></com-dustdetection>
+            </div>
+        </com-frame>
+    </div>
+</body>
+<script src="../../js/lib/echarts.min.js"></script>
+<script>
+    //主页
+    load("./coms/frame.com.html","com-frame");
+    //快捷方式
+    load("../coms/shortcut/shortcut.com.html","com-shortcut");
+    //待办事项
+    load("../coms/upcoming/upcoming2.com.html","com-upcoming2");
+    //日历
+    load("../coms/calendar/calendar.com.html","com-calendar");
+    //数据概览
+    load("../coms/statics/statics2.com.html","com-statics2");
+    //质量问题统计
+    load("../coms/recount/recount2.com.html","com-recount2");
+    //通知公告
+    load("../coms/dustdetection/dustdetection.com.html","com-dustdetection");
+</script>
+</html>

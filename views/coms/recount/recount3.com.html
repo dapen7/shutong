@@ -1,0 +1,63 @@
+<style>
+
+</style>
+<template>
+    <div class="staticsDiv">
+        <div class="title">
+            <span>已归零质量问题统计：<span class="desc">（按质量问题原因统计）</span></span>
+        </div>
+        <div class="chartDiv">
+            <div id="staticChart3" class="chartCDiv"></div>
+        </div>
+    </div>
+</template>
+<script>
+    (function () {
+        var staticChartFive = "";
+        staticChartFive = echarts.init(document.getElementById('staticChart3'));
+        var option = {
+            toolbox:{
+                feature: {
+                    restore: {},
+                    saveAsImage: {},
+                    // dataView:{},
+                    // dataZoom:{},
+                    // magicType:{},
+                    // brush:{},
+                }
+            },
+            color:['#FEC72B','#FFEBB1'],
+            legend: {
+                data: ['']
+            },
+            tooltip: {},
+            dataset: {
+                dimensions: ['product', '2020年1-6月', '2019'],
+                source: [
+                    {product: '外包外购', '2020年1-6月': 14, '2019': 15},
+                    {product: '操作', '2020年1-6月': 8, '2019': 7},
+                    {product: '设计', '2020年1-6月': 12, '2019': 13},
+                    {product: '软件', '2020年1-6月': 8, '2019': 5},
+                    {product: '工艺', '2020年1-6月': 12, '2019': 6},
+                    {product: '管理', '2020年1-6月': 11, '2019': 7},
+                    {product: '环境', '2020年1-6月': 2, '2019': 3},
+                    {product: '其他', '2020年1-6月': 12, '2019': 15},
+                ]
+            },
+            xAxis: {type: 'category'},
+            yAxis: {},
+            series: [
+                {type: 'bar'},
+                {type: 'bar'},
+            ]
+        };
+
+        staticChartFive.setOption(option);
+        window.addEventListener("resize", function () {
+            staticChartFive.resize();
+        });
+        setTimeout(function () {
+            staticChartFive.resize();
+        }, 100);
+    })()
+</script>

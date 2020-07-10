@@ -1,0 +1,134 @@
+<style>
+    
+</style>
+<template>
+    <div class="recountDiv">
+        <div class="title">质量问题数统计</div>
+        <div id="recountChart"></div>
+    </div>
+</template>
+<script>
+    function initRecountChart() {
+        var recountChart = "",
+            text = '1-6',
+            title = ['操作', '工艺', '软件'],
+            data = [0.6, 0.7, 0.8];
+        recountChart = echarts.init(document.getElementById('recountChart'));
+        var option2 = {
+            angleAxis: {
+                max: 1,
+                startAngle: 90,
+                clockwise: false,
+                type: 'value',
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false,
+                },
+                axisLabel: {
+                    show: false
+                },
+                minorSplitLine: {
+                    show: false
+                },
+                minorTick: {
+                    show: false
+                },
+                splitArea: {
+                    show: false
+                }
+            },
+            radiusAxis: {
+                type: 'category',
+                z: 0,
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false,
+                    length: 0,
+                },
+                axisLabel: {
+                    show: false
+                },
+                minorSplitLine: {
+                    show: false
+                },
+                minorTick: {
+                    show: false
+                },
+                splitArea: {
+                    show: false
+                }
+            },
+            polar: {
+            },
+            series: [
+                {
+
+                    name: title[2],
+                    data: [data[2]],
+                    type: 'bar',
+                    coordinateSystem: 'polar',
+                    color: '#dde7ff',
+                    barWidth: '10px',
+                    roundCap: true,
+                },
+                {
+                    name: title[1],
+                    data: [data[1]],
+                    type: 'bar',
+                    coordinateSystem: 'polar',
+                    color: '#abc4ff',
+                    barWidth: '10px',
+                    roundCap: true,
+                },
+                {
+                    name: title[0],
+                    data: [data[0]],
+                    type: 'bar',
+                    coordinateSystem: 'polar',
+                    color: '#5488FF',
+                    barWidth: '10px',
+                    roundCap: true,
+                }
+
+            ],
+            legend: {
+                show: true,
+                data: ['操作', '工艺', '软件'],
+                bottom: '25px;'
+            },
+            title: {
+                text: '1-6',
+                subtext: '月',
+                bottom: 'center',
+                left: 'center',
+                textStyle: {
+                    color: '#354052'
+                },
+                subtextStyle: {
+                    color: '#dde7ff'
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+            }
+        };
+        recountChart.setOption(option2);
+        window.addEventListener("resize", function () {
+            recountChart.resize();
+        });
+        setTimeout(function(){
+            recountChart.resize();
+        },100);
+    }
+    initRecountChart();
+</script>

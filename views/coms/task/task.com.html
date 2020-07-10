@@ -1,0 +1,170 @@
+<style>
+    
+</style>
+<template>
+    <div class="taskDiv">
+        <div class="topInfo">
+            <span class="title">任务统计</span>
+        </div>
+        <div class="chartDiv">
+            <div class="taskCountMain">
+                <div>
+                    <div id="taskChart0" _echarts_instance_="ec_1594228593561"
+                        style="-webkit-tap-highlight-color: transparent; user-select: none;">
+                        <div
+                            style="position: relative; width: 220px; height: 220px; padding: 0px; margin: 0px; border-width: 0px;">
+                            <canvas data-zr-dom-id="zr_0" width="440" height="440"
+                                style="position: absolute; left: 0px; top: 0px; width: 220px; height: 220px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="infoBox">
+                    <div class="value">87%</div>
+                    <div class="name">任务名称</div> <span class="des"><i class="iconfont iconarrow-up"
+                            style="color: rgb(84, 136, 255);"></i>
+                        <span>1.2%</span></span>
+                </div>
+            </div>
+            <div class="taskCountMain">
+                <div>
+                    <div id="taskChart1" _echarts_instance_="ec_1594228593562"
+                        style="-webkit-tap-highlight-color: transparent; user-select: none;">
+                        <div
+                            style="position: relative; width: 220px; height: 220px; padding: 0px; margin: 0px; border-width: 0px;">
+                            <canvas data-zr-dom-id="zr_0" width="440" height="440"
+                                style="position: absolute; left: 0px; top: 0px; width: 220px; height: 220px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="infoBox">
+                    <div class="value">68%</div>
+                    <div class="name">任务名称</div> <span class="des"><i class="iconfont iconarrow-up"
+                            style="color: rgb(255, 145, 189);"></i>
+                        <span>9.3%</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    (function () {
+
+        var datalist = [
+            { name: '任务名称', value: 87, contrast: 1.2, type: 'up', color: '#5488FF' },
+            { name: '任务名称', value: 68, contrast: 9.3, type: 'up', color: '#FF91BD' }
+        ],
+            chart1 = "",
+            chart2 = "";
+        function getChartOption(item) {
+            var name = item.name;
+            var value = item.value;
+            var color = item.color;
+            return {
+                angleAxis: {
+                    max: 100,
+                    startAngle: 90,
+                    type: 'value',
+                    axisLine: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false,
+                    },
+                    axisLabel: {
+                        show: false
+                    },
+                    minorSplitLine: {
+                        show: false
+                    },
+                    minorTick: {
+                        show: false
+                    },
+                    splitArea: {
+                        show: false
+                    }
+                },
+                radiusAxis: {
+                    type: 'category',
+                    z: 0,
+                    data: [0, 1, 2, 3],
+                    axisLine: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false,
+                        length: 0,
+                    },
+                    axisLabel: {
+                        show: false
+                    },
+                    minorSplitLine: {
+                        show: false
+                    },
+                    minorTick: {
+                        show: false
+                    },
+                    splitArea: {
+                        show: false
+                    }
+                },
+                polar: {
+                },
+                series: [
+                    {
+                        type: 'bar',
+                        itemStyle: {
+                            color: 'rgba(0,0,0,0.05)'
+                        },
+                        barGap: '-100%',
+                        barCategoryGap: '40%',
+                        data: [null, null, null, 100],
+                        coordinateSystem: 'polar',
+                        animation: false,
+                        barWidth: '8px',
+                    }, {
+                        type: 'bar',
+                        data: [null, null, null, value],
+                        coordinateSystem: 'polar',
+                        color: color,
+                        barWidth: '8px',
+                    }, {
+                        type: 'scatter',
+                        color: 'white',
+                        itemStyle: {
+                            borderWidth: 4,
+                            borderColor: color,
+                            opacity: 1,
+                        },
+                        coordinateSystem: 'polar',
+                        symbolSize: 16,
+                        animation: false,
+                        data: [null, null, null, value],
+
+                    }],
+                legend: {
+                    show: true,
+                    data: ['aaa', 'bbb']
+                }
+            };
+        }
+        chart1 = echarts.init(document.getElementById('taskChart0'));
+        chart1.setOption(getChartOption(datalist[0]));
+
+        chart2 = echarts.init(document.getElementById('taskChart1'));
+        chart2.setOption(getChartOption(datalist[1]));
+        window.addEventListener("resize", function () {
+            chart1.resize();
+            chart2.resize();
+        });
+        setTimeout(function () {
+            chart1.resize();
+            chart2.resize();
+        }, 100);
+    })();
+</script>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>我的工作台</title>
-    <link rel="stylesheet" href="../../images/five/font/iconfont.css">
+    <link rel="stylesheet" href="../../images/font/iconfont.css">
     <link rel="stylesheet" href="../../css/ui/index.css">
     <link rel="stylesheet" href="../../css/default.css">
     <link rel="stylesheet" href="../../js/lib/layui/css/layui.css">
@@ -14,7 +14,7 @@
     <script src="../../js/lib/layui/layui.js"></script>
     <script src="../../js/lib/load.js"></script>
     <style>
-        .homeGrid{
+        .five .homeGrid{
             display: grid;
             grid-template-columns: 1fr 1fr 340px;
             grid-template-rows: 178px 186px 186px 341px;
@@ -26,7 +26,7 @@
             grid-gap:25px;
         }
         @media screen and (max-width: 1000px) {
-            .homeGrid{
+            .five .homeGrid{
                 display: grid;
                 grid-template-columns: 1fr;
                 grid-template-rows:  minmax(178px, 1fr) 287px 410px 324px 302px 485px;
@@ -64,18 +64,18 @@
 <script src="../../js/lib/echarts.min.js"></script>
 <script>
     //主页
-    load("./coms/frame.five/frame.five.html","com-frame");
+    load("./coms/frame.com.html","com-frame");
     //访问量
-    load("./coms/info.five/info.five.html","com-info");
+    load("../coms/info/info.com.html","com-info");
     //数据概览
-    load("./coms/statics.five/statics.five.html","com-statics");
+    load("../coms/statics/statics.com.html","com-statics");
     //质量问题统计
-    load("./coms/recount.five/recount.five.html","com-recount");
+    load("../coms/recount/recount.com.html","com-recount");
     //通知公告
-    load("./coms/notice.five/notice.five.html","com-notice");
+    load("../coms/notice/notice.com.html","com-notice");
     //待办事项
-    load("./coms/upcoming.five/upcoming.five.html","com-upcoming");
+    load("../coms/upcoming/upcoming.com.html","com-upcoming");
     //任务统计
-    load("./coms/task.five/task.five.html","com-task");
+    load("../coms/task/task.com.html","com-task");
 </script>
 </html>
