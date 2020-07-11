@@ -93,13 +93,13 @@
             else {
                 days = monthDay[month - 1];
             }
-            $(".weekDiv .day").each(function(){
+            $(".calendarDiv .weekDiv .day").each(function(){
                 $(this).remove();
             });
             /*添加日期部分*/
             var tbodyHtml = '<tr>';
             for (i = 0; i < firstDay; i++) {//对1号前空白格的填充
-                $(".weekDiv").append("<span class='day'></span>");
+                $(".calendarDiv .weekDiv").append("<span class='day'></span>");
             }
             var changLine = firstDay;
             for (i = 1; i <= days; i++) {//每一个日期的填充
@@ -109,17 +109,17 @@
                 else {
                     tagClass = "isDate";//普通日期对应格子，设置class便于与空白格子区分开来
                 }
-                $(".weekDiv").append(`<span class='day'>${i}</span>`);
+                $(".calendarDiv .weekDiv").append(`<span class='day'>${i}</span>`);
                 changLine = (changLine + 1) % 7;
             }
             if (changLine != 0) {//添加结束，对该行剩余位置的空白填充
                 for (i = changLine; i < 7; i++) {
-                    $(".weekDiv").append(`<span class='day'></span>`);
+                    $(".calendarDiv .weekDiv").append(`<span class='day'></span>`);
                 }
             }
             if((month == curDate.getMonth() + 1)&&(year == curDate.getFullYear())){
-                $(".today").removeClass("today");
-                $(".weekDiv .day").each(function(index,item){
+                $(".calendarDiv .today").removeClass("today");
+                $(".calendarDiv .weekDiv .day").each(function(index,item){
                     if($(item).text() == curDate.getDate()){
                         $(item).addClass("today");
                     }
@@ -128,71 +128,71 @@
         }
         //前后月
         function nextMonth(){
-            var year = Number($(".yearMobile").text());
-            var month = Number($(".monthMobile").text());
+            var year = Number($(".calendarDiv .yearMobile").text());
+            var month = Number($(".calendarDiv .monthMobile").text());
             var nextMonth = month+1;
             if(nextMonth > 12){
                 nextMonth = 1;
                 year++;
             }
-            $(".yearMobile").text(year);
-            $(".monthMobile").text(nextMonth);
+            $(".calendarDiv .yearMobile").text(year);
+            $(".calendarDiv .monthMobile").text(nextMonth);
             showCld(year, nextMonth, whatDay(year, nextMonth));
         }
         function lastMonth(){
-            var year = Number($(".yearMobile").text());
-            var month = Number($(".monthMobile").text());
+            var year = Number($(".calendarDiv .yearMobile").text());
+            var month = Number($(".calendarDiv .monthMobile").text());
             var preMonth = month-1;
             if(preMonth < 1){
                 preMonth = 12;
                 year--;
             }
-            $(".yearMobile").text(year);
-            $(".monthMobile").text(preMonth);
+            $(".calendarDiv .yearMobile").text(year);
+            $(".calendarDiv .monthMobile").text(preMonth);
             showCld(year, preMonth, whatDay(year, preMonth));
         }
         //画图
-        $(".monthSpan").each(function (index, item) {
+        $(".calendarDiv .monthSpan").each(function (index, item) {
             $(item).css("left", 125 * Math.cos(30 * index * Math.PI / 180) + 125 - 12);
             $(item).css("top", 125 * Math.sin(30 * index * Math.PI / 180) + 125 - 12);
             $(item).css("transform", "rotate(" + 30 * index + "deg)");
             $(item).attr("rotate", 30 * index);
         });
         //月份点击
-        $(".monthSpan").bind("click", function () {
+        $(".calendarDiv .monthSpan").bind("click", function () {
             var rotate = $(this).attr("rotate");
-            $(".circleborder").css("transform", "rotate(" + (-rotate) + "deg)");
-            $(".bkspan").removeClass("bkspan");
+            $(".calendarDiv .circleborder").css("transform", "rotate(" + (-rotate) + "deg)");
+            $(".calendarDiv .bkspan").removeClass("bkspan");
             $(this).addClass("bkspan");
             init();
         });
         
         //年点击
-        $(".upbtn").bind("click", function () {
-            $(".yearItem").text(Number($(".yearItem").text()) - 1);
+        $(".calendarDiv .upbtn").bind("click", function () {
+            $(".calendarDiv .yearItem").text(Number($(".yearItem").text()) - 1);
             init();
         });
-        $(".downbtn").bind("click", function () {
+        $(".calendarDiv .downbtn").bind("click", function () {
             $(".yearItem").text(Number($(".yearItem").text()) + 1);
             init();
         });
         var curDate = new Date();
         var curYear = curDate.getFullYear();
         var curMonth = curDate.getMonth() + 1;
-        $(".yearItem").text(curYear);
-        $(".monthSpan").eq(curMonth-1).trigger("click");
-        $(".yearMobile").text(curYear);
-        $(".monthMobile").text(curMonth);
+        $(".calendarDiv .yearItem").text(curYear);
+        $(".calendarDiv .monthSpan").eq(curMonth-1).trigger("click");
+        $(".calendarDiv .yearMobile").text(curYear);
+        $(".calendarDiv .monthMobile").text(curMonth);
         //初始化
-        $(".nextMonth").bind("click",function(){
+        $(".calendarDiv .nextMonth").bind("click",function(){
             nextMonth();
         });
-        $(".lastMonth").bind("click",function(){
+        $(".calendarDiv .lastMonth").bind("click",function(){
             lastMonth();
         });
         function init(){
-            var year = $(".yearItem").text();
-            var month = Number($(".bkspan").attr("rotate"))/30+1;
+            var year = $(".calendarDiv .yearItem").text();
+            var month = Number($(".calendarDiv .bkspan").attr("rotate"))/30+1;
             showCld(year, month, whatDay(year, month));
         }
     })
