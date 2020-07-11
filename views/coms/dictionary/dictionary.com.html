@@ -27,20 +27,20 @@
                             <th lay-data="{field:'type', width:120,templet: '#dictypeTpl'}">类型</th>
                             <th lay-data="{field:'desc'}">描述</th>
                             <th lay-data="{field:'order', width:80}">排序</th>
-                            <th lay-data="{field:'操作', width:200,toolbar: '#dicbarTpl'}">操作</th>
+                            <th lay-data="{field:'操作', width:220,toolbar: '#dicbarTpl'}">操作</th>
                         </tr>
                     </thead>
                 </table>
                 <script type="text/html" id="dictagTpl">
-                    <span class="cursor primary">{{ d.tag }}</span>
+                    <span class="cursor primary button">{{ d.tag }}</span>
                 </script>
                 <script type="text/html" id="dictypeTpl">
-                    <span class="cursor primary">{{ d.type }}</span>
+                    <span class="cursor primary button">{{ d.type }}</span>
                 </script>
                 <script type="text/html" id="dicbarTpl">
-                    <a class="primary cursor mr10" lay-event="edit">编辑</a>
-                    <a class="primary cursor mr10" lay-event="del">删除</a>
-                    <a class="primary cursor mr10" lay-event="add">添加</a>
+                    <a class="primary cursor mr10 button" lay-event="edit">编辑</a>
+                    <a class="primary cursor mr10 button danger" lay-event="del">删除</a>
+                    <a class="primary cursor mr10 magic" lay-event="add">添加</a>
                 </script>
             </div>
         </div>
@@ -63,6 +63,10 @@
         //表格
         layui.use('table', function () {
             var table = layui.table;
+        });
+        //导航
+        layui.use('element', function(){
+            var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
         });
     })()
 </script>

@@ -185,6 +185,12 @@ textarea{
     background-color: #FCE3D8;
     border-radius: var(--border-radius);
 }
+.four .magic{
+    color:#BA89FE;
+    padding:5px 10px;
+    background-color: rgba(186,137,254,0.16);
+    border-radius: var(--border-radius);
+}
 .right{
     float: right;
 }
