@@ -1,0 +1,17 @@
+<style>
+    
+</style>
+<template>
+    <div class="calendarDiv2">
+        <div class="layui-inline" id="calendar22"></div>
+    </div>
+</template>
+<script>
+  layui.use('laydate', function(){
+    var laydate = layui.laydate;
+    laydate.render({
+        elem: '#calendar22',
+        position: 'static'
+    });
+  });
+</script>

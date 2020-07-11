@@ -10,232 +10,43 @@
     <link rel="stylesheet" href="../../css/default.css">
     <script type="text/javascript" src="../../js/lib/zTree/js/jquery-1.4.4.min.js"></script>
     <style>
-        input::-webkit-input-placeholder {
-            color: #bbb;
-        }
-
-        .login {
-            height: 100%;
-            background: url("../../images/five/login_bg.png") no-repeat center;
-            background-size: cover;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .logoDiv {
-            background: url("../../images/five/login_logo_icon.png") no-repeat;
-            width: 144px;
-            height: 43px;
-            position: absolute;
-            left: 50px;
-            top: 45px;
-            background-size: cover;
-        }
-
-        .formDiv {
-            max-width: 582px;
-            background: url("../../images/five/login_shuru_img.png") no-repeat;
-            background-size: 100% 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 60px 20px 60px;
-            width: 100%;
-            flex-direction: column;
-        }
-
-        .appLogin {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            width: 100%;
-            padding: 0 40px;
-        }
-
-        .appName {
-            display: flex;
-            justify-content: center;
-            font-size: 28px;
-            width: 100%;
-            font-weight: 500;
-            color: white;
-            margin-bottom: 22px;
-        }
-
-        .appNameMobile {
-            display: none;
-        }
-
-        .iconInput {
-            width: 100%;
-            background: rgba(250, 254, 253, 0.2);
-            border-radius: 12px;
-            padding: 20px 30px;
-            display: flex;
-            align-items: center;
-            box-sizing: border-box;
-            margin-bottom: 30px;
-        }
-
-        .iconInput img {
-            width: 18px;
-            height: 18px;
-            margin-right: 10px;
-        }
-
-        .iconInput input {
-            font-size: var(--font-size-primary);
-            font-family: PingFangSC-Regular, PingFang SC;
-            font-weight: 400;
-            color: rgba(187, 187, 187, 1);
-            line-height: 22px;
-            background: transparent;
-            border: 0;
-            outline: 0;
-        }
-
-        .rememberMe {
-            padding-top: 20px;
-            padding-bottom: 32px;
-            display: flex;
-            align-items: center;
-            font-size: var(--font-size-primary);
-            justify-content: unset;
-            width: 100%;
-        }
-
-        .rememberMe img {
-            cursor: pointer;
-            width: 20px;
-            height: 20px;
-        }
-
-        .rememberMe label {
-            cursor: pointer;
-            font-size: var(--font-size-primary);
-            font-family: PingFangSC-Regular, PingFang SC;
-            font-weight: 500;
-            color: #fff;
-            line-height: 24px;
-        }
-
-        .loginBtn {
-            width: 100%;
-            text-align: center;
-            padding:12px 0;
-            background-color: var(--color-primary);
-            color: #fff;
-            border-radius: 4px;
-            display: block;
-            text-decoration: none;
-            font-size: 18px;
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .themeSelect {
-            width: 100%;
-            margin-top: 20px;
-            cursor: pointer;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-
-        .themeSelect span {
-            margin-right: 5px;
-        }
-
-        .copyright {
-            text-align: center;
-            color: #fff;
-            font-size: 18px;
-            position: relative;
-            left: 0;
-            bottom: 45px;
-        }
-
-        @media screen and (max-width: 700px) {
-            .formDiv {
-                padding: 30px 30px 20px 30px;
-            }
-
-            .iconInput {
-                padding: 9px 30px;
-                margin-bottom: 15px;
-            }
-
-            .rememberMe {
-                padding-top: 20px;
-                padding-bottom: 25px;
-            }
-
-            .themeSelect {
-                margin-top: 11px;
-            }
-
-            .appName {
-                display: none;
-            }
-
-            .appNameMobile {
-                font-size: 18px;
-                color: white;
-                display: flex;
-            }
-
-            .logoDiv {
-                display: flex;
-                position: relative;
-                left: 0;
-                top: 0;
-                margin-bottom: 20px;
-            }
-
-            .dept {
-                display: none;
-            }
-
-            .copyright {
-                font-size: 12px;
-            }
-        }
+        
     </style>
 </head>
 
 <body class="six">
-    <div class="login" id="app">
+    <div class="login " id="app">
         <div class="logoDiv"></div>
-        <div class="appLogin">
-            <h3 class="appName">数通智合快速开发平台</h3>
-            <div class="formDiv">
-                <form action="" style="width:100%;">
-                    <h3 class="appName appNameMobile">数通智合快速开发平台</h3>
-                    <div class="iconInput userName">
-                        <img src="../../images/five/login_user_icon.png" alt="">
-                        <input autocomplete="off"  type="text" placeholder="请输入登录名" name="username" value=""/>
-                    </div>
-                    <div class="iconInput password" style="margin-bottom:0;">
-                        <img src="../../images/five/login_password_icon.png" alt="">
-                        <input autocomplete="off"  type="password" name="password" placeholder="请输入密码" value="" />
-                    </div>
-                    <div class="rememberMe" @click="rememberMe=!rememberMe">
-                        <label class="centerFlex"> <input style="background-color:white;margin-right:10px;" name="rememberMe" value="rememberMe" type="checkbox"/>记住我（公共场所慎用）</label>
-                    </div>
-                    <label class="loginBtn iconfont" id="loginBtn">
-                        <input style="position: absolute;left:-1000px;" type="submit" onclick="trun()" value="登录" />
-                        登录
-                    </label>
-                    <div class="themeSelect" id="toggleThemeBtn">
-                        <span>Flat主题</span>
-                        <img src="../../images/five/login_select_icon.png" alt="">
-                    </div>
-                </form>
+        <div class="loginSix">
+            <div class="loginlogoDiv">
+
+            </div>
+            <div class="appLogin">
+                <h3 class="appName">数通智合快速开发平台</h3>
+                <div class="formDiv">
+                    <form action="" style="width:100%;">
+                        <h3 class="appName appNameMobile">数通智合快速开发平台</h3>
+                        <div class="iconInput userName">
+                            <img src="../../images/six/login_user_icon.png" alt="">
+                            <input autocomplete="off"  type="text" placeholder="请输入登录名" name="username" value=""/>
+                        </div>
+                        <div class="iconInput password" style="margin-bottom:0;">
+                            <img src="../../images/six/login_password_icon.png" alt="">
+                            <input autocomplete="off"  type="password" name="password" placeholder="请输入密码" value="" />
+                        </div>
+                        <div class="rememberMe" @click="rememberMe=!rememberMe">
+                            <label class="centerFlex"> <input style="background-color:white;margin-right:10px;" name="rememberMe" value="rememberMe" type="checkbox"/>记住我（公共场所慎用）</label>
+                        </div>
+                        <label class="loginBtn iconfont" id="loginBtn">
+                            <input style="position: absolute;left:-1000px;" type="submit" onclick="trun()" value="登录" />
+                            登录
+                        </label>
+                        <div class="themeSelect" id="toggleThemeBtn">
+                            <span>Flat主题</span>
+                            <img src="../../images/six/login_select_icon.png" alt="">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -243,7 +54,7 @@
 </body>
 <script>
     function trun(){
-        window.location.href="../../views/five/home.html"
+        window.location.href="../../views/six/home.html"
         event.stopPropagation();
         event.preventDefault();
     }

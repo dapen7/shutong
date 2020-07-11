@@ -8,6 +8,33 @@
     -webkit-overflow-scrolling: touch;
     -webkit-appearance: none;
 }
+html{
+    /* 默认主色 */
+    --color-primary:#5488FF;
+    --color-primary-hover:#2E69F0;
+    --color-primary-text-button:white;
+    --color-plain-border:#5488FF;
+    --color-plain-text-button:#5488FF;
+    --color-plain-hover:#D5E1FC;
+    --color-disabled:#FFE18B;
+    --color-success:#25B36E;
+    --color-warning:#FCB222;
+    --color-danger:#E91126;
+    --color-info:#909399;
+    --color-text-primary:#333333;
+    --color-text-regular:#666666;
+    --color-text-secondary:#BBBBBB;
+    --color-text-placeholder:#BBBBBB;
+    --border-color-base:#DDDFE6;
+    --border-color-light:#E4E7ED;
+    --border-color-lighter:#EBEEF5;
+    --border-color-extra-light:#F2F6FC;
+    --color-white:#FFFFFF;
+    --color-black:#000000;
+    --background-color-base:#F5F5F5;
+    --font-size-primary:14px;
+    --border-radius:8px;
+}
 html,body{
     height:100%;
     width:100%;
@@ -16,7 +43,6 @@ html{
     background:#f5f5f5;
 }
 textarea{
-    
     box-shadow: none;
 }
 /* 滚动条 */
@@ -63,7 +89,6 @@ textarea{
 }
 /* 第五套主色 */
 .five{
-    
     --color-primary:#5488FF;
     --color-primary-hover:#2E69F0;
     --color-primary-text-button:white;
@@ -88,6 +113,33 @@ textarea{
     --background-color-base:#F5F5F5;
     --font-size-primary:14px;
     --border-radius:8px;
+}
+/* 第六套主色 */
+.six{
+    --color-primary:#12C18E;
+    --color-primary-hover:#119D74;
+    --color-primary-text-button:white;
+    --color-plain-border:#DDDFE6;
+    --color-plain-text-button:#333;
+    --color-plain-hover:#F1FBF6;
+    --color-disabled:#FFE18B;
+    --color-success:#25B36E;
+    --color-warning:#FCB222;
+    --color-danger:#E91126;
+    --color-info:#909399;
+    --color-text-primary:#333333;
+    --color-text-regular:#666666;
+    --color-text-secondary:#BBBBBB;
+    --color-text-placeholder:#BBBBBB;
+    --border-color-base:#DDDFE6;
+    --border-color-light:#E4E7ED;
+    --border-color-lighter:#EBEEF5;
+    --border-color-extra-light:#F2F6FC;
+    --color-white:#FFFFFF;
+    --color-black:#000000;
+    --background-color-base:#F5F5F5;
+    --font-size-primary:14px;
+    --border-radius:4px;
 }
 /* 通用样式 */
 .comTitle{
@@ -373,7 +425,6 @@ input[type="checkbox"]:checked:after {
 }
 .login {
     height: 100%;
-    background-size: cover;
     position: relative;
     display: flex;
     align-items: center;
@@ -382,12 +433,15 @@ input[type="checkbox"]:checked:after {
 }
 .four .login{
     background: url("../../images/four/login_bg.png") no-repeat center;
+    background-size: cover;
 }
 .five .login{
     background: url("../../images/five/login_bg.png") no-repeat center;
+    background-size: cover;
 }
 .six .login{
     background: url("../../images/six/login_bg.png") no-repeat center;
+    background-size: cover;
 }
 .login .logoDiv {
     background: url("../../images/five/login_logo_icon.png") no-repeat;
@@ -460,6 +514,7 @@ input[type="checkbox"]:checked:after {
     background: transparent;
     border: 0;
     outline: 0;
+    width:100%;
 }
 
 .login .rememberMe {
@@ -524,6 +579,73 @@ input[type="checkbox"]:checked:after {
     bottom: 45px;
 }
 
+@media screen and (min-width: 1000px) {
+    .loginSix{
+        width:984px;
+        height:569px;
+        background:white;
+        border-radius:20px;
+        display: flex;
+        padding:40px;
+    }
+    .loginSix .loginlogoDiv{
+        flex-basis: 473px;
+        width:473px;
+        height:473px;
+        background: url(../../images/six/login_pic.png);
+        flex-shrink: 0;
+    }
+    .login .loginSix .appName{
+        color:var(--color-text-primary);
+        margin-bottom:40px;
+        justify-content: left;
+    }
+    .login .loginSix .formDiv{
+        background:none;
+        padding:0;
+    }
+    .login .loginSix .iconInput{
+        background: #f8f8f8;
+    }
+    .login .loginSix .iconInput input{
+        color:var(--color-text-primary);
+    }
+    .login .loginSix .themeSelect span{
+        color:var(--color-primary);
+    }
+    .login .loginSix .rememberMe label{
+        color:var(--color-text-primary);
+    }
+    .login .loginSix .logoDiv{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .login .loginSix .logoDiv{
+        display: none;
+    }
+    .loginlogoDiv{
+        display: none;
+    }
+    .login .loginSix .appName{
+        color:var(--color-text-primary);
+    }
+    .login .loginSix .formDiv{
+        background: url("../../images/six/login_shuru_img.png") no-repeat;
+        padding-top:40px;
+    }
+    .login .loginSix .themeSelect span{
+        color:var(--color-primary);
+    }
+    .login .loginSix .rememberMe label{
+        color:var(--color-text-primary)
+    }
+    .login .loginSix .iconInput{
+        background: #f8f8f8;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .login .formDiv {
         padding: 30px 30px 20px 30px;
@@ -580,12 +702,15 @@ input[type="checkbox"]:checked:after {
 }
 .four .appNavDiv{
     background: url("../../images/four/login_bg.png") no-repeat center;
+    background-size: cover;
 }
 .five .appNavDiv{
     background: url("../../images/five/login_bg.png") no-repeat center;
+    background-size: cover;
 }
 .six .appNavDiv{
     background: url("../../images/six/login_bg.png") no-repeat center;
+    background-size: cover;
 }
 .appNavDiv .title {
     text-align: center;
@@ -625,9 +750,15 @@ input[type="checkbox"]:checked:after {
     border: 1px solid rgba(136, 136, 136, 1);
     -webkit-transition: 0.5s;
 }
-
-.appNavDiv .appItem.last {
-    margin-right: 0
+.six .appNavDiv .appItem{
+    border: 1px solid white;
+    background: white;
+}
+.six .appNavDiv .appItem h2{
+    color: var(--color-text-primary);
+}
+.six .appNavDiv .appItem a {
+    color: var(--color-text-primary);
 }
 
 .appNavDiv .appItem img {
@@ -697,6 +828,24 @@ input[type="checkbox"]:checked:after {
 }
 
 /* info组件样式 */
+.six .infoDiv .oneInfo{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.six .infoDiv .infoImg {
+    width: 38px;
+    height: 38px;
+}
+.six .infoDiv .infoText {
+    color: white;
+    margin:0;
+}
+
+.six .infoDiv .infoNumber {
+    margin:0;
+    color: white;
+}
 .infoDiv {
     display: grid;
     /* grid-template-columns: repeat(4, 1fr); */
@@ -1193,6 +1342,9 @@ input[type="checkbox"]:checked:after {
     }
 }
 /* 日历控件 */
+.calendarDiv2{
+    padding:24px 45px;
+}
 .calendarDiv {
     display: flex;
     align-items: center;
