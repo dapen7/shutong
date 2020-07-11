@@ -952,7 +952,7 @@ input[type="checkbox"]:checked:after {
 }
 
 .staticsDiv .title .desc {
-    color: #999;
+    color: var(--color-text-secondary);
     font-size: var(--font-size-primary);
 }
 

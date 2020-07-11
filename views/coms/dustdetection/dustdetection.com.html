@@ -46,14 +46,14 @@
                 }
             },
             polar: {
-                center: ['50%', '65%'],
-                radius: '100%'
+                center: ['50%', '75%'],
+                radius: '150px'
             },
             series: [
                 //渐变线
                 {
                     type: 'bar',
-                    barWidth: 20,
+                    barWidth: 15,
                     data: [{ value: 0 }, {
                         value: 50,
                         itemStyle: {
@@ -70,7 +70,7 @@
                 //内刻度
                 {
                     type: 'gauge',
-                    center: ['50%', '65%'],
+                    center: ['50%', '75%'],
                     detail: {
                         formatter: 'mg/m³',
                         color: '#333',
@@ -80,7 +80,7 @@
                     data: [{ value: value, name: '' }],
                     startAngle: 180,
                     endAngle: 0,
-                    radius: '60%',
+                    radius: '100px',
                     axisTick: {
                         show: false
                     },
@@ -110,8 +110,8 @@
                 {
                     name: '高中低',
                     type: 'gauge',
-                    center: ['50%', '65%'],
-                    radius: '130%',
+                    center: ['50%', '75%'],
+                    radius: '180px',
                     startAngle: 180,
                     endAngle: 0,
                     min: 0,
