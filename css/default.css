@@ -1189,7 +1189,7 @@ input[type="checkbox"]:checked:after {
     height: 350px;
     width: 350px;
     left: -175px;
-    background-color: var(--color-primary);
+    background-color: #FED45B;
 }
 
 .calendarDiv .circleborder {
