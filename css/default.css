@@ -1506,3 +1506,21 @@ input[type="checkbox"]:checked:after {
 .qualityDiv .radiusHighTable .layui-table-view{
     border-radius: 8px!important;
 }
+/* 字典列表 */
+.dictionaryDiv {
+    padding: 20px;
+}
+
+.dictionaryDiv .tableDiv {
+    width: 100%;
+}
+@media screen and (max-width: 1000px) {
+    .dictionaryDiv {
+        padding: 15px;
+    }
+
+    .dictionaryDiv .tableDiv {
+        width: 100%;
+        padding-left: 0;
+    }
+}
