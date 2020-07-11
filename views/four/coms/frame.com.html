@@ -552,21 +552,5 @@
             }
             document.querySelector(".menuDiv").style.display = "";
         })
-        //设置菜单激活项目
-        var menuName = $("#app").attr("active");
-        if(menuName){
-            $(".menuDiv a").each(function(index,item){
-                if($(item).text().indexOf(menuName)!=-1){
-                    if($(item).parents(".layui-nav-item").length>0){
-                        $(item).parents(".layui-nav-item").addClass("layui-nav-itemed");
-                    }
-                    if($(item).parents("dd").length>0){
-                        $($(item).parents("dd")[0]).addClass("layui-this");
-                    }else if($(item).parents(".layui-nav-item").length>0){
-                        $($(item).parents(".layui-nav-item")[$(item).parents(".layui-nav-item").length-1]).addClass("layui-this");
-                    }
-                }
-            })
-        }
     });
 </script>
