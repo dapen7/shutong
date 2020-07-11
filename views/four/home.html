@@ -27,7 +27,7 @@
             .four .homeGrid{
                 display: grid;
                 grid-template-columns: 1fr;
-                grid-template-rows:  212px 344px 345px 252px 400px 287px;
+                grid-template-rows:  250px 344px 345px 252px 400px 300px;
                 grid-template-areas: "a"
                                     "b"
                                     "c"
@@ -55,7 +55,7 @@
                 <com-calendar class="blockDiv" style="grid-area: c;"></com-calendar>
                 <com-statics2 class="blockDiv" style="grid-area: d;"></com-statics2>
                 <com-recount2 class="blockDiv" style="grid-area: e;"></com-recount2>
-                <com-dustdetection class="blockDiv" style="grid-area: f;"></com-dustdetection>
+                <com-dust class="blockDiv" style="grid-area: f;"></com-dust>
             </div>
         </com-frame>
     </div>
@@ -75,7 +75,7 @@
     load("../coms/statics/statics2.com.html","com-statics2");
     //质量问题统计
     load("../coms/recount/recount2.com.html","com-recount2");
-    //通知公告
-    load("../coms/dustdetection/dustdetection.com.html","com-dustdetection");
+    // //通知公告
+    load("../coms/dustdetection/dustdetection.com.html","com-dust");
 </script>
 </html>
