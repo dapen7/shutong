@@ -10,18 +10,18 @@
     <link rel="stylesheet" href="../../css/default.css">
     <link rel="stylesheet" href="../../js/lib/layui/css/layui.css">
     <link rel="stylesheet" href="../../js/lib/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
-    <script type="text/javascript" src="../../js/lib/zTree/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/common.js"></script>
     <script src="../../js/lib/layui/layui.js"></script>
     <script src="../../js/lib/load.js"></script>
     <style>
         .homeGrid{
             display: grid;
-            grid-template-columns: 1fr 1fr 340px;
-            grid-template-rows: 178px 186px 186px 341px;
-            grid-template-areas: "info info upcoming"
-                                 "statics statics upcoming"
-                                 "statics statics task"
-                                 "recount notice task";
+            grid-template-columns: 1fr 510px 400px;
+            grid-template-rows: 178px 200px 200px 300px;
+            grid-template-areas: "a a b"
+                                 "c d b"
+                                 "c d f"
+                                 "e d f";
             grid-auto-flow: row dense;
             grid-gap:25px;
         }
@@ -29,13 +29,13 @@
             .homeGrid{
                 display: grid;
                 grid-template-columns: 1fr;
-                grid-template-rows:  minmax(178px, 1fr) 287px 410px 324px 302px 485px;
-                grid-template-areas: "info"
-                                    "statics"
-                                    "upcoming"
-                                    "recount"
-                                    "notice"
-                                    "task";
+                grid-template-rows:  minmax(216px, 1fr) 359px 214px 600px 680px 585px;
+                grid-template-areas: "a"
+                                    "b"
+                                    "c"
+                                    "d"
+                                    "e"
+                                    "f";
                 grid-auto-flow: row dense;
                 grid-gap:15px;
             }
@@ -51,12 +51,12 @@
         <com-frame >
             <!-- 正文内容 -->
             <div class="homeGrid">
-                <com-info class="" style="grid-area: info;"></com-info>
-                <com-statics class="blockDiv" style="grid-area: statics;"></com-statics>
-                <com-recount class="blockDiv" style="grid-area: recount;"></com-recount>
-                <com-notice class="blockDiv" style="grid-area: notice;"></com-notice>
-                <com-upcoming class="blockDiv" style="grid-area: upcoming;"></com-upcoming>
-                <com-task class="blockDiv" style="grid-area: task;"></com-task>
+                <com-info class="" style="grid-area: a;"></com-info>
+                <com-calendar class="blockDiv" style="grid-area: b;"></com-calendar>
+                <com-statics class="blockDiv" style="grid-area: c;"></com-statics>
+                <com-recount class="blockDiv" style="grid-area: d;"></com-recount>
+                <com-oplog class="blockDiv" style="grid-area: f;"></com-oplog>
+                <com-task class="blockDiv" style="grid-area: e;"></com-task>
             </div>
         </com-frame>
     </div>
@@ -68,14 +68,14 @@
     //访问量
     load("../coms/info/info2.com.html","com-info");
     //数据概览
-    load("../coms/statics/statics.com.html","com-statics");
+    load("../coms/statics/statics3.com.html","com-statics");
     //质量问题统计
-    load("../coms/recount/recount.com.html","com-recount");
-    //通知公告
-    load("../coms/notice/notice.com.html","com-notice");
-    //待办事项
-    load("../coms/upcoming/upcoming.com.html","com-upcoming");
+    load("../coms/recount/recount4.com.html","com-recount");
+    //日历
+    load("../coms/calendar/calendar2.com.html","com-calendar");
+    //时间线
+    load("../coms/oplog/oplog.com.html","com-oplog");
     //任务统计
-    load("../coms/task/task.com.html","com-task");
+    load("../coms/task/task2.com.html","com-task");
 </script>
 </html>

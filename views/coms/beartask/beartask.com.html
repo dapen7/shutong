@@ -24,7 +24,7 @@
                                 <th lay-data="{field:'duty',templet:'#tempBearduty'}">职责</th>
                                 <th lay-data="{field:'education', width:200,templet: '#tempBearEdu'}">职称及学历</th>
                                 <th lay-data="{field:'type', width:200,templet: '#tempBearType'}">类别</th>
-                                <th lay-data="{field:'workCount', width:130,edit: 'text'}">工作量(人/年)</th>
+                                <th lay-data="{field:'workCount', width:130,templet: '#tempBearduty'}">工作量(人/年)</th>
                                 <th lay-data="{width:120, align:'center', toolbar: '#tempBearCtl'}">操作</th>
                             </tr>
                         </thead>
@@ -69,7 +69,7 @@
                                 <th lay-data="{field:'duty',templet: '#tempBearduty'}">职责</th>
                                 <th lay-data="{field:'education', width:200,templet: '#tempBearEdu'}">职称及学历</th>
                                 <th lay-data="{field:'type', width:200,templet: '#tempBearType'}">类别</th>
-                                <th lay-data="{field:'workCount', width:130,edit: 'text'}">工作量(人/年)</th>
+                                <th lay-data="{field:'workCount', width:130,templet: '#tempBearduty'}">工作量(人/年)</th>
                                 <th lay-data="{width:120, align:'center', toolbar: '#tempBearCtl'}">操作</th>
                             </tr>
                         </thead>
@@ -112,7 +112,7 @@
                                 <span class="mr25">序号1</span>
                                 <span>经营计划处</span>
                             </span>
-                            <i class="iconfont icondelete_icon cursor" style="float:right;color:var(--color-primary)"
+                            <i class="iconfont icondelete_icon cursor" style="float:right;color:var(--color-danger)"
                                 @click="deleteItem(beartaskForm.tableData1,index)"></i>
                         </div>
                         <div class="card-body bearGrid">
@@ -142,7 +142,7 @@
                                 <span class="mr25">序号2</span>
                                 <span>经营计划处</span>
                             </span>
-                            <i class="iconfont icondelete_icon cursor" style="float:right;color:var(--color-primary)"
+                            <i class="iconfont icondelete_icon cursor" style="float:right;color:var(--color-danger)"
                                 @click="deleteItem(beartaskForm.tableData1,index)"></i>
                         </div>
                         <div class="card-body bearGrid">
@@ -181,7 +181,7 @@
                                 <span class="mr25">序号1</span>
                                 <span>经营计划处</span>
                             </span>
-                            <i class="iconfont icondelete_icon cursor" style="float:right;color:var(--color-primary)"
+                            <i class="iconfont icondelete_icon cursor" style="float:right;color:var(--color-danger)"
                                 @click="deleteItem(beartaskForm.tableData1,index)"></i>
                         </div>
                         <div class="card-body bearGrid">

@@ -85,7 +85,7 @@ textarea{
     --color-black:#000000;
     --background-color-base:#F5F5F5;
     --font-size-primary:14px;
-    --border-radius:4px;
+    --border-radius:8px;
 }
 /* 第五套主色 */
 .five{
@@ -167,6 +167,11 @@ textarea{
     align-items: center;
     justify-content: center;
 }
+.centerFlexBt{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .cursor{
     cursor:pointer;
 }
@@ -211,37 +216,45 @@ textarea{
 .mr10{
     margin-right:10px;
 }
-.danger{
-    color:var(--color-danger);
+.primary{
+    color:var(--color-primary);
 }
 .success{
     color:var(--color-success);
 }
-.warning{
-    color:var(--color-warning);
-}
 .info{
     color:var(--color-info);
 }
-.primary{
-    color:var(--color-primary);
+.warning{
+    color:var(--color-warning);
+}
+.danger{
+    color:var(--color-danger);
+}
+.six .roundBtn{
+    padding:1px 10px;
+    background-color: var(--color-plain-hover);
+    border-radius: 10px;
 }
 .four .primary.button{
-    padding:5px 10px;
+    padding:3px 8px;
     background-color: var(--color-plain-hover);
     border-radius: var(--border-radius);
 }
 .four .danger.button{
     color:var(--color-danger);
-    padding:5px 10px;
+    padding:3px 8px;
     background-color: #FCE3D8;
     border-radius: var(--border-radius);
 }
 .four .magic{
     color:#BA89FE;
-    padding:5px 10px;
+    padding:3px 8px;
     background-color: rgba(186,137,254,0.16);
     border-radius: var(--border-radius);
+}
+.six .magic{
+    color:#F79A23;
 }
 .right{
     float: right;
@@ -485,6 +498,7 @@ input[type="checkbox"]:checked:after {
 }
 
 .login .appNameMobile {
+    font-weight: bold;
     display: none;
 }
 
@@ -1250,13 +1264,17 @@ input[type="checkbox"]:checked:after {
 }
 
 #taskChart0 {
-    width: 220px;
-    height: 220px;
+    width: 210px;
+    height: 210px;
 }
 
 #taskChart1 {
-    width: 220px;
-    height: 220px;
+    width: 210px;
+    height: 210px;
+}
+#taskChart2 {
+    width: 210px;
+    height: 210px;
 }
 /* 快捷方式组件 */
 .shortcutDiv{
@@ -1344,6 +1362,40 @@ input[type="checkbox"]:checked:after {
 /* 日历控件 */
 .calendarDiv2{
     padding:24px 45px;
+}
+.calendarDiv2 .laydate-icon {
+    display: none;
+}
+.calendarDiv2 .laydate-set-ym {
+    left: -60px;
+    text-align: left;
+    border-bottom: 2px solid var(--color-primary);
+}
+.calendarDiv2 .layui-laydate-header{
+    border-bottom:none;
+}
+.calendarDiv2 .layui-laydate, .layui-laydate-hint{
+    box-shadow: none;
+    border:none;
+}
+.calendarDiv2 .layui-laydate-main{
+    width:100%;
+}
+.calendarDiv2 .layui-laydate-content table{
+    margin-right:0;
+    width:100%;
+}
+.calendarDiv2 .layui-inline{
+    width: 100%;
+}
+.calendarDiv2 .layui-laydate, .layui-laydate-hint{
+    width:100%;
+}
+.calendarDiv2 .layui-laydate-content td, .layui-laydate-content th{
+    padding:10px 5px;
+}
+.calendarDiv2 .layui-laydate .layui-this{
+    box-shadow:0px 8px 24px 0px rgba(18,193,142,0.48);
 }
 .calendarDiv {
     display: flex;
@@ -1474,21 +1526,29 @@ input[type="checkbox"]:checked:after {
     }
 }
 /* 下拉列表 */
-.dropDownMenu div:nth-child(2){
+.dropDownMenu>div:nth-child(2){
     display: none;
     position: fixed;
     box-shadow: 0px 6px 22px 0px rgba(0,0,0,0.05);
     background: white;
-    border-radius: var(--border-radius);
+    border-radius: 4px;
     border:1px solid var(--border-color-base);
 }
-.dropDownMenu div:nth-child(2) div{
+.dropDownMenu>div:nth-child(2) div{
     text-align: center;
     padding:15px;
     cursor:pointer;
     color:var(--color-text-primary);
 }
-.dropDownMenu div:nth-child(2) div:hover{
+.dropDownMenu>div:nth-child(2) div a{
+    color:var(--color-text-primary);
+    text-decoration: none;
+}
+.dropDownMenu>div:nth-child(2) div:hover{
+    background:var(--color-primary);
+    color:var(--color-white);
+}
+.dropDownMenu>div:nth-child(2) div:hover a{
     background:var(--color-primary);
     color:var(--color-white);
 }
@@ -1693,4 +1753,1224 @@ input[type="checkbox"]:checked:after {
         width: 100%;
         padding-left: 0;
     }
+}
+/* 操作记录 */
+.oplogDiv{
+    padding:25px;
+    overflow-y: auto;
+}
+.oplogDiv .title {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 25px;
+}
+.oplogDiv .layui-timeline-axis{
+    color:#FEC400;
+}
+.oplogDiv .layui-timeline-item:before{
+    width: 3px;
+    left: 4px;
+}
+.oplogDiv .layui-timeline-axis{
+    font-weight: bold;
+}
+@media screen and (max-width: 1000px) {
+    .oplogDiv {
+        padding: 15px;
+    }
+    .oplogDiv .title {
+        margin-bottom: 15px;
+    }
+}
+/* 综合统计 */
+.recount5Div{
+    padding:25px;
+}
+.recount5Div .title{
+    color:#333333;
+    font-size:18px;
+    font-weight:400;
+    margin-bottom:25px;
+}
+.recount5Div .chartDiv{
+    max-width: 554px;
+    font-size:16px;
+    color:var(--color-text-primary);
+    margin:auto;
+}
+@media screen and (max-width: 1000px) {
+    .recount5Div{
+        padding:15px;
+    }
+    .recount5Div .title{
+        margin-bottom:15px;
+    }
+}
+.recount5Div .item{
+    border-top:1px solid rgba(245,245,245,1);
+    padding:15px 0;
+}
+.recount5Div .logo{
+    background-color: #12C18E;
+    border-radius: 100%;
+    width: 42px;
+    height: 42px;
+    margin-right: 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.recount5Div .number{
+    color:#9b9b9b;
+    margin-left:15px;
+}
+.recount5Div .oprate{
+    color:#BBC8D5;
+    font-size: 20px;
+    cursor: pointer;
+}
+.recount5Div .progressDiv{
+    padding-top:15px;
+    padding-bottom:8px;
+}
+.recount5Div .prOuter{
+    width:100%;
+    height:5px;
+    background-color: #F0F0F0;
+}
+.recount5Div .prInner{
+    background-color:  #12C18E;
+    box-shadow:0px 2px 4px 0px rgba(18,193,142,0.4);
+    height:5px;
+}
+.recount5Div .yellow .logo{
+    background-color: #FEC400;
+}
+.recount5Div .yellow .prInner{
+    background-color:  #FEC400;
+    box-shadow:0px 2px 4px 0px rgba(254,196,0,0.4);
+}
+.recount5Div .noborder{
+    border:none;
+}
+/* 图表页面 */
+.chartsDiv .breadDiv{
+    background-color: white;
+    padding:25px;
+}
+@media screen and (max-width: 1000px) {
+    .chartsDiv  .homePage .mainDiv{
+        padding-top: 15px!important;
+    }
+    .chartsDiv  .breadDiv{
+        background-color: white;
+        padding:15px;
+        margin-bottom:0;
+        margin-bottom:15px;
+    }
+}
+/* 第四套 */
+.four .homePage {
+    position: relative;
+    /* max-width: 1580px; */
+    width:100%;
+    height: 100%;
+    margin: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.four .homePage .contentDiv {
+    padding-top: 88px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+.four .homePage .headerDiv {
+    justify-content: center;
+    z-index: 2;
+    padding:0;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-right:25px;
+    height: 88px;
+    background: white;
+    position: fixed;
+    transform: translateZ(0);
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow:0px 6px 22px 0px rgba(0,0,0,0.05);
+}
+.four .homePage .contentArea {
+    /* width: 1580px; */
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+}
+
+.four .homePage .menuDiv {
+    padding: 30px 38px;
+    position: absolute;
+    left: 0;
+    top: 88px;
+    width: 210px;
+    bottom:0;
+    transform: translate(0px);
+    transition: .3s;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.02);
+    overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 2;
+    max-height: 100%;
+    background: url(../../images/four/home_navbg_img.png);
+    background-repeat: no-repeat;
+}
+/* 一级菜单 */
+.four .homePage .menuContent li{
+    margin-bottom:20px;
+}
+.four .homePage .menuContent li a {
+    display: flex;
+    border-radius: var(--border-radius);
+    flex-direction: column;
+    color:white;
+    font-size: 18px;
+    padding:18px 0;
+    align-items: center;
+}
+.four .homePage .menuContent li a:hover,.four .homePage .menuContent li.active a{
+    background-color: #172936;
+}
+.four .homePage .menuContent li a i{
+    font-size:48px;
+    color:#A4A0AE;
+}
+/* 二级菜单 */
+.four .homePage .secondMenuDiv{
+    flex-grow: 1;
+    display: flex;
+    overflow-x: auto;
+    padding:0 40px;
+}
+.four .homePage .secondMenuContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+}
+.four .homePage .secondMenuContent .menuItem a{
+    top:2px;
+}
+.four .homePage .secondMenuContent .menuItem{
+    padding:22px 0;
+    font-size: 18px;
+    color:var(--color-text-primary);
+    border-bottom:4px solid white;
+    margin-right:20px;
+}
+.four .homePage .secondMenuContent .menuItem:hover{
+    border-bottom:4px solid var(--color-primary);
+}
+
+.four .homePage .secondMenuContent .menuItem:hover a{
+    color:var(--color-primary);
+}
+.four .homePage .menuIcon{
+    display: none;
+}
+/* 三级菜单 */
+.four .homePage .thirdMenuDiv{
+    overflow-x: auto;
+    padding:0 40px;
+    background-color: white;
+    margin-top: 25px;
+    margin-right: 25px;
+    margin-left: 235px;
+}
+.four .homePage .thirdMenuContent{
+    display: flex;
+    align-items: center;
+}
+.four .homePage .thirdMenuContent .menuItem{
+    padding:22px 0;
+    font-size: 18px;
+    margin-right:58px;
+    color:var(--color-text-primary);
+    border-bottom:4px solid white;
+}
+.four .homePage .thirdMenuContent .menuItem:hover{
+    border-bottom:4px solid var(--color-primary);
+}
+.four .homePage .thirdMenuContent .menuItem:hover a{
+    color:var(--color-primary);
+}
+.four .homePage .menuIcon{
+    display: none;
+}
+/* 主框体 */
+.four .homePage .mainDiv {
+    width: 100%;
+    height: 100%;
+    padding:25px;
+    padding-left: 235px;
+    position: relative;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.four .homePage .topLogo {
+    flex-shrink: 0;
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.05);
+    width: 210px;
+    height: 100%;
+    background-color: var(--color-primary);
+}
+
+.four .homePage .topLogo .logo {
+    width: 42px;
+    height: 42px;
+}
+
+.four .homePage .topLogo .logoText {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-left: 10px;
+}
+
+.four .homePage .rightDiv {
+    display: flex;
+    align-items: center;
+}
+
+.four .homePage .rightDiv .fucItem {
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.four .homePage .rightDiv .fucItem img {
+    width: 20px;
+    height: 20px;
+}
+
+.four .homePage .rightDiv .fucItem span {
+    font-size: 18px;
+    color: #333;
+    margin-left: 10px;
+}
+
+.four .homePage .rightDiv .userInfo {
+    white-space: nowrap;
+    margin-left: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.four .homePage .rightDiv .userInfo .userName {
+    font-size: 18px;
+    color: #333;
+    margin-left: 10px;
+}
+
+.four .homePage .rightDiv .userInfoBox {
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.four .homePage .rightDiv .userInfoBox span {
+    font-size: 18px;
+    color: #333;
+    line-height: 42px;
+    margin-left: 10px;
+}
+
+.four .homePage .rightDiv .userInfoBox .headPic {
+    width: 42px;
+    height: 42px;
+    margin-left: 10px;
+}
+
+.four .homePage .searchDiv .inputBox {
+    width: 245px;
+    height: 46px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background: rgba(244, 245, 247, 1);
+    border-radius: 27px;
+    padding: 0 20px;
+}
+
+.four .homePage .searchDiv .inputBox img {
+    width: 22px;
+    cursor: pointer;
+}
+
+.four .homePage .searchDiv .inputBox input {
+    border: none;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+}
+.four .homePage .avatarDiv{
+    display: flex;
+    align-items: center;
+}
+@media screen and (max-width: 1000px) {
+    .four .homePage .topLogo {
+        display: none;
+    }
+    .four .homePage .searchDiv .inputBox {
+        width:178px;
+        height: 30px;
+        padding:0 10px;
+    }
+    .four .homePage .headerDiv {
+        height:44px;
+        border-bottom:1px solid rgba(248,248,248,1);
+        box-shadow: none;
+        padding-right:10px;
+        padding-left:10px;
+    }
+    .four .homePage .headerDiv .inputBox{
+        width:160px;
+    }
+    .four .homePage .menuIcon{
+        display: block;
+    }
+    .four .homePage .userInfo img{
+        height:20px;
+        width:20px;
+    }
+    .four .homePage .userName{
+        display: none;
+    }
+    .four .homePage .rightDiv .fucItem{
+        margin-left:20px;
+    }
+    .four .homePage .rightDiv .userInfo{
+        margin-left:20px;
+    }
+    .four .homePage .el-menu--collapse {
+        width: 0;
+        overflow: hidden;
+    }
+    .four .homePage .contentDiv {
+        padding-top:44px;
+    }
+    .four .homePage .mainDiv {
+        padding:15px 15px 0 15px;
+    }
+    .four .homePage .menuDiv{
+        position: fixed;
+        top: 0px;
+        border-radius: 0;
+        bottom: 0;
+        z-index: 11;
+        padding:0;
+    }
+    .four .mobileShadow{
+        position: absolute;
+        background: rgba(0,0,0,0.5);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: -44px;
+        z-index: 2;
+        z-index: 10;
+    }
+    .four .homePage .hideMenu{
+        transform: translate(-300px)!important;
+        transition: .3s;
+    }
+    .four .homePage .topLogo{
+        margin-bottom: 15px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        height: 58px;
+        display: flex;
+        padding-left:0;
+    }
+    .four .homePage .secondMenuContent .menuItem{
+        padding:10px 0;
+        font-size: 14px;
+    }
+    .four .homePage .thirdMenuContent .menuItem{
+        padding:10px 0;
+        font-size: 14px;
+    }
+    .four .homePage .secondMenuDiv{
+        border-radius: 0;
+        padding:0 25px;
+        border-bottom:1px solid var(--border-color-base);
+    }
+    .four .homePage .thirdMenuDiv{
+        border-radius: 0;
+        padding:0 25px;
+        border-bottom:1px solid var(--border-color-base);
+        margin: 0;
+        white-space: nowrap;
+    }
+}
+/* 第五套框架 */
+.five .homePage {
+    position: relative;
+    max-width: 1580px;
+    width:100%;
+    height: 100%;
+    margin: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.five .homePage .contentDiv {
+    padding-top: 88px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+.five .homePage .headerDiv {
+    z-index: 2;
+    padding:0 15px;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 88px;
+    background: white;
+    position: fixed;
+    transform: translateZ(0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:0px 6px 22px 0px rgba(0,0,0,0.05);
+}
+.five .homePage .headerDiv .layui-nav .layui-nav-item{
+    line-height: 30px;
+}
+.five .homePage .headerDiv .layui-nav .layui-nav-item a{
+    padding:0;
+}
+.five .homePage .headerDiv .layui-nav .layui-nav-more{
+    display: none;
+}
+.five .homePage .headerDiv .layui-nav dd a{
+    text-align: center;
+    padding: 0 10px!important;
+}
+.five .homePage .headerDiv .layui-nav-child{
+    right:0;
+    left: auto;
+}
+.five .homePage .headerDiv .layui-nav{
+    background-color: white;
+    padding:0;
+}
+.five .homePage .headerDiv .layui-nav-bar{
+    display: none;
+}
+.five .homePage .headerDiv .layui-nav .layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this{
+    color: var(--color-primary);
+}
+.five .homePage .menuIcon{
+    display: none;
+}
+
+.five .homePage .contentArea {
+    width: 1580px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+}
+
+.five .homePage .menuDiv {
+    padding: 30px 20px;
+    position: absolute;
+    left: 0;
+    transform: translate(0px);
+    transition: .3s;
+    top: 113px;
+    width: 235px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.02);
+    border-radius: 6px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 2;
+    max-height: 100%;
+}
+.five .homePage .menuDiv .layui-nav-tree{
+    width:195px;
+}
+.five .homePage .menuDiv .layui-nav{
+    background-color: transparent;
+}
+.five .homePage .menuDiv .layui-this{
+    color: white;
+    background: transparent;
+}
+.five .homePage .menuDiv .layui-nav-tree .layui-nav-item a{
+    background: transparent;
+    color: #787878;
+    font-size: 18px;
+    border-radius: 26px;
+    height: 52px;
+    line-height: 52px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.five .homePage .menuDiv .layui-nav-tree .layui-nav-item a i{
+    margin-right: 8px;
+    margin-left: 5px;
+}
+.five .homePage .menuDiv .layui-nav-bar{
+    display: none;
+}
+.five .homePage .menuDiv .layui-nav-tree .layui-nav-item a:hover,
+.five .homePage .menuDiv .layui-nav-tree .layui-nav-item.layui-this>a:first-child,
+.five .homePage .menuDiv .layui-nav-child dd.layui-this>a:first-child
+{
+    background: var(--color-primary);
+    color: #fff;
+}
+.five .homePage .menuDiv .layui-nav .layui-nav-mored, .layui-nav-itemed>a .layui-nav-more{
+    display: none;
+}
+.five .homePage .menuDiv .layui-nav-bar{
+    display: none;
+}
+.five .homePage .menuDiv .layui-nav-itemed>.layui-nav-child{
+    background-color:transparent!important;
+}
+.five .homePage .menuDiv .layui-nav-tree .layui-nav-more{
+    display: none;
+}
+.five .homePage .mainDiv {
+    width: 100%;
+    padding-left: 260px;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.five .homePage .topLogo {
+    width: 175px;
+    height: 42px;
+    padding-left: 35px;
+}
+
+.five .homePage .topLogo .logo {
+    width: 42px;
+    height: 42px;
+}
+
+.five .homePage .topLogo .logoText {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-left: 10px;
+}
+
+.five .homePage .rightDiv {
+    display: flex;
+    align-items: center;
+}
+
+.five .homePage .rightDiv .fucItem {
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.five .homePage .rightDiv .fucItem img {
+    width: 20px;
+    height: 20px;
+}
+
+.five .homePage .rightDiv .fucItem span {
+    font-size: 18px;
+    color: #333;
+    margin-left: 10px;
+}
+
+.five .homePage .rightDiv .userInfo {
+    white-space: nowrap;
+    margin-left: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.five .homePage .rightDiv .userInfo .userName {
+    font-size: 18px;
+    color: #333;
+    margin-left: 10px;
+}
+
+.five .homePage .rightDiv .userInfoBox {
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.five .homePage .rightDiv .userInfoBox span {
+    font-size: 18px;
+    color: #333;
+    line-height: 42px;
+    margin-left: 10px;
+}
+
+.five .homePage .rightDiv .userInfoBox .headPic {
+    width: 42px;
+    height: 42px;
+    margin-left: 10px;
+}
+
+.five .homePage .searchDiv .inputBox {
+    width: 245px;
+    height: 46px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background: rgba(244, 245, 247, 1);
+    border-radius: 27px;
+    padding: 0 20px;
+}
+
+.five .homePage .searchDiv .inputBox img {
+    width: 22px;
+    cursor: pointer;
+}
+
+.five .homePage .searchDiv .inputBox input {
+    border: none;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+}
+.five .homePage .thirdMenuDiv{
+    padding:0;
+    margin-top: 25px;
+    margin-left: 260px;
+}
+.five .thirdMenuDiv .layui-nav {
+    background-color:transparent;
+    color:var(--color-text-primary);
+}
+.five .thirdMenuDiv .layui-nav .layui-nav-item a{
+    color:var(--color-text-primary);
+}
+.five .thirdMenuDiv .layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after{
+    background-color: var(--color-primary);
+}
+.five .layui-nav .layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this{
+    background-color:initial;
+}
+.five .thirdMenuDiv .layui-nav .layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this{
+    color:var(--color-primary);
+}
+
+.five .homePage .avatarDiv{
+    display: flex;
+    align-items: center;
+}
+.five .homePage .hidden{
+    visibility:hidden;
+}
+@media screen and (max-width: 1000px) {
+    .five .homePage .topLogo {
+        display: none;
+    }
+    .five .homePage .searchDiv .inputBox {
+        width:178px;
+        height: 30px;
+        padding:0 10px;
+    }
+    .five .homePage .headerDiv {
+        height:44px;
+        border-bottom:1px solid rgba(248,248,248,1);
+        box-shadow: none;
+    }
+    .five .homePage .menuIcon{
+        display: block;
+    }
+    .five .homePage .userInfo img{
+        height:20px;
+        width:20px;
+    }
+    .five .homePage .userName{
+        display: none;
+    }
+    .five .homePage .rightDiv .fucItem{
+        margin-left:20px;
+    }
+    .five .homePage .rightDiv .userInfo{
+        margin-left:20px;
+    }
+    .five .homePage .el-menu--collapse {
+        width: 0;
+        overflow: hidden;
+    }
+    .five .homePage .contentDiv {
+        padding-top:44px;
+    }
+    .five .homePage .mainDiv {
+        padding:15px 15px 0 15px;
+    }
+    .five .homePage .menuDiv{
+        position: fixed;
+        top: 0px;
+        border-radius: 0;
+        bottom: 0;
+        z-index: 11;
+        padding:15px;
+    }
+    .five .mobileShadow{
+        position: absolute;
+        background: rgba(0,0,0,0.5);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: -44px;
+        z-index: 2;
+        z-index: 10;
+    }
+    .five .homePage .hideMenu{
+        transform: translate(-300px)!important;
+        transition: .3s;
+    }
+    .five .homePage .topLogo{
+        margin-bottom: 15px;
+        border-bottom: 1px solid #EEEEEE;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        height: 58px;
+        display: flex;
+        padding-left:0;
+    }
+    .five .homePage .thirdMenuDiv{
+        border-radius: 0;
+        padding:0;
+        margin: 0;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .five .homePage .thirdMenuDiv .layui-nav .layui-nav-item{
+        line-height: 44px;
+    }
+}
+/* 第六套框架 */
+.six .homePage {
+    position: relative;
+    /* max-width: 1580px; */
+    width:100%;
+    height: 100%;
+    margin: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.six .homePage .contentDiv {
+    padding-top: 88px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+.six .homePage .headerDiv {
+    justify-content: center;
+    z-index: 2;
+    padding:0;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-right:25px;
+    height: 88px;
+    background: white;
+    position: fixed;
+    transform: translateZ(0);
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow:0px 6px 22px 0px rgba(0,0,0,0.05);
+}
+.six .homePage .contentArea {
+    /* width: 1580px; */
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+}
+
+.six .homePage .menuDiv {
+    padding: 20px 0;
+    position: absolute;
+    left: 0;
+    top: 89px;
+    width: 210px;
+    bottom:0;
+    transform: translate(0px);
+    transition: .3s;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.02);
+    overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 2;
+    max-height: 100%;
+}
+/* 一级菜单 */
+.six .homePage .menuContent li{
+    margin-bottom:5px;
+}
+.six .homePage .menuContent li a {
+    display: flex;
+    color:var(--color-text-primary);
+    font-size: 18px;
+    padding:18px 25px;
+    align-items: center;
+    justify-content: left;
+    border-left:3px solid white;
+}
+.six .homePage .secondMenuContent .menuItem a{
+    top:2px;
+}
+.six .homePage .menuContent li a:hover,.six .homePage .menuContent li.active a {
+    background-color: var(--color-plain-hover);
+    color:var(--color-primary);
+    border-left:3px solid var(--color-primary);
+}
+.six .homePage .menuContent li a i{
+    font-size:22px;
+    margin-right:10px;
+}
+/* 二级菜单 */
+.six .homePage .secondMenuDiv{
+    flex-grow: 1;
+    display: flex;
+    overflow-x: auto;
+    padding:0 40px;
+}
+.six .homePage .secondMenuContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+}
+.six .homePage .secondMenuContent .menuItem{
+    padding:22px 0;
+    font-size: 18px;
+    color:var(--color-text-primary);
+    border-bottom:4px solid white;
+    margin-right:20px;
+}
+.six .homePage .secondMenuContent .menuItem:hover{
+    border-bottom:4px solid var(--color-primary);
+}
+
+.six .homePage .secondMenuContent .menuItem:hover a{
+    color:var(--color-primary);
+}
+.six .homePage .menuIcon{
+    display: none;
+}
+/* 三级菜单 */
+.six .homePage .thirdMenuDiv{
+    overflow-x: auto;
+    padding:0 40px;
+    background-color: white;
+    margin-top: 25px;
+    margin-right: 25px;
+    margin-left: 235px;
+}
+.six .homePage .thirdMenuContent{
+    display: flex;
+    align-items: center;
+}
+.six .homePage .thirdMenuContent .menuItem{
+    padding:22px 0;
+    font-size: 18px;
+    margin-right:58px;
+    color:var(--color-text-primary);
+    border-bottom:4px solid white;
+}
+.six .homePage .thirdMenuContent .menuItem:hover{
+    border-bottom:4px solid var(--color-primary);
+}
+.six .homePage .thirdMenuContent .menuItem:hover a{
+    color:var(--color-primary);
+}
+.six .homePage .menuIcon{
+    display: none;
+}
+/* 主框体 */
+.six .homePage .mainDiv {
+    width: 100%;
+    height: 100%;
+    padding:25px;
+    padding-left: 235px;
+    position: relative;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.six .homePage .topLogo {
+    flex-shrink: 0;
+    width: 210px;
+    height: 100%;
+}
+.six .homePage .topLogo:after{
+    content: '';
+    border-right: 1px solid #EAEDF3;
+    height: 30%;
+    position: absolute;
+    right: -5px;
+}
+
+.six .homePage .topLogo .logo {
+    width: 42px;
+    height: 42px;
+}
+
+.six .homePage .topLogo .logoText {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-left: 10px;
+}
+
+.six .homePage .rightDiv {
+    display: flex;
+    align-items: center;
+}
+
+.six .homePage .rightDiv .fucItem {
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.six .homePage .rightDiv .fucItem img {
+    width: 20px;
+    height: 20px;
+}
+
+.six .homePage .rightDiv .fucItem span {
+    font-size: 18px;
+    color: #333;
+    margin-left: 10px;
+}
+
+.six .homePage .rightDiv .userInfo {
+    white-space: nowrap;
+    margin-left: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.six .homePage .rightDiv .userInfo .userName {
+    font-size: 18px;
+    color: #333;
+    margin-left: 10px;
+}
+
+.six .homePage .rightDiv .userInfoBox {
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.six .homePage .rightDiv .userInfoBox span {
+    font-size: 18px;
+    color: #333;
+    line-height: 42px;
+    margin-left: 10px;
+}
+
+.six .homePage .rightDiv .userInfoBox .headPic {
+    width: 42px;
+    height: 42px;
+    margin-left: 10px;
+}
+
+.six .homePage .searchDiv .inputBox {
+    width: 245px;
+    height: 46px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background: rgba(244, 245, 247, 1);
+    border-radius: 27px;
+    padding: 0 20px;
+}
+
+.six .homePage .searchDiv .inputBox img {
+    width: 22px;
+    cursor: pointer;
+}
+
+.six .homePage .searchDiv .inputBox input {
+    border: none;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+}
+.six .homePage .avatarDiv{
+    display: flex;
+    align-items: center;
+}
+@media screen and (max-width: 1000px) {
+    .six .homePage .topLogo {
+        display: none;
+        border-bottom:1px solid var(--border-color-base);
+    }
+    .six .homePage .searchDiv .inputBox {
+        width:178px;
+        height: 30px;
+        padding:0 10px;
+    }
+    .six .homePage .headerDiv {
+        height:44px;
+        border-bottom:1px solid rgba(248,248,248,1);
+        box-shadow: none;
+        padding-right:10px;
+        padding-left:10px;
+    }
+    .six .homePage .headerDiv .inputBox{
+        width:160px;
+    }
+    .six .homePage .menuIcon{
+        display: block;
+    }
+    .six .homePage .userInfo img{
+        height:20px;
+        width:20px;
+    }
+    .six .homePage .userName{
+        display: none;
+    }
+    .six .homePage .rightDiv .fucItem{
+        margin-left:20px;
+    }
+    .six .homePage .rightDiv .userInfo{
+        margin-left:20px;
+    }
+    .six .homePage .el-menu--collapse {
+        width: 0;
+        overflow: hidden;
+    }
+    .six .homePage .contentDiv {
+        padding-top:44px;
+    }
+    .six .homePage .mainDiv {
+        padding:15px 15px 0 15px;
+    }
+    .six .homePage .menuDiv{
+        position: fixed;
+        top: 0px;
+        border-radius: 0;
+        bottom: 0;
+        z-index: 11;
+        padding:0;
+    }
+    .six .mobileShadow{
+        position: absolute;
+        background: rgba(0,0,0,0.5);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: -44px;
+        z-index: 2;
+        z-index: 10;
+    }
+    .six .homePage .hideMenu{
+        transform: translate(-300px)!important;
+        transition: .3s;
+    }
+    .six .homePage .secondMenuContent .menuItem{
+        padding:10px 0;
+        font-size: 14px;
+    }
+    .six .homePage .thirdMenuContent .menuItem{
+        padding:10px 0;
+        font-size: 14px;
+    }
+    .six .homePage .secondMenuDiv{
+        border-radius: 0;
+        padding:0 25px;
+        border-bottom:1px solid var(--border-color-base);
+    }
+    .six .homePage .thirdMenuDiv{
+        border-radius: 0;
+        padding:0 25px;
+        border-bottom:1px solid var(--border-color-base);
+        margin: 0;
+        white-space: nowrap;
+    }
+    .six .homePage .topLogo{
+        margin-bottom: 15px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        padding-left:0;
+        height:74px;
+    }
+}
+/* 计划页面 */
+.planDiv {
+    padding: 25px;
+    padding-bottom:40px;
+}
+.planDiv .layui-tab-content{
+    border:1px solid var(--border-color-base);
+    border-top:0;
+    padding:0;
+}
+@media screen and (max-width: 1000px) {
+    .planDiv{
+        padding:0;
+    }
+    .planDiv .tableDiv{
+        height: 100%;
+    }
+    .planDiv .breadDiv{
+        padding:11px 15px;
+        border-bottom:1px solid var(--border-color-base);
+        margin-bottom:0;
+    }
+    .planDiv .layui-tab{
+        margin-top:0;
+    }
+    .planDiv .layui-tab-content{
+        border:none;
+    }
+}
+.login .themeSelect .avatarDiv{
+    display: flex;
+    align-items: center;
 }

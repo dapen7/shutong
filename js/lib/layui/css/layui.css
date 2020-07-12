@@ -3964,7 +3964,7 @@ body .layui-table-tips .layui-layer-content {
 }
 
 .layui-tab-title .layui-this {
-    color: #000
+    color: var(--color-primary);
 }
 
 .layui-tab-title .layui-this:after {

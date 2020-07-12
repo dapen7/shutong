@@ -1,5 +1,4 @@
 <style>
-    
 </style>
 <template>
     <div class="calendarDiv2">
@@ -7,11 +6,13 @@
     </div>
 </template>
 <script>
-  layui.use('laydate', function(){
-    var laydate = layui.laydate;
-    laydate.render({
-        elem: '#calendar22',
-        position: 'static'
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#calendar22',
+            position: 'static',
+            lang: 'en',
+            showBottom: false
+        });
     });
-  });
 </script>

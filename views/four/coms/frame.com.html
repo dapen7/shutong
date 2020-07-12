@@ -1,354 +1,5 @@
 <style>
-    .four .homePage {
-        position: relative;
-        /* max-width: 1580px; */
-        width:100%;
-        height: 100%;
-        margin: auto;
-        overflow-x: auto;
-        overflow-y: hidden;
-    }
-
-    .four .homePage .contentDiv {
-        padding-top: 88px;
-        height: 100%;
-        width: 100%;
-        box-sizing: border-box;
-
-    }
-    .four .homePage .headerDiv {
-        justify-content: center;
-        z-index: 2;
-        padding:0;
-        top: 0;
-        left: 0;
-        right: 0;
-        padding-right:25px;
-        height: 88px;
-        background: white;
-        position: fixed;
-        transform: translateZ(0);
-        display: flex;
-        align-items: center;
-        box-sizing: border-box;
-        box-shadow:0px 6px 22px 0px rgba(0,0,0,0.05);
-    }
-    .four .homePage .contentArea {
-        /* width: 1580px; */
-        width:100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 100%;
-        position: relative;
-    }
-
-    .four .homePage .menuDiv {
-        padding: 30px 38px;
-        position: absolute;
-        left: 0;
-        top: 88px;
-        width: 210px;
-        bottom:0;
-        transform: translate(0px);
-        transition: .3s;
-        background: rgba(255, 255, 255, 1);
-        box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.02);
-        overflow-y: auto;
-        box-sizing: border-box;
-        z-index: 2;
-        max-height: 100%;
-        background: url(../../images/four/home_navbg_img.png);
-        background-repeat: no-repeat;
-    }
-    /* 一级菜单 */
-    .four .homePage .menuContent li{
-        margin-bottom:20px;
-    }
-    .four .homePage .menuContent li a {
-        display: flex;
-        border-radius: var(--border-radius);
-        flex-direction: column;
-        color:white;
-        font-size: 18px;
-        padding:18px 0;
-        align-items: center;
-    }
-    .four .homePage .menuContent li a:hover {
-        background-color: #172936;
-    }
-    .four .homePage .menuContent li a i{
-        font-size:48px;
-        color:#A4A0AE;
-    }
-    /* 二级菜单 */
-    .four .homePage .secondMenuDiv{
-        display: flex;
-        overflow-x: auto;
-        padding:0 40px;
-    }
-    .four .homePage .secondMenuContent{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        white-space: nowrap;
-    }
-    .four .homePage .secondMenuContent .menuItem{
-        padding:22px 0;
-        font-size: 18px;
-        color:var(--color-text-primary);
-        border-bottom:4px solid white;
-        margin-right:20px;
-    }
-    .four .homePage .secondMenuContent .menuItem:hover{
-        border-bottom:4px solid var(--color-primary);
-    }
-
-    .four .homePage .secondMenuContent .menuItem:hover a{
-        color:var(--color-primary);
-    }
-    .four .homePage .menuIcon{
-        display: none;
-    }
-    /* 三级菜单 */
-    .four .homePage .thirdMenuDiv{
-        overflow-x: auto;
-        padding:0 40px;
-        background-color: white;
-        margin-top: 25px;
-        margin-right: 25px;
-        margin-left: 235px;
-    }
-    .four .homePage .thirdMenuContent{
-        display: flex;
-        align-items: center;
-    }
-    .four .homePage .thirdMenuContent .menuItem{
-        padding:22px 0;
-        font-size: 18px;
-        margin-right:58px;
-        color:var(--color-text-primary);
-        border-bottom:4px solid white;
-    }
-    .four .homePage .thirdMenuContent .menuItem:hover{
-        border-bottom:4px solid var(--color-primary);
-    }
-    .four .homePage .thirdMenuContent .menuItem:hover a{
-        color:var(--color-primary);
-    }
-    .four .homePage .menuIcon{
-        display: none;
-    }
-    /* 主框体 */
-    .four .homePage .mainDiv {
-        width: 100%;
-        height: 100%;
-        padding:25px;
-        padding-left: 235px;
-        position: relative;
-        box-sizing: border-box;
-        overflow-y: auto;
-    }
-
-    .four .homePage .topLogo {
-        flex-shrink: 0;
-        box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.05);
-        width: 210px;
-        height: 100%;
-        background-color: var(--color-primary);
-    }
-
-    .four .homePage .topLogo .logo {
-        width: 42px;
-        height: 42px;
-    }
-
-    .four .homePage .topLogo .logoText {
-        font-size: 30px;
-        font-weight: bold;
-        color: #333;
-        margin-left: 10px;
-    }
-
-    .four .homePage .rightDiv {
-        display: flex;
-        align-items: center;
-    }
-
-    .four .homePage .rightDiv .fucItem {
-        margin-left: 30px;
-        cursor: pointer;
-    }
-
-    .four .homePage .rightDiv .fucItem img {
-        width: 20px;
-        height: 20px;
-    }
-
-    .four .homePage .rightDiv .fucItem span {
-        font-size: 18px;
-        color: #333;
-        margin-left: 10px;
-    }
-
-    .four .homePage .rightDiv .userInfo {
-        white-space: nowrap;
-        margin-left: 20px;
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
-
-    .four .homePage .rightDiv .userInfo .userName {
-        font-size: 18px;
-        color: #333;
-        margin-left: 10px;
-    }
-
-    .four .homePage .rightDiv .userInfoBox {
-        cursor: pointer;
-        padding: 10px 0;
-    }
-
-    .four .homePage .rightDiv .userInfoBox span {
-        font-size: 18px;
-        color: #333;
-        line-height: 42px;
-        margin-left: 10px;
-    }
-
-    .four .homePage .rightDiv .userInfoBox .headPic {
-        width: 42px;
-        height: 42px;
-        margin-left: 10px;
-    }
-
-    .four .homePage .searchDiv .inputBox {
-        width: 245px;
-        height: 46px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        box-sizing: border-box;
-        background: rgba(244, 245, 247, 1);
-        border-radius: 27px;
-        padding: 0 20px;
-    }
-
-    .four .homePage .searchDiv .inputBox img {
-        width: 22px;
-        cursor: pointer;
-    }
-
-    .four .homePage .searchDiv .inputBox input {
-        border: none;
-        width: 100%;
-        height: 100%;
-        background: transparent;
-        outline: none;
-    }
-    .four .homePage .avatarDiv{
-        display: flex;
-        align-items: center;
-    }
-    @media screen and (max-width: 1000px) {
-        .four .homePage .topLogo {
-            display: none;
-        }
-        .four .homePage .searchDiv .inputBox {
-            width:178px;
-            height: 30px;
-            padding:0 10px;
-        }
-        .four .homePage .headerDiv {
-            height:44px;
-            border-bottom:1px solid rgba(248,248,248,1);
-            box-shadow: none;
-            padding-right:10px;
-            padding-left:10px;
-        }
-        .four .homePage .headerDiv .inputBox{
-            width:160px;
-        }
-        .four .homePage .menuIcon{
-            display: block;
-        }
-        .four .homePage .userInfo img{
-            height:20px;
-            width:20px;
-        }
-        .four .homePage .userName{
-            display: none;
-        }
-        .four .homePage .rightDiv .fucItem{
-            margin-left:20px;
-        }
-        .four .homePage .rightDiv .userInfo{
-            margin-left:20px;
-        }
-        .four .homePage .el-menu--collapse {
-            width: 0;
-            overflow: hidden;
-        }
-        .four .homePage .contentDiv {
-            padding-top:44px;
-        }
-        .four .homePage .mainDiv {
-            padding:15px 15px 0 15px;
-        }
-        .four .homePage .menuDiv{
-            position: fixed;
-            top: 0px;
-            border-radius: 0;
-            bottom: 0;
-            z-index: 11;
-            padding:0;
-        }
-        .four .mobileShadow{
-            position: absolute;
-            background: rgba(0,0,0,0.5);
-            left: 0;
-            right: 0;
-            bottom: 0;
-            top: -44px;
-            z-index: 2;
-            z-index: 10;
-        }
-        .four .homePage .hideMenu{
-            transform: translate(-300px)!important;
-            transition: .3s;
-        }
-        .four .homePage .topLogo{
-            margin-bottom: 15px;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            height: 58px;
-            display: flex;
-            padding-left:0;
-        }
-        .four .homePage .secondMenuContent .menuItem{
-            padding:10px 0;
-            font-size: 14px;
-        }
-        .four .homePage .thirdMenuContent .menuItem{
-            padding:10px 0;
-            font-size: 14px;
-        }
-        .four .homePage .secondMenuDiv{
-            border-radius: 0;
-            padding:0 25px;
-            border-bottom:1px solid var(--border-color-base);
-        }
-        .four .homePage .thirdMenuDiv{
-            border-radius: 0;
-            padding:0 25px;
-            border-bottom:1px solid var(--border-color-base);
-            margin: 0;
-            white-space: nowrap;
-        }
-    }
+   
 </style>
 <template>
     <div class="homePage">
@@ -392,7 +43,16 @@
                             </a>
                         </div>
                         <div class="fucItem centerFlex">
-                            <i class="iconfont icontheme_icon1" style="color:var(--color-text-primary);font-size:20px;"></i>
+                            <div class="dropDownMenu">
+                                <div class="avatarDiv">
+                                    <i class="iconfont icontheme_icon1" style="color:var(--color-text-primary);font-size:20px;"></i>
+                                </div>
+                                <div>
+                                    <div><a href="../../views/four/home.html">第四套</a></div>
+                                    <div><a href="../../views/five/home.html">第五套</a></div>
+                                    <div><a href="../../views/six/home.html">第六套</a></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
@@ -471,33 +131,6 @@
 <script>
     window.skinName = "four";
     $(function(){
-        $(window).bind("click",function(){
-            $(".dropDownMenu").each(function(index,item){
-                var content = $(this).children("div").eq(1);
-                if(content){
-                    if(!content.is(":hidden")){
-                        content.hide();
-                    }
-                }
-            });
-        });
-        $(".dropDownMenu").bind("click",function(){
-            var self = this;
-            var content = $(this).children("div").eq(1);
-            if(content){
-                if(content.is(":hidden")){
-                    var offset = $(this).offset();
-                    content.css({right:window.innerWidth - offset.left -$(this).width(),top:offset.top+$(this).height()+10});
-                    content.show();
-                }
-                window.addEventListener("resize",function(){
-                    var offset = $(self).offset();
-                    content.css({right:window.innerWidth - offset.left -$(self).width(),top:offset.top+$(self).height()+10});
-                });
-            }
-            event.stopPropagation();
-        });
-
         if(window.innerWidth<1000){
             $(".thirdMenuDiv").before($(".secondMenuDiv"));
         }else{
@@ -552,5 +185,15 @@
             }
             document.querySelector(".menuDiv").style.display = "";
         })
+        //设置菜单激活项目
+        var menuName = $("#app").attr("active");
+        if(menuName){
+            $(".menuDiv a").each(function(index,item){
+                if($(item).text().indexOf(menuName)!=-1){
+                    $(".menuDiv li.active").removeClass("active");
+                    $($(item).parents("li")[0]).addClass("active");
+                }
+            })
+        }
     });
 </script>

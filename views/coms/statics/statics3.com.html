@@ -1,0 +1,72 @@
+<style>
+
+</style>
+<template>
+    <div class="staticsDiv">
+        <div class="title">
+            <span>数据概览：<span class="desc">近一周新增用户量&访问量</span></span>
+        </div>
+        <div class="chartDiv">
+            <div id="staticChartFive2" class="chartCDiv"></div>
+        </div>
+    </div>
+</template>
+<script>
+    (function () {
+        var staticChartFive = "";
+        staticChartFive = echarts.init(document.getElementById('staticChartFive2'),'customed');
+        var option = {
+            color: ['#FEC400', '#12C18E'],
+            title: {
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['访问量', '新增用户量'],
+                top:40,
+                left:20
+            },
+            grid: {
+                top:90,
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['Jan 25', 'Jan 26', 'Jan 27', 'Jan 28', 'Jan 29', 'Jan 30', 'Jan 31'],
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: function (value) {
+                        return value / 1000 + "k";
+                    }
+                },
+            },
+            series: [
+                {
+                    name: '访问量',
+                    type: 'line',
+                    data: [1111, 1222, 1100, 1133, 1311, 1611, 2211]
+                },
+                {
+                    name: '新增用户量',
+                    type: 'line',
+                    data: [0, 1111, 1431, 1513, 1222, 1411, 2455]
+                },
+            ]
+        };
+
+        staticChartFive.setOption(option);
+        window.addEventListener("resize", function () {
+            staticChartFive.resize();
+        });
+        setTimeout(function () {
+            staticChartFive.resize();
+        }, 100);
+    })()
+</script>

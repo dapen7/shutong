@@ -1,0 +1,247 @@
+<style>
+
+</style>
+<template>
+    <div class="staticsDiv">
+        <div class="title">
+            <span>质量问题数统计</span>
+        </div>
+        <div class="chartDiv">
+            <div id="staticChart3" class="chartCDiv"></div>
+        </div>
+    </div>
+</template>
+<script>
+    (function () {
+        var staticChartFive = "";
+        staticChartFive = echarts.init(document.getElementById('staticChart3'), 'customed');
+        var option = {
+            color: ['#4ED8B0', '#66AEF3', '#FC8787', '#FFA958', '#B8A4FF', '#D7D7D7', '#FEC400', '#EBA4FF'].reverse(),
+            title: {
+            },
+            legend: {
+                data: ['其他', '工艺', '设备', '管理', '设计', '软件', '器材', '操作'].reverse(),
+                icon: "circle",
+                height: '300px',
+                bottom: 0
+            },
+            grid: {
+                top: 90
+            },
+            xAxis: {
+                type: 'value',
+                position: 'top',
+                axisLabel: {
+                    formatter: function (value) {
+                        return value + "%";
+                    }
+                },
+            },
+            yAxis: {
+                type: 'category',
+                axisTick: {
+                    show: false
+                },
+                axisLabel: {
+                    show: false,
+                },
+                data: ['其他', '工艺', '设备', '管理', '设计', '软件', '器材', '操作']
+            },
+            series: [
+                {
+                    barWidth: 8,
+                    name: '其他',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [100],
+                    label: {
+                        show: true,
+                        position: 'right',
+                        color: '#31394D',
+                        formatter: function (a) {
+                            if (a.value) {
+                                return a.value + "%";
+                            }
+                            return ""
+                        }
+                    },
+                    itemStyle: {
+                        shadowColor: "rgba(67, 15, 15, 0.14)",
+                        shadowOffsetY: 3,
+                        shadowBlur: 5,
+                    }
+                },
+                {
+                    barWidth: 8,
+                    name: '工艺',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [0, 48, 0, 0, 0, 0, 0, 0],
+                    label: {
+                        show: true,
+                        position: 'right',
+                        color: '#31394D',
+                        formatter: function (a) {
+                            if (a.value) {
+                                return a.value + "%";
+                            }
+                            return ""
+                        }
+                    },
+                    itemStyle: {
+                        shadowColor: "rgba(67, 15, 15, 0.14)",
+                        shadowOffsetY: 3,
+                        shadowBlur: 5, barBorderRadius: [0, 5, 5, 0],
+                    }
+                },
+                {
+                    barWidth: 8,
+                    name: '设备',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [0, 0, 47, 0, 0, 0, 0, 0],
+                    label: {
+                        show: true,
+                        position: 'right',
+                        color: '#31394D',
+                        formatter: function (a) {
+                            if (a.value) {
+                                return a.value + "%";
+                            }
+                            return ""
+                        }
+                    },
+                    itemStyle: {
+                        shadowColor: "rgba(67, 15, 15, 0.14)",
+                        shadowOffsetY: 3,
+                        shadowBlur: 5, barBorderRadius: [0, 5, 5, 0],
+                    }
+                },
+                {
+                    barWidth: 8,
+                    name: '管理',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [0, 0, 0, 57, 0, 0, 0, 0],
+                    label: {
+                        show: true,
+                        position: 'right',
+                        color: '#31394D',
+                        formatter: function (a) {
+                            if (a.value) {
+                                return a.value + "%";
+                            }
+                            return ""
+                        }
+                    },
+                    itemStyle: {
+                        shadowColor: "rgba(67, 15, 15, 0.14)",
+                        shadowOffsetY: 3,
+                        shadowBlur: 5, barBorderRadius: [0, 5, 5, 0],
+                    }
+                },
+                {
+                    barWidth: 8,
+                    name: '设计',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [0, 0, 0, 0, 72, 0, 0, 0],
+                    label: {
+                        show: true,
+                        position: 'right',
+                        color: '#31394D',
+                        formatter: function (a) {
+                            if (a.value) {
+                                return a.value + "%";
+                            }
+                            return ""
+                        }
+                    },
+                    itemStyle: {
+                        shadowColor: "rgba(67, 15, 15, 0.14)",
+                        shadowOffsetY: 3,
+                        shadowBlur: 5, barBorderRadius: [0, 5, 5, 0],
+                    }
+                },
+                {
+                    barWidth: 8,
+                    name: '软件',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [0, 0, 0, 0, 0, 48, 0, 0],
+                    label: {
+                        show: true,
+                        position: 'right',
+                        color: '#31394D',
+                        formatter: function (a) {
+                            if (a.value) {
+                                return a.value + "%";
+                            }
+                            return ""
+                        }
+                    },
+                    itemStyle: {
+                        shadowColor: "rgba(67, 15, 15, 0.14)",
+                        shadowOffsetY: 3,
+                        shadowBlur: 5, barBorderRadius: [0, 5, 5, 0],
+                    }
+                },
+                {
+                    barWidth: 8,
+                    name: '器材',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [0, 0, 0, 0, 0, 0, 47, 0],
+                    label: {
+                        show: true,
+                        position: 'right',
+                        color: '#31394D',
+                        formatter: function (a) {
+                            if (a.value) {
+                                return a.value + "%";
+                            }
+                            return ""
+                        }
+                    },
+                    itemStyle: {
+                        shadowColor: "rgba(67, 15, 15, 0.14)",
+                        shadowOffsetY: 3,
+                        shadowBlur: 5, barBorderRadius: [0, 5, 5, 0],
+                    }
+                },
+                {
+                    barWidth: 8,
+                    name: '操作',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [0, 0, 0, 0, 0, 0, 0, 58],
+                    label: {
+                        show: true,
+                        position: 'right',
+                        color: '#31394D',
+                        formatter: function (a) {
+                            if (a.value) {
+                                return a.value + "%";
+                            }
+                            return ""
+                        }
+                    },
+                    itemStyle: {
+                        shadowColor: "rgba(67, 15, 15, 0.14)",
+                        shadowOffsetY: 3,
+                        shadowBlur: 5, barBorderRadius: [0, 5, 5, 0],
+                    }
+                },
+            ]
+        };
+
+
+        staticChartFive.setOption(option);
+        window.addEventListener("resize", function () {
+            staticChartFive.resize();
+        });
+        setTimeout(function () {
+            staticChartFive.resize();
+        }, 100);
+    })()
+</script>

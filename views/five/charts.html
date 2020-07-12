@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../css/default.css">
     <link rel="stylesheet" href="../../js/lib/layui/css/layui.css">
     <link rel="stylesheet" href="../../js/lib/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
-    <script type="text/javascript" src="../../js/lib/zTree/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/common.js"></script>
     <script src="../../js/lib/layui/layui.js"></script>
     <script src="../../js/lib/load.js"></script>
     <style>
@@ -21,10 +21,6 @@
                                  "dustdetection task task";
             grid-auto-flow: row dense;
             grid-gap:25px;
-        }
-        .breadDiv{
-            background-color: white;
-            padding:25px;
         }
         @media screen and (max-width: 1000px) {
             .chartGrid{
@@ -38,21 +34,13 @@
                 grid-auto-flow: row dense;
                 grid-gap:15px;
             }
-            .five .homePage .mainDiv{
-                padding-top: 15px!important;
-            }
-            .breadDiv{
-                background-color: white;
-                padding:15px;
-                margin-bottom:0;
-            }
         }
        
     </style>
 </head>
 
 <body class="five">
-    <div id="app" class="appDiv" active="图表">
+    <div id="app" class="appDiv chartsDiv" active="图表">
         <com-frame>
             <div class="mb20 breadDiv">
                 <span class="mr10 isPc">当前位置 : </span>
