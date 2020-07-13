@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>如何使用</title>
+    <link rel="stylesheet" href="../../images/font/iconfont.css">
+    <link rel="stylesheet" href="../../css/default.css">
+    <link rel="stylesheet" href="../../js/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../js/lib/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="../../js/lib/common.js"></script>
+    <script src="../../js/lib/layui/layui.js"></script>
+    <script src="../../js/lib/load.js"></script>
+    <script type="text/javascript" src="../../js/lib/zTree/js/jquery.ztree.all.js"></script>
+    <style>
+        .appDiv{
+            padding:30px;
+        }
+        h1{
+            margin-bottom:15px;
+        }
+        p{
+            margin-bottom:15px;
+        }
+        xmp{
+            background-color:white;
+            padding:20px;
+            margin-bottom:30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" active="我的工作台" class="appDiv">
+        <h1>如何使用</h1>
+        <h2>1.组件的使用</h2>
+        <p>为了方便复用代码,四五六套页面相同的部分抽离成了组件,每个页面分为3个部分,以组织机构页面为例子</p>
+        <p>org.html:页面入口,里面包含了引用的js css 和每套主题对应的外层框架 frame.com.html</p>
+        <p>frame.com.html:页面框架组件,每套主题对应一个frame</p>
+        <p><xmp>使用时复制<template>...</template>内的html代码和<script>...</script>内的js代码,替换org.html中的<com-frame></com-frame>标签</xmp></p>
+        <p><xmp>每个frame组件中有一个<slot>...</slot>标签,用来替换其他组件</xmp></p>
+        <p>例如替换后的机构管理页面构成</p>
+        <xmp>
+            这里是原来的org.html
+            <!DOCTYPE html>
+            <html lang="en">
+
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+                <title>机构管理</title>
+                <link rel="stylesheet" href="../../images/font/iconfont.css">
+                <link rel="stylesheet" href="../../css/default.css">
+                <link rel="stylesheet" href="../../js/lib/layui/css/layui.css">
+                <link rel="stylesheet" href="../../js/lib/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+                <script type="text/javascript" src="../../js/lib/common.js"></script>
+                <script src="../../js/lib/layui/layui.js"></script>
+                <script src="../../js/lib/load.js"></script>
+            </head>
+
+            <body class="six">
+                <div id="app" class="appDiv" active="机构管理">
+                    <!-- frame.com.html开始 -->
+                        <div class="homePage">
+                            <div class="headerDiv">
+                                <div class="contentArea">
+                                    <div class="topLogo centerFlex isPc">
+                                        <a href="../../views/six/home.html" class="texta centerFlex">
+                                            <img class="logo" src="../../images/six/home_logo_icon.png" alt="">
+                                            <span class="logoText">CASC</span>
+                                        </a>
+                                    </div>
+                                    <div class="menuIcon">
+                                        <i class="iconfont iconhome_list_icon"></i>
+                                    </div>
+                                    <div class="secondMenuDiv blockDiv" style="display: none;">
+                                        <div class="secondMenuContent">
+                                            <div class="menuItem userBtn"><a href="javascript:;">用户列表</a></div>
+                                            <div class="menuItem"><a href="../../views/six/org.html">机构管理</a></div>
+                                            <div class="menuItem"><a href="../../views/six/dictionary.html">字典管理</a></div>
+                                            <div class="menuItem"><a href="../../views/six/plan.html">策划目录</a></div>
+                                            <div class="menuItem"><a href="../../views/six/quality.html">质卡填报</a></div>
+                                            <div class="menuItem"><a href="../../views/six/plan.html">承担的任务</a></div>
+                                            <div class="menuItem"><a href="../../views/six/charts.html">图表</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="rightDiv">
+                                        <div class="searchDiv">
+                                            <div class="inputItem">
+                                                <div class="inputBox">
+                                                    <input type="text" placeholder="输入关键词搜索…">
+                                                    <img src="../../images/six/home_sousuo_icon@2x.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="fucList centerFlex">
+                                            <div class="fucItem">
+                                                <a href="../../views/six/nav.html" class="texta centerFlex">
+                                                    <i class="iconfont iconhome_icon1" style="color:var(--color-text-primary);font-size:20px;"></i>
+                                                </a>
+                                            </div>
+                                            <div class="fucItem centerFlex">
+                                                <div class="dropDownMenu">
+                                                    <div class="avatarDiv">
+                                                        <i class="iconfont icontheme_icon1" style="color:var(--color-text-primary);font-size:20px;"></i>
+                                                    </div>
+                                                    <div>
+                                                        <div><a href="../../views/four/home.html">第四套</a></div>
+                                                        <div><a href="../../views/five/home.html">第五套</a></div>
+                                                        <div><a href="../../views/six/home.html">第六套</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="userInfo cursor">
+                                            <div class="dropDownMenu">
+                                                <div class="avatarDiv">
+                                                    <img class="headPic" src="../../images/six/home_headpic_icon.png" alt="">
+                                                    <span class="userName">admin</span>
+                                                    <i class="iconfont iconarrow-down" style="color:var(--color-text-regular)"></i>
+                                                </div>
+                                                <div>
+                                                    <div><a href="javascript:;">个人信息</a></div>
+                                                    <div><a href="javascript:;">修改密码</a></div>
+                                                    <div><a href="javascript:;">我的通知</a></div>
+                                                    <div><a href="../../views/six/login.html">退出</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contentDiv">
+                                <div class="mobileShadow"></div>
+                                <div class="menuDiv" style="display: none;">
+                                    <div class="topLogo topLogo1 centerFlex isMobile">
+                                        <a href="../../views/six/home.html" class="texta centerFlex">
+                                            <img class="logo" src="../../images/six/home_logo_icon.png" alt="">
+                                            <span class="logoText">CASC</span>
+                                        </a>
+                                    </div>
+                    
+                                    <ul class="menuContent">
+                                        <li class="menuItem">
+                                          <a href="../../views/six/nav.html">
+                                              <i class="iconfont iconhome_home_icon1"></i>
+                                              首页
+                                          </a>
+                                        </li>
+                                        <li class="menuItem">
+                                          <a href="../../views/six/home.html">
+                                            <i class="iconfont iconhome_working_icon1"></i>
+                                            我的工作台
+                                        </a>
+                                        </li>
+                                        <li class="menuItem setBtn">
+                                            <a href="javascript:;">
+                                                <i class="iconfont iconhome_organ_icon"></i>
+                                                机构用户
+                                            </a>
+                                        </li>
+                                        <li class="menuItem setBtn">
+                                            <a href="javascript:;" >
+                                                <i class="iconfont iconhome_set_icon1"></i>
+                                                系统设置
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="thirdMenuDiv blockDiv" style="display: none;">
+                                    <div class="thirdMenuContent">
+                                        <div class="menuItem"><a href="../../views/six/userInfo.html">用户列表</a></div>
+                                        <div class="menuItem"><a href="../../views/six/userInfo.html">用户添加</a></div>
+                                        <div class="menuItem"><a href="../../views/six/userInfo.html">用户列表</a></div>
+                                        <div class="menuItem"><a href="../../views/six/userInfo.html">用户列表</a></div>
+                                    </div>
+                                </div>
+                                <div class="mainDiv">
+                                    <!-- <slot></slot> -->
+                                    <!-- 这里替换成org.com.html的内容 -->
+                                    <!-- org.com.html开始 -->
+                                    <div class="orgDiv blockDiv">
+                                        <div class="treeDiv">
+                                            <ul id="orgTree" class="ztree"></ul>
+                                        </div>
+                                        <div class="tableDiv">
+                                            <div class="mb20 breadDiv">
+                                                <span class="mr10 isPc">当前位置 : </span>
+                                                <span class="layui-breadcrumb isPc" lay-separator=">">
+                                                    <a href="" class="activebread">机构用户</a>
+                                                    <a href="javascript:;">机构用户</a>
+                                                </span>
+                                                <span class="layui-breadcrumb isMobile" lay-separator="/">
+                                                    <a href="" class="activebread">机构用户</a>
+                                                    <a href="javascript:;">机构用户</a>
+                                                </span>
+                                            </div>
+                                            <div class="mb10">
+                                                <form class="layui-form" action="">
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">归属公司</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" placeholder="请选择" id="companySelect" class="layui-input" readonly="readonly" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">归属部门</label>
+                                                        <div class="layui-input-block">
+                                                            <select name="dept">
+                                                                <option value=""></option>
+                                                                <option value="0">公司领导</option>
+                                                                <option value="1">综合部</option>
+                                                                <option value="2">市场部</option>
+                                                                <option value="3">技术部</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">登录名</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="loginName" placeholder="请输入登录名" autocomplete="off"
+                                                                class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label">姓名</label>
+                                                        <div class="layui-input-block">
+                                                            <input type="text" name="name" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item">
+                                                        <div class="isPc" style="margin-left:20px;">
+                                                            <button class="layui-btn plain">编辑</button>
+                                                            <button class="layui-btn plain">导出</button>
+                                                            <button class="layui-btn plain">导入</button>
+                                                            <button class="layui-btn">添加用户</button>
+                                                        </div >
+                                                        <div class="isMobile" style="white-space: nowrap;">
+                                                            <button class="layui-btn  plain layui-btn-sm">编辑</button>
+                                                            <button class="layui-btn  plain layui-btn-sm">导出</button>
+                                                            <button class="layui-btn  plain layui-btn-sm">导入</button>
+                                                            <button class="layui-btn layui-btn-sm">添加用户</button>
+                                                        </div >
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="table mb25 verticle-line-table">
+                                                <table class="layui-table " lay-data="{data:tableData, page:true, id:'idTest'}" lay-filter="demo">
+                                                    <thead>
+                                                        <tr>
+                                                            <th lay-data="{field:'company',width:130}">归属公司</th>
+                                                            <th lay-data="{field:'dept', width:140}">归属部门</th>
+                                                            <th lay-data="{field:'loginName', width:130,templet: '#tempOrg1'}">登录名</th>
+                                                            <th lay-data="{field:'name', width:120}">姓名</th>
+                                                            <th lay-data="{field:'phone', width:150}">电话</th>
+                                                            <th lay-data="{field:'mobile'}">手机</th>
+                                                            <th lay-data="{width:170, align:'center', toolbar: '#tempOrg2'}">操作</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                                <script type="text/html" id="tempOrg1">
+                                                    <a class="primary cursor button" lay-event="del">{{d.loginName}}</a>
+                                                </script>
+                                                <script type="text/html" id="tempOrg2">
+                                                    <a class="primary cursor button" lay-event="edit" style="margin-right:22px;">编辑</a>
+                                                    <a class="primary danger cursor button" lay-event="del">删除</a>
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        var tableData = [
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                                { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                                            ];
+                                        (function () {
+                                            var treeData = [
+                                                {
+                                                    name: '山东省总公司',
+                                                    value: '山东省总公司',
+                                                    label: '山东省总公司',
+                                                    type: 'company',
+                                                    icon: `../../images/${window.skinName}/file_icon@2x.png`,
+                                                    children: [
+                                                        { label: '公司领导', name: '公司领导', value: '公司领导', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                        { label: '综合部', name: '综合部', value: '综合部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                        { label: '市场部', name: '市场部', value: '市场部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                        { label: '技术部', name: '技术部', value: '技术部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                        { label: '研发部', name: '研发部', value: '研发部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                        {
+                                                            label: '济南市分公司',
+                                                            name: '济南市分公司',
+                                                            value: '济南市分公司',
+                                                            type: 'company',
+                                                            icon: `../../images/${window.skinName}/file_icon@2x.png`,
+                                                            children: [
+                                                                { label: '公司领导', name: '公司领导', value: '公司领导', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                { label: '综合部', name: '综合部', value: '综合部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                { label: '市场部', name: '市场部', value: '市场部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                { label: '技术部', name: '技术部', value: '技术部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                { label: '研发部', name: '研发部', value: '研发部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                {
+                                                                    label: '历城区分公司',
+                                                                    name: '历城区分公司',
+                                                                    value: '历城区分公司',
+                                                                    type: 'company',
+                                                                    icon: `../../images/${window.skinName}/file_icon@2x.png`,
+                                                                    children: [
+                                                                        { label: '公司领导', name: '公司领导', value: '公司领导', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                        { label: '综合部', name: '综合部', value: '综合部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                        { label: '市场部', name: '市场部', value: '市场部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                        { label: '技术部', name: '技术部', value: '技术部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                        { label: '研发部', name: '研发部', value: '研发部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                    ],
+                                                                },
+                                                                {
+                                                                    name: '市中区分公司',
+                                                                    label: '市中区分公司',
+                                                                    value: '市中区分公司',
+                                                                    type: 'company',
+                                                                    icon: `../../images/${window.skinName}/file_icon@2x.png`,
+                                                                    children: [
+                                                                        { label: '公司领导', name: '公司领导', value: '公司领导', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                        { label: '综合部', name: '综合部', value: '综合部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                        { label: '市场部', name: '市场部', value: '市场部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                        { label: '技术部', name: '技术部', value: '技术部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                        { label: '研发部', name: '研发部', value: '研发部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                    ],
+                                                                },
+                                                                {
+                                                                    name: '历下区分公司',
+                                                                    label: '历下区分公司',
+                                                                    value: '历下区分公司',
+                                                                    type: 'company',
+                                                                    icon: `../../images/${window.skinName}/file_icon@2x.png`,
+                                                                    children: [
+                                                                        { label: '公司领导', name: '公司领导', value: '公司领导', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                        { label: '综合部', name: '综合部', value: '综合部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                        { label: '市场部', name: '市场部', value: '市场部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                        { label: '技术部', name: '技术部', value: '技术部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                        { label: '研发部', name: '研发部', value: '研发部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                                    ],
+                                                                },
+                                                            ],
+                                                        },
+                                                    ]
+                                                }];
+                                            var setting = {
+                                                data: {
+                                                    key: {
+                                                        title: "t"
+                                                    },
+                                                },
+                                                callback: {
+                                                    beforeClick: function () {
+                                                        alert(1);
+                                                    },
+                                                    onClick: function () {
+                                                        alert(2);
+                                                    }
+                                                }
+                                            };
+                                            $(document).ready(function () {
+                                                var treeObj = $.fn.zTree.init($("#orgTree"), setting, treeData);
+                                                treeObj.expandAll(true);
+                                            });
+                                            //归属公司
+                                            layui.config({
+                                                base: "/js/lib/layui/lay/mymodules/"
+                                            }).use(['form', "jquery", "cascader", "form"], function () {
+                                                var $ = layui.jquery;
+                                                var cascader = layui.cascader;
+                                    
+                                                var cas = cascader({
+                                                    elem: "#companySelect",
+                                                    data: treeData,
+                                                    value: [],
+                                                    success: function (valData, labelData) {
+                                                        console.log(valData, labelData);
+                                                    }
+                                                });
+                                            });
+                                            layui.use('table', function () {
+                                                var table = layui.table;
+                                            });
+                                            layui.use('element', function(){
+                                                var element = layui.element;
+                                            });
+                                        })()
+                                    </script>
+                                    <!-- org.com.html结束 -->
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            window.skinName = "six";
+                            $(function(){
+                                if(window.innerWidth<1000){
+                                    $(".thirdMenuDiv").before($(".secondMenuDiv"));
+                                }else{
+                                    $(".rightDiv").before($(".secondMenuDiv"));
+                                }
+                                window.addEventListener("resize",function(){
+                                    if(window.innerWidth<1000){
+                                        $(".thirdMenuDiv").before($(".secondMenuDiv"));
+                                    }else{
+                                        $(".rightDiv").before($(".secondMenuDiv"));
+                                    }
+                                });
+                                $(".setBtn").bind("click",function(){
+                                    $(".secondMenuDiv").show();
+                                });
+                                $(".userBtn").bind("click",function(){
+                                    $(".thirdMenuDiv").show();
+                                });
+                                $(".menuItem").bind("click",function(){
+                                    hideMenu();
+                                    event.stopPropagation();
+                                });
+                                
+                                document.querySelector(".menuIcon").addEventListener("click",function(){
+                                    showMenu();
+                                    event.stopPropagation();
+                                });
+                                document.querySelector(".mobileShadow").addEventListener("click",function(){
+                                    hideMenu();
+                                    event.stopPropagation();
+                                });
+                                function showMenu(){
+                                    document.querySelector(".mobileShadow").style.display = "";
+                                    document.querySelector(".menuDiv").classList.remove("hideMenu");
+                                }
+                                function hideMenu(){
+                                    document.querySelector(".mobileShadow").style.display = "none";
+                                    document.querySelector(".menuDiv").classList.add("hideMenu");
+                                }
+                                if(window.innerWidth<1000){
+                                    hideMenu();
+                                }
+                                document.querySelector(".menuDiv").style.display = "";
+                                window.addEventListener("resize",function(){
+                                    if(window.innerWidth<1000){
+                                        hideMenu();
+                                    }
+                                    document.querySelector(".menuDiv").style.display = "";
+                                })
+                                var menuName = $("#app").attr("active");
+                                if(menuName){
+                                    $(".menuDiv a").each(function(index,item){
+                                        if($(item).text().indexOf(menuName)!=-1){
+                                            $(".menuDiv li.active").removeClass("active");
+                                            $($(item).parents("li")[0]).addClass("active");
+                                        }
+                                    })
+                                }
+                            });
+                        </script>
+                        <!-- frame.com.html结束 -->
+                </div>
+                <script type="text/javascript" src="../../js/lib/zTree/js/jquery.ztree.all.js"></script>
+            </body>
+            </html>
+        </xmp>
+        <h2>2.样式的使用</h2>
+        <p>4,5,6套主题对应的样式名子为 four five six</p>
+        <p>使用时在body上添加class</p>
+        <xmp>
+            <body class="six">...
+        </xmp>
+        <p>或者在页面的某一块引用,用class将某个组件包住</p>
+        <xmp>
+            <html>
+                <head></head>
+                <body>
+                    <div class="five">..第五套样式的组件</div>
+                    <div class="six">..第六套样式的组件</div>
+                </body>
+            </html>
+        </xmp>
+
+        <p></p>
+        <p>机构用户</p>
+        <div class="five">
+                <div class="orgDiv blockDiv">
+                    <div class="treeDiv">
+                        <ul id="orgTree" class="ztree"></ul>
+                    </div>
+                    <div class="tableDiv">
+                        <div class="mb20 breadDiv">
+                            <span class="mr10 isPc">当前位置 : </span>
+                            <span class="layui-breadcrumb isPc" lay-separator=">">
+                                <a href="" class="activebread">机构用户</a>
+                                <a href="javascript:;">机构用户</a>
+                            </span>
+                            <span class="layui-breadcrumb isMobile" lay-separator="/">
+                                <a href="" class="activebread">机构用户</a>
+                                <a href="javascript:;">机构用户</a>
+                            </span>
+                        </div>
+                        <div class="mb10">
+                            <!-- form -->
+                            <form class="layui-form" action="">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">归属公司</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" placeholder="请选择" id="companySelect" class="layui-input" readonly="readonly" />
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">归属部门</label>
+                                    <div class="layui-input-block">
+                                        <select name="dept">
+                                            <option value=""></option>
+                                            <option value="0">公司领导</option>
+                                            <option value="1">综合部</option>
+                                            <option value="2">市场部</option>
+                                            <option value="3">技术部</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">登录名</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="loginName" placeholder="请输入登录名" autocomplete="off"
+                                            class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">姓名</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="name" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="isPc" style="margin-left:20px;">
+                                        <button class="layui-btn plain">编辑</button>
+                                        <button class="layui-btn plain">导出</button>
+                                        <button class="layui-btn plain">导入</button>
+                                        <button class="layui-btn">添加用户</button>
+                                    </div >
+                                    <div class="isMobile" style="white-space: nowrap;">
+                                        <button class="layui-btn  plain layui-btn-sm">编辑</button>
+                                        <button class="layui-btn  plain layui-btn-sm">导出</button>
+                                        <button class="layui-btn  plain layui-btn-sm">导入</button>
+                                        <button class="layui-btn layui-btn-sm">添加用户</button>
+                                    </div >
+                                </div>
+                            </form>
+                        </div>
+                        <div class="table mb25 verticle-line-table">
+                            <table class="layui-table " lay-data="{data:tableData, page:true, id:'idTest'}" lay-filter="demo">
+                                <thead>
+                                    <tr>
+                                        <th lay-data="{field:'company',width:130}">归属公司</th>
+                                        <th lay-data="{field:'dept', width:140}">归属部门</th>
+                                        <th lay-data="{field:'loginName', width:130,templet: '#tempOrg1'}">登录名</th>
+                                        <th lay-data="{field:'name', width:120}">姓名</th>
+                                        <th lay-data="{field:'phone', width:150}">电话</th>
+                                        <th lay-data="{field:'mobile'}">手机</th>
+                                        <th lay-data="{width:170, align:'center', toolbar: '#tempOrg2'}">操作</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <script type="text/html" id="tempOrg1">
+                                <a class="primary cursor button" lay-event="del">{{d.loginName}}</a>
+                            </script>
+                            <script type="text/html" id="tempOrg2">
+                                <a class="primary cursor button" lay-event="edit" style="margin-right:22px;">编辑</a>
+                                <a class="primary danger cursor button" lay-event="del">删除</a>
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            <script>
+                var tableData = [
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                        { company: "山东省总公司", dept: "公司领导", loginName: "admin", name: "管理员", phone: "36655556", mobile: "18888888888", },
+                    ];
+                (function () {
+                    var treeData = [
+                        {
+                            name: '山东省总公司',
+                            value: '山东省总公司',
+                            label: '山东省总公司',
+                            type: 'company',
+                            icon: `../../images/${window.skinName}/file_icon@2x.png`,
+                            children: [
+                                { label: '公司领导', name: '公司领导', value: '公司领导', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                { label: '综合部', name: '综合部', value: '综合部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                { label: '市场部', name: '市场部', value: '市场部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                { label: '技术部', name: '技术部', value: '技术部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                { label: '研发部', name: '研发部', value: '研发部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                {
+                                    label: '济南市分公司',
+                                    name: '济南市分公司',
+                                    value: '济南市分公司',
+                                    type: 'company',
+                                    icon: `../../images/${window.skinName}/file_icon@2x.png`,
+                                    children: [
+                                        { label: '公司领导', name: '公司领导', value: '公司领导', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                        { label: '综合部', name: '综合部', value: '综合部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                        { label: '市场部', name: '市场部', value: '市场部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                        { label: '技术部', name: '技术部', value: '技术部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                        { label: '研发部', name: '研发部', value: '研发部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                        {
+                                            label: '历城区分公司',
+                                            name: '历城区分公司',
+                                            value: '历城区分公司',
+                                            type: 'company',
+                                            icon: `../../images/${window.skinName}/file_icon@2x.png`,
+                                            children: [
+                                                { label: '公司领导', name: '公司领导', value: '公司领导', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                { label: '综合部', name: '综合部', value: '综合部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                { label: '市场部', name: '市场部', value: '市场部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                { label: '技术部', name: '技术部', value: '技术部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                { label: '研发部', name: '研发部', value: '研发部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                            ],
+                                        },
+                                        {
+                                            name: '市中区分公司',
+                                            label: '市中区分公司',
+                                            value: '市中区分公司',
+                                            type: 'company',
+                                            icon: `../../images/${window.skinName}/file_icon@2x.png`,
+                                            children: [
+                                                { label: '公司领导', name: '公司领导', value: '公司领导', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                { label: '综合部', name: '综合部', value: '综合部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                { label: '市场部', name: '市场部', value: '市场部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                { label: '技术部', name: '技术部', value: '技术部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                { label: '研发部', name: '研发部', value: '研发部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                            ],
+                                        },
+                                        {
+                                            name: '历下区分公司',
+                                            label: '历下区分公司',
+                                            value: '历下区分公司',
+                                            type: 'company',
+                                            icon: `../../images/${window.skinName}/file_icon@2x.png`,
+                                            children: [
+                                                { label: '公司领导', name: '公司领导', value: '公司领导', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                { label: '综合部', name: '综合部', value: '综合部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                { label: '市场部', name: '市场部', value: '市场部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                { label: '技术部', name: '技术部', value: '技术部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                                { label: '研发部', name: '研发部', value: '研发部', type: 'dept', icon: "../../images/five/file2_icon@2x.png" },
+                                            ],
+                                        },
+                                    ],
+                                },
+                            ]
+                        }];
+                    //树
+                    var setting = {
+                        data: {
+                            key: {
+                                title: "t"
+                            },
+                            // simpleData: {
+                            //     enable: true
+                            // }
+                        },
+                        callback: {
+                            beforeClick: function () {
+                                alert(1);
+                            },
+                            onClick: function () {
+                                alert(2);
+                            }
+                        }
+                    };
+                    $(document).ready(function () {
+                        var treeObj = $.fn.zTree.init($("#orgTree"), setting, treeData);
+                        treeObj.expandAll(true);
+                    });
+                    //归属公司
+                    layui.config({
+                        base: "/js/lib/layui/lay/mymodules/"
+                    }).use(['form', "jquery", "cascader", "form"], function () {
+                        var $ = layui.jquery;
+                        var cascader = layui.cascader;
+            
+                        var cas = cascader({
+                            elem: "#companySelect",
+                            data: treeData,
+                            value: [],
+                            success: function (valData, labelData) {
+                                console.log(valData, labelData);
+                            }
+                        });
+                    });
+                    //表格
+                    layui.use('table', function () {
+                        var table = layui.table;
+                    });
+                    //导航
+                    layui.use('element', function(){
+                        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+                    });
+                })()
+            </script>
+        </div>
+        <p></p>
+        <p>质卡填报</p>
+        <div class="six">
+                <div class="qualityDiv blockDiv">
+                    <div class="tableDiv">
+                        <div class="mb30 breadDiv">
+                            <span class="mr10 isPc">当前位置 : </span>
+                            <span class="layui-breadcrumb isPc" lay-separator=">">
+                                <a href="" class="activebread">系统设置</a>
+                                <a href="javascript:;">质卡填报</a>
+                            </span>
+                            <span class="layui-breadcrumb isMobile" lay-separator="/">
+                                <a href="" class="activebread">系统设置</a>
+                                <a href="javascript:;">质卡填报</a>
+                            </span>
+                        </div>
+                        <div class="mb10">
+            
+                            <form class="layui-form notinline" action="" lay-filter="qualityForm">
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block" style="line-height: 50px;word-break: keep-all;">
+                                        <span class="mr25">报工状态</span>
+                                        <a class="primary">未报工</a>
+                                        <span class="mr25" style="margin-left:30px;">检验状态</span>
+                                        <a class="primary mr25">互检中</a>
+                                        <button class="layui-btn" id="plansaveBtn">互检完成</button>
+                                        <button class="layui-btn" id="plansaveBtn">快速报工</button>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label"></span>技术要求</label>
+                                    <div class="layui-input-block" style="line-height: 50px;">
+                                        <div class="qGrid">
+                                            <select>
+                                                <option value="0">工序1</option>
+                                                <option value="1">选项2</option>
+                                            </select>
+                                            <select>
+                                                <option value="0">步骤</option>
+                                                <option value="1">选项2</option>
+                                            </select>
+                                            <select>
+                                                <option value="请选择"></option>
+                                                <option value="0">选项1</option>
+                                                <option value="1">选项2</option>
+                                            </select>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label"></span>检查结果</label>
+                                    <div class="layui-input-block radiusHighTable">
+                                        <table class="layui-table" lay-data="{data:qualityTableData}" lay-filter="qualityTable">
+                                            <thead>
+                                                <tr>
+                                                    <th lay-data="{field:'index',templet: '#tempQuality1'}">参数名称</th>
+                                                    <th lay-data="{field:'dept',templet: '#tempQuality2'}">参数值</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                        <script type="text/html" id="tempQuality1">
+                                            <input type="text" class="layui-input" value="{{ d.name }}" disabled/>
+                                        </script>
+                                        <script type="text/html" id="tempQuality2">
+                                            <input type="text" class="layui-input" value="{{ d.value }}"/>
+                                        </script>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label"></span>执行状态</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" class="layui-input" value="填报完成" disabled />
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label"></span>备注</label>
+                                    <div class="layui-input-block">
+                                        <textarea rows="8" placeholder="请输入备注内容" class="layui-textarea"></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <script>
+                var qualityTableData = [
+                    { name: "test07", value: "123" },
+                    { name: "test08", value: "456" }
+                ];
+                //表格
+                layui.use('table', function () {
+                    var table = layui.table;
+                });
+                //导航
+                layui.use('element', function(){
+                    var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+                });
+            </script>
+        </div>
+        <h1>3.注意事项</h1>
+        <p>3.1请不要将四五六套引入的js,css和其他静态文件替换成其他版本,因为这三套工程引用的文件有过修改</p>
+        <xmp>
+            <link rel="stylesheet" href="../../images/font/iconfont.css">
+            <link rel="stylesheet" href="../../css/default.css">
+            <link rel="stylesheet" href="../../js/lib/layui/css/layui.css">
+            <link rel="stylesheet" href="../../js/lib/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+            <script type="text/javascript" src="../../js/lib/common.js"></script>
+            <script src="../../js/lib/layui/layui.js"></script>
+            <script src="../../js/lib/load.js"></script>//这个只在前台开发时有用,相应功能没有完善
+            <script type="text/javascript" src="../../js/lib/zTree/js/jquery.ztree.all.js"></script>
+        </xmp>
+        <p>3.2每个组件中最外层的div样式请不要修改</p>
+        <xmp>
+            dictionary.com.html中dictionaryDiv样式名请不要修改,它定义了字典的总样式
+            <template>
+                <div class="dictionaryDiv blockDiv">
+                    
+                    ...
+            </template>
+        </xmp>
+        <p>3.3 load.js是前台页面开发时候偷懒用的,正式工程请不要使用</p>
+        <xmp>
+            这些代码请都替换掉
+            <com-frame>
+                <!-- 正文内容 -->
+                <com-org class="blockDiv"></com-org>
+            </com-frame>
+            <script>
+                load("./coms/frame.com.html","com-frame");
+                load("../coms/org/org.com.html","com-org");
+            </script>
+            <script src="../../js/lib/load.js"></script>
+        </xmp>
+    </div>
+</body>
+<script>
+</script>
+</html>
