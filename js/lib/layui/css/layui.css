@@ -5424,7 +5424,8 @@ ul.urp-cascader-child {
 }
 
 ul.urp-cascader-child>li>i {
-    float: right
+    float: right;
+    display:none!important;
 }
 
 ul.urp-cascader-child>li {
