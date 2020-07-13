@@ -445,19 +445,19 @@ input[type="checkbox"]:checked:after {
     flex-direction: column;
 }
 .four .login{
-    background: url("../../images/four/login_bg.png") no-repeat center;
+    background: url("../images/four/login_bg.png") no-repeat center;
     background-size: cover;
 }
 .five .login{
-    background: url("../../images/five/login_bg.png") no-repeat center;
+    background: url("../images/five/login_bg.png") no-repeat center;
     background-size: cover;
 }
 .six .login{
-    background: url("../../images/six/login_bg.png") no-repeat center;
+    background: url("../images/six/login_bg.png") no-repeat center;
     background-size: cover;
 }
 .login .logoDiv {
-    background: url("../../images/five/login_logo_icon.png") no-repeat;
+    background: url("../images/five/login_logo_icon.png") no-repeat;
     width: 144px;
     height: 43px;
     position: absolute;
@@ -468,7 +468,7 @@ input[type="checkbox"]:checked:after {
 
 .login .formDiv {
     max-width: 582px;
-    background: url("../../images/five/login_shuru_img.png") no-repeat;
+    background: url("../images/five/login_shuru_img.png") no-repeat;
     background-size: 100% 100%;
     display: flex;
     align-items: center;
@@ -606,7 +606,7 @@ input[type="checkbox"]:checked:after {
         flex-basis: 473px;
         width:473px;
         height:473px;
-        background: url(../../images/six/login_pic.png);
+        background: url("../images/six/login_pic.png");
         flex-shrink: 0;
     }
     .login .loginSix .appName{
@@ -646,7 +646,7 @@ input[type="checkbox"]:checked:after {
         color:var(--color-text-primary);
     }
     .login .loginSix .formDiv{
-        background: url("../../images/six/login_shuru_img.png") no-repeat;
+        background: url("../images/six/login_shuru_img.png") no-repeat;
         padding-top:40px;
     }
     .login .loginSix .themeSelect span{
@@ -715,15 +715,15 @@ input[type="checkbox"]:checked:after {
     justify-content: center;
 }
 .four .appNavDiv{
-    background: url("../../images/four/login_bg.png") no-repeat center;
+    background: url("../images/four/login_bg.png") no-repeat center;
     background-size: cover;
 }
 .five .appNavDiv{
-    background: url("../../images/five/login_bg.png") no-repeat center;
+    background: url("../images/five/login_bg.png") no-repeat center;
     background-size: cover;
 }
 .six .appNavDiv{
-    background: url("../../images/six/login_bg.png") no-repeat center;
+    background: url("../images/six/login_bg.png") no-repeat center;
     background-size: cover;
 }
 .appNavDiv .title {
