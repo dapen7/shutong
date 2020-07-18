@@ -859,6 +859,7 @@ input[type="checkbox"]:checked:after {
 .six .infoDiv .infoNumber {
     margin:0;
     color: white;
+    font-size:18px;
 }
 .infoDiv {
     display: grid;
@@ -2711,7 +2712,8 @@ input[type="checkbox"]:checked:after {
 }
 .six .homePage .thirdMenuContent .menuItem{
     padding:22px 0;
-    font-size: 18px;
+    padding-bottom:18px;
+    font-size: 16px;
     margin-right:58px;
     color:var(--color-text-primary);
     border-bottom:4px solid white;
@@ -2744,9 +2746,9 @@ input[type="checkbox"]:checked:after {
 .six .homePage .topLogo:after{
     content: '';
     border-right: 1px solid #EAEDF3;
-    height: 30%;
+    height: 40%;
     position: absolute;
-    right: -5px;
+    right: 0px;
 }
 
 .six .homePage .topLogo .logo {
