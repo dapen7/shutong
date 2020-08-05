@@ -323,6 +323,10 @@ textarea{
     height: auto;
     overflow: auto;
 }
+.layui-table-header .layui-table-cell span{
+    font-weight: bold;
+    color:#A7A7A7;
+}
 /* verticle-line-table 没有竖线的table pc下行高60 mobile下行高48 */
 .verticle-line-table .layui-table-view {
     border-left-color: transparent;
@@ -334,7 +338,7 @@ textarea{
     background: none;
 }
 .verticle-line-table .layui-table-view .layui-table td, .verticle-line-table .layui-table-view  .layui-table th{
-    padding:16px 0;
+    /* padding:16px 0; */
 }
 .verticle-line-table .layui-table-view .layui-table td,
 .verticle-line-table .layui-table-view .layui-table th {
@@ -449,7 +453,7 @@ input[type="checkbox"]:checked:after {
     background-size: cover;
 }
 .five .login{
-    background: url("../images/five/login_bg.png") no-repeat center;
+    background: url("../images/five/login_bg@2x.png") no-repeat center;
     background-size: cover;
 }
 .six .login{
@@ -719,7 +723,7 @@ input[type="checkbox"]:checked:after {
     background-size: cover;
 }
 .five .appNavDiv{
-    background: url("../images/five/login_bg.png") no-repeat center;
+    background: url("../images/five/login_bg@2x.png") no-repeat center;
     background-size: cover;
 }
 .six .appNavDiv{
@@ -1285,7 +1289,7 @@ input[type="checkbox"]:checked:after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-auto-flow: row dense;
-    grid-gap: 30px;
+    grid-gap: 20px;
     padding: 35px 10px;
 }
 .shortcutDiv .listDiv .oneItem{
@@ -1368,8 +1372,8 @@ input[type="checkbox"]:checked:after {
     display: none;
 }
 .calendarDiv2 .laydate-set-ym {
-    left: -60px;
-    text-align: left;
+    /* left: -60px;
+    text-align: left; */
     border-bottom: 2px solid var(--color-primary);
 }
 .calendarDiv2 .layui-laydate-header{
@@ -1917,11 +1921,11 @@ input[type="checkbox"]:checked:after {
 }
 
 .four .homePage .menuDiv {
-    padding: 30px 38px;
+    padding: 30px 10px;
     position: absolute;
     left: 0;
     top: 88px;
-    width: 210px;
+    width: 150px;
     bottom:0;
     transform: translate(0px);
     transition: .3s;
@@ -1943,23 +1947,29 @@ input[type="checkbox"]:checked:after {
     border-radius: var(--border-radius);
     flex-direction: column;
     color:white;
-    font-size: 18px;
-    padding:18px 0;
+    font-size: 16px;
+    padding:16px 0;
     align-items: center;
 }
 .four .homePage .menuContent li a:hover,.four .homePage .menuContent li.active a{
     background-color: #172936;
 }
 .four .homePage .menuContent li a i{
-    font-size:48px;
+    font-size:28px;
     color:#A4A0AE;
 }
 /* 二级菜单 */
 .four .homePage .secondMenuDiv{
     flex-grow: 1;
     display: flex;
-    overflow-x: auto;
+    /* overflow-x: auto; */
     padding:0 40px;
+}
+.four .layui-nav{
+    /* white-space: nowrap; */
+}
+.four .layui-nav .layui-nav-item a{
+    font-size:16px;
 }
 .four .homePage .secondMenuContent{
     display: flex;
@@ -2021,7 +2031,7 @@ input[type="checkbox"]:checked:after {
     width: 100%;
     height: 100%;
     padding:25px;
-    padding-left: 235px;
+    padding-left: 175px;
     position: relative;
     box-sizing: border-box;
     overflow-y: auto;
@@ -2030,7 +2040,7 @@ input[type="checkbox"]:checked:after {
 .four .homePage .topLogo {
     flex-shrink: 0;
     box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.05);
-    width: 210px;
+    width: 150px;
     height: 100%;
     background-color: var(--color-primary);
 }
@@ -2044,7 +2054,7 @@ input[type="checkbox"]:checked:after {
     font-size: 30px;
     font-weight: bold;
     color: #333;
-    margin-left: 10px;
+    margin-left: 2px;
 }
 
 .four .homePage .rightDiv {
@@ -2214,9 +2224,19 @@ input[type="checkbox"]:checked:after {
         font-size: 14px;
     }
     .four .homePage .secondMenuDiv{
+        background-color: #fff;
         border-radius: 0;
-        padding:0 25px;
+        padding:0;
         border-bottom:1px solid var(--border-color-base);
+    }
+    .four .homePage .secondMenuDiv .layui-nav .layui-nav-item{
+        line-height: 40px;
+    }
+    .four .homePage .secondMenuDiv .layui-nav .layui-nav-item a{
+        padding:0 5px;
+    }
+    .four .homePage .secondMenuDiv .layui-nav-more{
+        display: none;
     }
     .four .homePage .thirdMenuDiv{
         border-radius: 0;
@@ -2300,7 +2320,7 @@ input[type="checkbox"]:checked:after {
 }
 
 .five .homePage .menuDiv {
-    padding: 30px 20px;
+    padding: 30px 40px;
     position: absolute;
     left: 0;
     transform: translate(0px);
@@ -2316,7 +2336,7 @@ input[type="checkbox"]:checked:after {
     max-height: 100%;
 }
 .five .homePage .menuDiv .layui-nav-tree{
-    width:195px;
+    width:155px;
 }
 .five .homePage .menuDiv .layui-nav{
     background-color: transparent;
@@ -2325,16 +2345,19 @@ input[type="checkbox"]:checked:after {
     color: white;
     background: transparent;
 }
+.five .homePage .menuDiv .layui-nav-child a{
+    justify-content: center;
+}
 .five .homePage .menuDiv .layui-nav-tree .layui-nav-item a{
     background: transparent;
     color: #787878;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 26px;
-    height: 52px;
-    line-height: 52px;
+    height: 35px;
+    line-height: 35px;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .five .homePage .menuDiv .layui-nav-tree .layui-nav-item a i{
     margin-right: 8px;
@@ -2597,7 +2620,11 @@ input[type="checkbox"]:checked:after {
     height: 100%;
     width: 100%;
     box-sizing: border-box;
-
+}
+@media screen and (min-width: 1000px) {
+    .six .homePage .contentDiv {
+        display: flex;
+    }
 }
 .six .homePage .headerDiv {
     justify-content: center;
@@ -2628,19 +2655,18 @@ input[type="checkbox"]:checked:after {
 
 .six .homePage .menuDiv {
     padding: 20px 0;
-    position: absolute;
-    left: 0;
-    top: 89px;
-    width: 210px;
-    bottom:0;
     transform: translate(0px);
     transition: .3s;
-    background: rgba(255, 255, 255, 1);
+    background: #fff;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.02);
     overflow-y: auto;
     box-sizing: border-box;
     z-index: 2;
     max-height: 100%;
+    border-top: 1px solid var(--border-color-base);
+}
+.six .homePage .menuDiv dd{
+    text-indent:15px;
 }
 /* 一级菜单 */
 .six .homePage .menuContent li{
@@ -2732,7 +2758,6 @@ input[type="checkbox"]:checked:after {
     width: 100%;
     height: 100%;
     padding:25px;
-    padding-left: 235px;
     position: relative;
     box-sizing: border-box;
     overflow-y: auto;
@@ -2896,7 +2921,7 @@ input[type="checkbox"]:checked:after {
         top: 0px;
         border-radius: 0;
         bottom: 0;
-        z-index: 11;
+        z-index: 99999;
         padding:0;
     }
     .six .mobileShadow{
@@ -2923,8 +2948,11 @@ input[type="checkbox"]:checked:after {
     }
     .six .homePage .secondMenuDiv{
         border-radius: 0;
-        padding:0 25px;
+        padding:0;
         border-bottom:1px solid var(--border-color-base);
+    }
+    .six .homePage .secondMenuDiv .layui-nav .layui-nav-item a{
+        padding:0 10px;
     }
     .six .homePage .thirdMenuDiv{
         border-radius: 0;
@@ -2970,6 +2998,12 @@ input[type="checkbox"]:checked:after {
     }
     .planDiv .layui-tab-content{
         border:none;
+    }
+    
+}
+@media screen and (max-width: 1300px) {
+    .searchDiv{
+        display: none;
     }
 }
 .login .themeSelect .avatarDiv{

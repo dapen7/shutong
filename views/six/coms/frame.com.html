@@ -15,17 +15,14 @@
                 <div class="menuIcon">
                     <i class="iconfont iconhome_list_icon"></i>
                 </div>
-                 <!-- 二级菜单 -->
-                <div class="secondMenuDiv blockDiv" style="display: none;">
-                    <div class="secondMenuContent">
-                        <div class="menuItem userBtn"><a href="javascript:;">用户列表</a></div>
-                        <div class="menuItem"><a href="../../views/six/org.html">机构管理</a></div>
-                        <div class="menuItem"><a href="../../views/six/dictionary.html">字典管理</a></div>
-                        <div class="menuItem"><a href="../../views/six/plan.html">策划目录</a></div>
-                        <div class="menuItem"><a href="../../views/six/quality.html">质卡填报</a></div>
-                        <div class="menuItem"><a href="../../views/six/plan.html">承担的任务</a></div>
-                        <div class="menuItem"><a href="../../views/six/charts.html">图表</a></div>
-                    </div>
+                 <!-- 一级菜单 -->
+                <div class="secondMenuDiv blockDiv">
+                    <ul class="layui-nav">
+                        <li class="layui-nav-item layui-this"><a href="../../views/six/nav.html">首页</a></li>
+                        <li class="layui-nav-item"><a href="../../views/six/home.html">我的工作台</a></li>
+                        <li class="layui-nav-item setBtn"><a href="javascript:;">机构用户</a></li>
+                        <li class="layui-nav-item setBtn"><a href="javascript:;">系统设置</a></li>
+                    </ul>
                 </div>
                 <div class="rightDiv">
                     <div class="searchDiv">
@@ -76,7 +73,7 @@
         </div>
         <div class="contentDiv">
             <div class="mobileShadow"></div>
-            <!-- 菜单 -->
+            <!-- 二级菜单 -->
             <div class="menuDiv" style="display: none;">
                 <div class="topLogo topLogo1 centerFlex isMobile">
                     <a href="../../views/six/home.html" class="texta centerFlex">
@@ -84,42 +81,20 @@
                         <span class="logoText">CASC</span>
                     </a>
                 </div>
-
-                <ul class="menuContent">
-                    <li class="menuItem">
-                      <a href="../../views/six/nav.html">
-                          <i class="iconfont iconhome_home_icon1"></i>
-                          首页
-                      </a>
+                <ul class="slideMenu layui-nav layui-nav-tree layui-inline" lay-filter="demo">
+                    <li class="layui-nav-item layui-nav-itemed ">
+                      <a href="javascript:;">用户列表</a>
+                      <dl class="layui-nav-child">
+                        <dd class="layui-this"><a href="../../views/six/userInfo.html">用户信息</a></dd>
+                      </dl>
                     </li>
-                    <li class="menuItem">
-                      <a href="../../views/six/home.html">
-                        <i class="iconfont iconhome_working_icon1"></i>
-                        我的工作台
-                    </a>
-                    </li>
-                    <li class="menuItem setBtn">
-                        <a href="javascript:;">
-                            <i class="iconfont iconhome_organ_icon"></i>
-                            机构用户
-                        </a>
-                    </li>
-                    <li class="menuItem setBtn">
-                        <a href="javascript:;" >
-                            <i class="iconfont iconhome_set_icon1"></i>
-                            系统设置
-                        </a>
-                    </li>
+                    <li class="layui-nav-item"><a href="../../views/six/org.html">机构管理</a></li>
+                    <li class="layui-nav-item"><a href="../../views/six/dictionary.html">字典管理</a></li>
+                    <li class="layui-nav-item"><a href="../../views/six/plan.html">策划目录</a></li>
+                    <li class="layui-nav-item"><a href="../../views/six/quality.html">质卡填报</a></li>
+                    <li class="layui-nav-item"><a href="../../views/six/plan.html">承担的任务</a></li>
+                    <li class="layui-nav-item"><a href="../../views/six/charts.html">图表</a></li>
                 </ul>
-            </div>
-            <!-- 三级菜单 -->
-            <div class="thirdMenuDiv blockDiv" style="display: none;">
-                <div class="thirdMenuContent">
-                    <div class="menuItem"><a href="../../views/six/userInfo.html">用户列表</a></div>
-                    <div class="menuItem"><a href="../../views/six/userInfo.html">用户添加</a></div>
-                    <div class="menuItem"><a href="../../views/six/userInfo.html">用户列表</a></div>
-                    <div class="menuItem"><a href="../../views/six/userInfo.html">用户列表</a></div>
-                </div>
             </div>
             <!-- 正文 -->
             <div class="mainDiv">
@@ -132,22 +107,19 @@
     window.skinName = "six";
     $(function(){
         if(window.innerWidth<1000){
-            $(".thirdMenuDiv").before($(".secondMenuDiv"));
+            $(".mainDiv").before($(".secondMenuDiv"));
         }else{
             $(".rightDiv").before($(".secondMenuDiv"));
         }
         window.addEventListener("resize",function(){
             if(window.innerWidth<1000){
-                $(".thirdMenuDiv").before($(".secondMenuDiv"));
+                $(".mainDiv").before($(".secondMenuDiv"));
             }else{
                 $(".rightDiv").before($(".secondMenuDiv"));
             }
         });
         $(".setBtn").bind("click",function(){
-            $(".secondMenuDiv").show();
-        });
-        $(".userBtn").bind("click",function(){
-            $(".thirdMenuDiv").show();
+            showMenu();
         });
         $(".menuItem").bind("click",function(){
             hideMenu();
@@ -168,6 +140,7 @@
         //     event.stopPropagation();
         // });
         function showMenu(){
+            $(".menuDiv").show();
             document.querySelector(".mobileShadow").style.display = "";
             document.querySelector(".menuDiv").classList.remove("hideMenu");
         }
@@ -178,12 +151,10 @@
         if(window.innerWidth<1000){
             hideMenu();
         }
-        document.querySelector(".menuDiv").style.display = "";
         window.addEventListener("resize",function(){
             if(window.innerWidth<1000){
                 hideMenu();
             }
-            document.querySelector(".menuDiv").style.display = "";
         })
         //设置菜单激活项目
         var menuName = $("#app").attr("active");
@@ -195,5 +166,15 @@
                 }
             })
         }
+    });
+    //layui 菜单
+    layui.use('element', function(){
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+        
+        //监听导航点击
+        element.on('nav(demo)', function(elem){
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
     });
 </script>
